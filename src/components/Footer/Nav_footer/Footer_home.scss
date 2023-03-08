@@ -1,0 +1,36 @@
+.Footer_home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #233c43;
+
+  .nav_footer {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    border-top: 1px solid #fff;
+  }
+  h4 {
+    font-size: 17px;
+    color: #fff;
+  }
+  img {
+    border-radius: 50%;
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    object-fit: contain;
+  }
+}
+@media only screen and (min-width: 47.25em) and (max-width:63.9375em){
+  .Footer_home{
+    .nav_footer{
+      width: 100%;
+    }
+  }
+
+}

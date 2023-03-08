@@ -1,0 +1,219 @@
+.logo {
+  border-bottom: 2px solid #223d44;
+  position: relative;
+  top: 0;
+  .logo_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 0;
+    position: relative;
+    top: 0;
+    .Navbar_home {
+      margin: 0;
+      list-style: none;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 40%;
+      z-index: 999;
+
+      li {
+        a {
+          text-decoration: none;
+          color: #223d44;
+          font-size: 1.25rem;
+          font-weight: 600;
+          position: relative;
+          padding-bottom: 5px;
+          &::before {
+            content: "";
+            width: 0;
+            position: absolute;
+            bottom: 0;
+            transition: all 0.2s;
+          }
+          &:hover::before {
+            border-bottom: 2px solid #223d44;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .image {
+      width: 80px;
+      height: 80px;
+      background-color: #223d44;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        border-radius: 50%;
+        width: 85%;
+        height: 85%;
+        background-position: center;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+
+    .icon {
+      width: 12%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #223d44;
+      margin: 0;
+      padding: 0;
+      & > li {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: all 0.3s;
+        border-radius: 50%;
+        position: relative;
+        &:nth-child(1)::before,
+        &:nth-child(2)::before {
+          content: "";
+          border-left: 1px solid #223d44;
+          opacity: 0.2;
+          height: 90%;
+          position: absolute;
+          right: 0;
+        }
+        & > .link {
+          color: #223d44;
+        }
+        i {
+          font-size: 20px;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+        &:hover > .input_search {
+          display: block;
+        }
+        .input_search {
+          position: fixed;
+          right: 7%;
+          top: 70px;
+          display: none;
+          height: 60px;
+          width: 23%;
+          padding: 10px;
+          background-color: #223d44;
+          z-index: 1;
+          border-radius: 5px;
+          &::before {
+            content: "";
+            transform: translate(140px, -20px);
+            width: 10px;
+            height: 10px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #223d44;
+            position: absolute;
+          }
+          &::after {
+            content: "";
+            width: 65%;
+            background-color: transparent;
+            height: 30px;
+            position: absolute;
+            top: -30px;
+            left: 0;
+            z-index: -1;
+          }
+          & > input {
+            outline: none;
+            padding: 0 10px 0 10px;
+            width: 85%;
+            height: 100%;
+            border: none;
+          }
+          & > button {
+            width: 15%;
+            outline: none;
+            height: 100%;
+            border: none;
+          }
+        }
+      }
+      .bar{
+        display: none;
+      }
+    }
+    .Navbar_bar{
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 47.1875em) {
+  
+  .logo {
+    .logo_header{
+      // align-items: left;
+      justify-content: space-between;
+      width: 100%;
+      .icon{
+        width: unset;
+        .search{
+          .input_search{
+            width: 100%;
+            height: unset;
+            top: 100px;
+            right: unset;
+
+          }
+        }
+      }
+      .Navbar_home {
+        display: none;
+      }
+      .Navbar_bar{
+        position: fixed;
+        display: block;
+        text-align: center;
+        width: 100%;
+        top: 100px;
+        background-color:white;
+        display: none;
+        li{
+          padding: 10px 0;
+
+          a{
+            text-decoration: none;
+          }
+        }
+
+    }
+    }
+  }
+
+}
+
+@media only screen and (min-width: 47.25em) and (max-width:63.9375em){
+  .logo{
+    .logo_header{
+      .Navbar_home{
+        width: unset;
+        li{
+          margin: 0 10px;
+        }
+
+      }
+    }
+  }
+
+}
