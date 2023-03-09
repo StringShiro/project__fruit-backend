@@ -1,18 +1,62 @@
-// .gradient-custom {
-//   /* fallback for old browsers */
-//   background: #f6d365;
+.ProfilePage {
+  padding: 40px;
+  .Col_infor {
+    height: 90vh;
+    background-color: #f5f5f5;
+    .infor {
+      display: flex;
+      justify-content: start;
 
-//   /* Chrome 10-25, Safari 5.1-6 */
-//   background: -webkit-linear-gradient(
-//     to right bottom,
-//     rgba(246, 211, 101, 1),
-//     rgba(253, 160, 133, 1)
-//   );
-
-//   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-//   background: linear-gradient(
-//     to right bottom,
-//     rgba(246, 211, 101, 1),
-//     rgba(253, 160, 133, 1)
-//   );
-// }
+      margin: 30px 0;
+      .image {
+        margin-right: 15px;
+      }
+      .user_name {
+        .edit_user {
+        }
+      }
+    }
+    ul {
+      padding: 0;
+      li {
+        margin: 20px 0;
+        span {
+          margin: 0 10px;
+        }
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5) {
+          margin: 20px 25px !important;
+        }
+      }
+    }
+  }
+  .Col_content {
+    padding-left: 30px;
+    & > span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    form {
+      .form-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > input {
+          width: 70%;
+        }
+        & > span {
+          width: 20%;
+          text-align: right;
+          margin-right: 20px;
+        }
+        margin: 20px 0;
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

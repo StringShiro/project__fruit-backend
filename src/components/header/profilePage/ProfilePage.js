@@ -1,147 +1,101 @@
 import React, { useState } from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
-
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem,
-} from "mdb-react-ui-kit";
+import { Image, Row, Col, Container } from "react-bootstrap";
 
 export default function ProfilePage() {
   return (
     <>
-      <Logosearch/>
-      <section style={{ backgroundColor: "#fff" }}>
-        <MDBContainer className="pt-4 pb-3">
-          <MDBRow>
-            <MDBCol lg="4">
-              <MDBCard className="mb-4">
-                <MDBCardBody className="text-center">
-                  <MDBCardImage
-                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                    alt="avatar"
-                    className="rounded-circle"
-                    style={{ width: "150px" }}
-                    fluid
-                  />
-                  <p className="text-muted mb-1">Full Stack Developer</p>
-                  <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
-                  <div className="d-flex justify-content-center mb-2">
-                    <MDBBtn>Follow</MDBBtn>
-                    <MDBBtn outline className="ms-1">
-                      Message
-                    </MDBBtn>
-                  </div>
-                </MDBCardBody>
-              </MDBCard>
+      <Logosearch />
+      <Container className="ProfilePage">
+        <Row>
+          <Col className="Col_infor" xl={3}>
+            <div className="infor">
+              <div className="image">
+                <Image
+                  src="https://media.discordapp.net/attachments/1077147401363673108/1077147615742935070/Logo_web.jpg?width=598&height=598"
+                  alt=""
+                  fluid
+                  rounded
+                  width={"50px"}
+                  height={"50px"}
+                />
+              </div>
+              <div className="user_name">
+                <span>Phước trí huỳnh</span>
+                <div className="edit_user">
+                  <i className="fa-solid fa-pen"></i>
+                  <span>Sửa hồ sơ</span>
+                </div>
+              </div>
+            </div>
+            <ul>
+              <li>
+                <i className="fa-solid fa-user"></i>
+                <span>Tài khoản của tôi</span>
+              </li>
+              <li>Hồ sơ</li>
+              <li>Ngân hàng</li>
+              <li>Địa chỉ</li>
+              <li>Đổi mật khẩu</li>
+              <li>
+                <i className="fa-solid fa-newspaper"></i>
+                <span>Đơn mua</span>
+              </li>
+              <li>
+                <i className="fa-solid fa-bell"></i>
+                <span>Thông Báo</span>
+              </li>
+            </ul>
+          </Col>
+          <Col className="Col_content" xl={8}>
+            <span>Hồ sơ của tôi</span>
+            <p>quản lý thông tin hồ sơ cần xử lý</p>
+            <form>
+              <div className="form-group">
+                <span>Tên Đăng Nhập</span>
+                <input type="text" className="form-control" placeholder="Tên" />
+              </div>
+              <div className="form-group">
+                <span>Họ và tên</span>
+                <input type="text" className="form-control" placeholder="Tên" />
+              </div>
+              <div className="form-group">
+                <span>Email</span>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Tên"
+                />
+              </div>
+              <div className="form-group">
+                <span>Check</span>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Tên"
+                />
+              </div>
+              <div className="form-group">
+                <span>Phone Number</span>
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Tên"
+                />
+              </div>
+              <div className="form-group">
+                <span>date</span>
+                <input className="form-control" placeholder="để đây" />
+              </div>
 
-              <MDBCard className="mb-4 mb-lg-0">
-                <MDBCardBody className="p-0">
-                  <MDBListGroup flush className="rounded-3">
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                      <MDBIcon
-                        fab
-                        icon="twitter fa-lg"
-                        style={{ color: "#55acee" }}
-                      />
-                      <MDBCardText>@mdbootstrap</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                      <MDBIcon
-                        fab
-                        icon="instagram fa-lg"
-                        style={{ color: "#ac2bac" }}
-                      />
-                      <MDBCardText>mdbootstrap</MDBCardText>
-                    </MDBListGroupItem>
-                    <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                      <MDBIcon
-                        fab
-                        icon="facebook fa-lg"
-                        style={{ color: "#3b5998" }}
-                      />
-                      <MDBCardText>mdbootstrap</MDBCardText>
-                    </MDBListGroupItem>
-                  </MDBListGroup>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-            <MDBCol lg="8">
-              <MDBCard className="mb-4">
-                <MDBCardBody>
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Full Name</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        Johnatan Smith
-                      </MDBCardText>
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Email</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        example@example.com
-                      </MDBCardText>
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Phone</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        (097) 234-5678
-                      </MDBCardText>
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Mobile</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        (098) 765-4321
-                      </MDBCardText>
-                    </MDBCol>
-                  </MDBRow>
-                  <hr />
-                  <MDBRow>
-                    <MDBCol sm="3">
-                      <MDBCardText>Address</MDBCardText>
-                    </MDBCol>
-                    <MDBCol sm="9">
-                      <MDBCardText className="text-muted">
-                        Bay Area, San Francisco, CA
-                      </MDBCardText>
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </section>
+              <button type="submit" className="btn btn-danger">
+                Gửi
+              </button>
+            </form>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
