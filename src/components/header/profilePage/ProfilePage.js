@@ -51,48 +51,62 @@ export default function ProfilePage() {
           <Col className="Col_content" xl={8}>
             <span>Hồ sơ của tôi</span>
             <p>quản lý thông tin hồ sơ cần xử lý</p>
-            <form>
-              <div className="form-group">
-                <span>Tên Đăng Nhập</span>
-                <input type="text" className="form-control" placeholder="Tên" />
-              </div>
-              <div className="form-group">
-                <span>Họ và tên</span>
-                <input type="text" className="form-control" placeholder="Tên" />
-              </div>
-              <div className="form-group">
-                <span>Email</span>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Tên"
-                />
-              </div>
-              <div className="form-group">
-                <span>Check</span>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Tên"
-                />
-              </div>
-              <div className="form-group">
-                <span>Phone Number</span>
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Tên"
-                />
-              </div>
-              <div className="form-group">
-                <span>date</span>
-                <input className="form-control" placeholder="để đây" />
-              </div>
-
-              <button type="submit" className="btn btn-danger">
-                Gửi
-              </button>
-            </form>
+            <table>
+              <tr>
+                <td>
+                  <span>Tên đăng nhập</span>
+                </td>
+                <td>trí</td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Email</span>
+                </td>
+                <td>
+                  <input type="text" className="form-control" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Số điện thoại</span>
+                </td>
+                <td>
+                  <input type="text" className="form-control" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Giới tính</span>
+                </td>
+                <td>
+                  <input type="radio" className="form-check-input" />
+                  Nam
+                  <input type="radio" className="form-check-input" />
+                  Nữ
+                  <input type="radio" className="form-check-input" />
+                  Khác
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>Ngày sinh</span>
+                </td>
+                <td>
+                  <select name="" id="">
+                    <option value="">15</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">Tháng 7</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">2002</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+            <button type="submit" className="btn btn-danger">
+              Gửi
+            </button>
           </Col>
         </Row>
       </Container>

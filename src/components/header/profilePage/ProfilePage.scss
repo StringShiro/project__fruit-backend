@@ -38,25 +38,28 @@
       font-size: 20px;
       font-weight: 600;
     }
-    form {
-      .form-group {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        & > input {
-          width: 70%;
-        }
-        & > span {
-          width: 20%;
-          text-align: right;
-          margin-right: 20px;
-        }
-        margin: 20px 0;
-      }
-      button {
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    td {
+      span {
         display: block;
-        margin: 0 auto;
+        text-align: right;
       }
     }
+  }
+
+  button {
+    display: block;
+    margin: 20px auto;
+    width: 20%;
   }
 }

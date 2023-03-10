@@ -31,10 +31,11 @@
   ul {
     margin: 0;
     padding: 0;
+    text-align: left;
     li {
       display: block;
       margin: 10px 0;
-      font-size: 15px;
+      font-size: 13px;
       a {
         display: inline-block;
         color: #000;
@@ -57,7 +58,6 @@
       }
     }
     h6 {
-      text-align: center;
     }
     .form_check {
       width: 100%;
@@ -92,51 +92,45 @@
 }
 
 @media only screen and (max-width: 47.1875em) {
-  .Catelogy_Support{
+  .Catelogy_Support {
     gap: 0;
     display: block;
-    ul{
-
+    ul {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      h6{
+      h6 {
         width: 100%;
-        font-size: 1.25rem
+        font-size: 1.25rem;
       }
-      li{
+      li {
         font-size: 1rem;
       }
-      
-
     }
-    ul:nth-child(4){
+    ul:nth-child(4) {
       width: 100%;
       padding: 0 10px;
     }
   }
-
 }
 // X-Small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
-@media only screen and (min-width: 47.25em) and (max-width:63.9375em){
-  .Catelogy_Support{
+@media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
+  .Catelogy_Support {
     gap: unset;
     flex-wrap: wrap;
-    ul{
+    ul {
       text-align: center;
-      width: calc(100%/2);
-      .icon{
+      width: calc(100% / 2);
+      .icon {
         justify-content: space-between;
         padding: 0 30px;
-        
       }
     }
     ul:nth-child(4) {
       width: 50%;
     }
   }
-
 }
