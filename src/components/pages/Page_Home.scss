@@ -8,22 +8,21 @@
   .Home_header {
     position: sticky;
     top: 0;
-    z-index: 99999;
+    z-index: 9999;
   }
   .page_body {
     width: 90%;
     margin: 0 auto;
   }
   .Body_header {
-    z-index: -9999;
+    z-index: -1;
   }
 }
 
 @media only screen and (max-width: 46.25em) {
   .Page_home {
-    .page_body{
+    .page_body {
       width: 100%;
     }
   }
-
 }
