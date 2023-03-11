@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image, Row, Col, Container } from "react-bootstrap";

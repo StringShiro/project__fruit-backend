@@ -1,23 +1,39 @@
 import "./Login.scss";
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import { Toaster } from "react-hot-toast";
+import { checkUserName } from "./validate";
 export default function Login() {
   let [authMode, setAuthMode] = useState("signin");
   let [showPassword, setShowPassword] = useState({
-    userName: "",
     isShow: false,
   });
-
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
   const onClickShow = () => {
     setShowPassword(!showPassword);
   };
+  //---------------------------------------------------------------------------------------------------------------------
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validate: checkUserName,
+    validateOnBlur: false,
+    validateOnChange: false,
+    onSubmit: async (values) => {
+      console.log(values);
+    },
+  });
+  //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <Toaster position="top-right" reverseOrder={false}></Toaster>
+        <form className="Auth-form" onSubmit={formik.handleSubmit}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -29,7 +45,8 @@ export default function Login() {
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
-                type="email"
+                {...formik.getFieldProps("username")}
+                type="text"
                 className="form-control mt-1"
                 placeholder="Enter email"
               />
@@ -37,6 +54,7 @@ export default function Login() {
             <div className="form-group mt-3 input_password">
               <label>Password</label>
               <input
+                {...formik.getFieldProps("password")}
                 type={showPassword ? "text" : "password"}
                 className="form-control mt-1"
                 placeholder="Enter password"

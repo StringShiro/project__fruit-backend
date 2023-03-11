@@ -2,7 +2,7 @@ import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import { Row, Col, Container } from "react-bootstrap";
-import Stores from "../../../data/stores.json";
+// import Stores from "../../../data/stores.json";
 export default function Shopping() {
   return (
     <>
