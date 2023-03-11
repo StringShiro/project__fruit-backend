@@ -96,10 +96,11 @@ export default function Shopping() {
                 <div className="text-center">
                   <span>
                     Tổng thanh toán
-                    <span style={{ color: "yellow" }}>
+                    
+                  </span>
+                  <span style={{ color: "yellow" }}>
                       ({`${0} Sản phẩm`}):
                     </span>
-                  </span>
                   <span style={{ color: " yellow" }}> 0₫</span>
                 </div>
                 <button className="btn btn-warning">Mua Ngay</button>

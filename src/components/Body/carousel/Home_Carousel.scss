@@ -2,6 +2,7 @@
   list-style: none;
 }
 .Home_Carousel {
+  text-align: center;
   // padding: 20px;
   .content {
     display: flex;
@@ -23,15 +24,16 @@
   }
   .list_product {
     padding: 10px;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 100px;
-    width: 100%;
+    margin: 0 auto;
+    // gap: 100px;
+    width: 80%;
     position: relative;
     li {
+      width: calc(100%/3);
       padding-bottom: 10px;
       .list_product_img {
         img {
@@ -59,14 +61,15 @@
 }
 @media only screen and (max-width: 47.1875em) {
   .Home_Carousel {
+    
     .content{
       display: block;
     }
     .list_product{
       justify-content: space-between;
-      gap: 0;
       padding: 0;
-      margin:  0 2px;
+      margin:  0 auto;
+      width: 100%;
       li{
         width: calc(100%/2);
         .list_product_img{
