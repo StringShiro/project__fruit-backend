@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Food.scss";
 import Logosearch from "../../header/logo/Logo_search";
+import Homefooter from "../../Footer/Home_footer";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
@@ -12,7 +13,7 @@ function Food() {
   });
   return (
     <>
-      <Logosearch/>
+      <Logosearch />
 
       <div className="list_food">
         <Card style={{ width: "18rem" }}>
@@ -72,6 +73,7 @@ function Food() {
           </Card.Body>
         </Card>
       </div>
+      <Homefooter></Homefooter>
     </>
   );
 }

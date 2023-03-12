@@ -13,7 +13,7 @@ export default function HomeCarousel() {
       .then((res) => {
         return res.json();
       })
-      .then(function(){})
+      .then(function () {})
       .catch((err) => {
         console.log(err);
       });
