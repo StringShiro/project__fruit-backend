@@ -1,16 +1,15 @@
 // /** @format */
 import "./Page_Home.scss";
-import Homeheader from "../header/Home_header";
+// import Homeheader from "../header/Home_header";
 import Homebody from "../Body/Home_body";
 import Homefooter from "../Footer/Home_footer";
 import React from "react";
+import Logosearch from "../header/logo/Logo_search";
 export default function PageHome() {
   return (
     <>
       <div className="Page_home">
-        <div className="Home_header">
-          <Homeheader />
-        </div>
+        <Logosearch />
         <div className="page_body">
           <div className="Body_header">
             <Homebody />

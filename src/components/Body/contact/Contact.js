@@ -1,17 +1,17 @@
 import React from "react";
 import "./Contact.scss";
 import Logosearch from "../../header/logo/Logo_search";
+import Homefooter from "../../Footer/Home_footer";
 export default function Contact() {
   return (
     <>
-      <Logosearch/>
+      <Logosearch />
       <div className="form_contact">
         <div className="map">
           <iframe
             title="map"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=20 Kì đồng Q3&t=&z=10&ie=UTF8&iwloc=&output=embed"
-            
           ></iframe>
         </div>
         <div className="contact">
@@ -57,6 +57,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Homefooter></Homefooter>
     </>
   );
 }

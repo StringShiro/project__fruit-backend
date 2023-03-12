@@ -1,6 +1,7 @@
 import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
+import Homefooter from "../../Footer/Home_footer";
 import { Row, Col, Container } from "react-bootstrap";
 // import Stores from "../../../data/stores.json";
 export default function Shopping() {
@@ -94,13 +95,8 @@ export default function Shopping() {
               </div>
               <div className="pay">
                 <div className="text-center">
-                  <span>
-                    Tổng thanh toán
-                    
-                  </span>
-                  <span style={{ color: "yellow" }}>
-                      ({`${0} Sản phẩm`}):
-                    </span>
+                  <span>Tổng thanh toán</span>
+                  <span style={{ color: "yellow" }}>({`${0} Sản phẩm`}):</span>
                   <span style={{ color: " yellow" }}> 0₫</span>
                 </div>
                 <button className="btn btn-warning">Mua Ngay</button>
@@ -109,6 +105,7 @@ export default function Shopping() {
           </Col>
         </Row>
       </Container>
+      <Homefooter></Homefooter>
     </>
   );
 }

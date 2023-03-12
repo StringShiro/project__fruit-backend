@@ -1,11 +1,20 @@
 import "./Logo_search.scss";
-import { userState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
-export default function Logosearch() {
+
+function Logosearch() {
+  const [nav, setnav] = useState(false);
+  const scroll_down = () => {
+    if (window.scrollY >= 200) {
+      setnav(true);
+    } else {
+      setnav(false);
+    }
+  };
+  window.addEventListener("scroll", scroll_down);
   return (
     <>
-      <div className="logo">
+      <div className={nav ? "logo roll" : "logo"}>
         <div className="logo_header">
           <Link to="/">
             <div className="image">
@@ -77,3 +86,4 @@ export default function Logosearch() {
     </>
   );
 }
+export default Logosearch;

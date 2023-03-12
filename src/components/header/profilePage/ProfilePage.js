@@ -2,7 +2,7 @@ import React from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image, Row, Col, Container } from "react-bootstrap";
-
+import Homefooter from "../../Footer/Home_footer";
 export default function ProfilePage() {
   return (
     <>
@@ -110,6 +110,7 @@ export default function ProfilePage() {
           </Col>
         </Row>
       </Container>
+      <Homefooter></Homefooter>
     </>
   );
 }
