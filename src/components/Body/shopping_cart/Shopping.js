@@ -28,7 +28,10 @@ export default function Shopping() {
                       src="https://media.discordapp.net/attachments/1077147401363673108/1078684718020694078/z4123790496140_bd86c52addf946ef6c4095f3aaeb5f60.jpg?width=336&height=597"
                       alt=""
                     />
-                    <span>Thôn tin sản phẩm</span>
+                    <span>
+                      Thôn
+                      tinadasdasdhjbasdhjdsjbhbhjbjhasbdhajsbdhaadajdshasdnjkasndjkansdjkandjksdnajkn
+                    </span>
                   </div>
                 </td>
                 <td>200.000Đ</td>

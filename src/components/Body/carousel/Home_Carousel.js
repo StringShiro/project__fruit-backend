@@ -7,18 +7,6 @@ export default function HomeCarousel() {
     console.log(active);
   };
 
-  function getData() {
-    const product = "http://localhost:3002/api/products";
-    fetch(product)
-      .then((res) => {
-        return res.json();
-      })
-      .then(function () {})
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   return (
     <>
       <div className="Home_Carousel">
@@ -28,16 +16,17 @@ export default function HomeCarousel() {
           <h5 onClick={handleOnclick}>Sản phẩm mới</h5>
         </div>
         <ul className="list_product">
-          {getData((data) => {
-            data.map((item) => {
-              return `
-                  <li >
+          {Stores &&
+            Stores.map((store) => {
+              return (
+                <>
+                  <li>
                     <div className="list_product_img">
-                      <img src=${item.image} alt="" />
+                      <img alt="" src={store.imgUrl} />
                     </div>
                     <div className="infor_list_product">
-                      <p className="name_product">${item.productname}</p>
-                      <p className="price_product">${item.cost}</p>
+                      <p className="name_product">{}</p>
+                      <p className="price_product">{}</p>
                       <button
                         type="button"
                         className="add_product  btn btn-danger"
@@ -46,9 +35,9 @@ export default function HomeCarousel() {
                       </button>
                     </div>
                   </li>
-                `;
-            });
-          })}
+                </>
+              );
+            })}
         </ul>
       </div>
     </>
