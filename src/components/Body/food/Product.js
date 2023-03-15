@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import login from "../../../routers/Login";
-import { NavLink } from "react-router-dom";
-import Stores from "../../../data/stores.json";
+import Component_list_product from "../carousel/component_list_product/Component_list_product";
+
 function Product() {
   const [state, setState] = useState({
     listImg: [
@@ -22,29 +19,27 @@ function Product() {
       <Logosearch />
 
       <div className="Product">
-        <div className="left_product"></div>
+        <div className="left_product">
+          <div className="determine">
+            <span>Danh mục sản phẩm</span>
+            <ul>
+              <li>
+                <a href="#" className="child_one">
+                  mít
+                </a>
+              </li>
+              <li>
+                <a href="#">soài</a>
+              </li>
+              <li>
+                <a href="#">Nhokhô</a>
+              </li>
+            </ul>
+            <span>Lọc theo giá</span>
+          </div>
+        </div>
         <div className="right_product">
-          {Stores &&
-            Stores.map((store) => {
-              return (
-                <>
-                  <Card style={{ width: "18rem" }}>
-                    <NavLink to="/Product_detail">
-                      <Card.Img
-                        variant="top"
-                        src={store.imgUrl}
-                        onClick={handleOnclick}
-                      />
-                    </NavLink>
-                    <Card.Body className="m-auto d-inline-block">
-                      <Card.Title>{store.name}</Card.Title>
-                      <Card.Text>{store.price}</Card.Text>
-                      <Button variant="danger">Thêm vào giỏ hàng</Button>
-                    </Card.Body>
-                  </Card>
-                </>
-              );
-            })}
+          <Component_list_product handleOnclick></Component_list_product>
         </div>
       </div>
 

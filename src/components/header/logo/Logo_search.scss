@@ -112,7 +112,7 @@
           width: 23%;
           padding: 10px;
           background-color: #223d44;
-          z-index: 1;
+          z-index: 99;
           border-radius: 5px;
           &::before {
             content: "";

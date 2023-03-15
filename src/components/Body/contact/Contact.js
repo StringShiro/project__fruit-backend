@@ -51,7 +51,7 @@ export default function Contact() {
               id="floatingTextarea2"
             ></textarea>
             <label>Comments</label>
-            <button type="button" className="btn btn-info">
+            <button type="button" className="btn">
               Gửi
             </button>
           </div>

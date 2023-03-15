@@ -1,40 +1,16 @@
 import "./Home_Carousel.scss";
 import React, { useState } from "react";
-import Stores from "../../../data/stores.json";
+import Component_list_product from "./component_list_product/Component_list_product";
 export default function HomeCarousel() {
-  const [active, setActive] = useState(false);
-  const handleOnclick = () => {
-    console.log(active);
-  };
-
   return (
     <>
       <div className="Home_Carousel">
         <div className="content">
-          <h5 onClick={handleOnclick}>Sản phẩm phổ biến</h5>
-          <h5 onClick={handleOnclick}>Sản phẩm khuyến mãi</h5>
-          <h5 onClick={handleOnclick}>Sản phẩm mới</h5>
+          <h6>Sản phẩm phổ biến</h6>
+          <h6>Sản phẩm khuyến mãi</h6>
+          <h6>Sản phẩm mới</h6>
         </div>
-        <div className="list_product">
-          <ul>
-            {Stores &&
-              Stores.map((store) => {
-                return (
-                  <>
-                    <li>
-                      <div className="list_product_img">
-                        <img alt="" src={store.imgUrl} />
-                      </div>
-                      <div className="infor_list_product">
-                        <p className="name_product">{store.name}</p>
-                        <p className="price_product">{store.price}</p>
-                      </div>
-                    </li>
-                  </>
-                );
-              })}
-          </ul>
-        </div>
+        <Component_list_product></Component_list_product>
       </div>
     </>
   );

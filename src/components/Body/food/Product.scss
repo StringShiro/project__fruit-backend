@@ -1,35 +1,56 @@
+@import "lala";
+
 .Product {
-  width: 100%;
   display: flex;
-  // align-items: center;
-  justify-content: space-between;
   padding: 20px;
-  gap: 20px;
-  flex-wrap: wrap;
-  &::before {
-    content: "/";
-    position: absolute;
-  }
+
   .left_product {
-    border: 1px solid red;
+    .determine {
+      & > span {
+        padding: 10px;
+        font-size: 20px;
+        display: block;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      ul {
+        padding: 0;
+        margin: 15px 0;
+
+        li {
+          a {
+            color: $primary_cool-color;
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+            border-bottom: 1px solid #223d44;
+            font-size: 20px;
+            &.child_one {
+              border-top: 1px solid #223d44;
+            }
+            &:hover {
+              background-color: #223d44;
+              opacity: 0.9;
+              border-bottom: 1px solid #fff;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
     width: 20%;
-    height: 100vh;
   }
   .right_product {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 78%;
-    text-align: center;
-    img {
-      height: 200px;
-      background-repeat: no-repeat;
-      object-fit: contain;
-      background-position: center;
-      background-size: cover;
-      cursor: pointer;
+
+    width: 90%;
+    .list_product {
+      width: 80% !important;
+      ul {
+        width: 100% !important;
+        gap: 30px !important;
+      }
     }
   }
 }
