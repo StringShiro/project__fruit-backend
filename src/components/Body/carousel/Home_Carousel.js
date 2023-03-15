@@ -15,30 +15,26 @@ export default function HomeCarousel() {
           <h5 onClick={handleOnclick}>Sản phẩm khuyến mãi</h5>
           <h5 onClick={handleOnclick}>Sản phẩm mới</h5>
         </div>
-        <ul className="list_product">
-          {Stores &&
-            Stores.map((store) => {
-              return (
-                <>
-                  <li>
-                    <div className="list_product_img">
-                      <img alt="" src={store.imgUrl} />
-                    </div>
-                    <div className="infor_list_product">
-                      <p className="name_product">{}</p>
-                      <p className="price_product">{}</p>
-                      <button
-                        type="button"
-                        className="add_product  btn btn-danger"
-                      >
-                        Thêm vào giỏ
-                      </button>
-                    </div>
-                  </li>
-                </>
-              );
-            })}
-        </ul>
+        <div className="list_product">
+          <ul>
+            {Stores &&
+              Stores.map((store) => {
+                return (
+                  <>
+                    <li>
+                      <div className="list_product_img">
+                        <img alt="" src={store.imgUrl} />
+                      </div>
+                      <div className="infor_list_product">
+                        <p className="name_product">{store.name}</p>
+                        <p className="price_product">{store.price}</p>
+                      </div>
+                    </li>
+                  </>
+                );
+              })}
+          </ul>
+        </div>
       </div>
     </>
   );

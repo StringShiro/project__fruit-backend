@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import Web_routers from "./routers/Web_routers";
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -9,6 +10,7 @@ root.render(
   <Router>
     <React.StrictMode>
       <App />
+      <Web_routers></Web_routers>
     </React.StrictMode>
   </Router>
 );

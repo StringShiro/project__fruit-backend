@@ -6,7 +6,7 @@ import ProfilePage from "./components/header/profilePage/ProfilePage";
 import Shopping from "./components/Body/shopping_cart/Shopping";
 import Introduce from "./components/Body/shop/Introduce";
 import Contact from "./components/Body/contact/Contact";
-import Food from "./components/Body/food/Food";
+import Product from "./components/Body/food/Product";
 import Login from "./routers/Login";
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<PageHome />}></Route>
           <Route path="/ProfilePage" element={<ProfilePage />}></Route>
           <Route path="/gioithieu" element={<Introduce />}></Route>
-          <Route path="/sanpham" element={<Food />}></Route>
+          <Route path="/sanpham" element={<Product />}></Route>
           <Route path="/lienhe" element={<Contact />}></Route>
           <Route path="/shopping" element={<Shopping />}></Route>
           <Route path="/login" element={<Login />}></Route>
