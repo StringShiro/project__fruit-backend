@@ -1,30 +1,41 @@
-* {
-  list-style: none;
-}
-.Home_Carousel {
-  text-align: center;
-  display: flex;
-  justify-content: center;
+.HomeCarousel {
   margin: 20px 0;
-  padding: 20px 0;
-  border-top: 2px solid #233c43;
-  width: 100%;
-  gap: 60px;
-  .content {
-    width: 20%;
-    text-align: right;
-    h6 {
-      margin: 10px;
-      padding: 10px;
 
-      cursor: pointer;
-      &:hover {
-        background-color: #233c43;
-        color: #fff;
-      }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .HomeCarousel_form {
+    width: 70%;
+    height: 50%;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+        rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
   }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: center;
+  }
+  .swiper-scrollbar {
+  }
 }
+
 @media only screen and (max-width: 47.1875em) {
   .Home_Carousel {
     .content {

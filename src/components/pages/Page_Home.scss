@@ -12,7 +12,9 @@
   }
   .page_body {
     width: 90%;
-    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .Body_header {
     z-index: -1;
