@@ -42,6 +42,7 @@ function Logosearch() {
           <ul className="icon">
             <li className="search">
               <i className="fa-solid fa-magnifying-glass"></i>
+
               <div className="input_search">
                 <input type="text" placeholder="Tìm kiếm...." />
                 <button>
