@@ -1,13 +1,8 @@
-const newProducts = require("./products");
-
+const productRouter = require("./products");
+const siteRouter = require("./site");
 function routers(app) {
-  // app.get('/product', (req,res)=>{
-  //     res.send('product')
-  // })
-  app.use("/products", newProducts);
+  app.use("/products", productRouter);
 
-  app.get("/", (req, res) => {
-    res.render("home");
-  });
+  app.use("/", siteRouter);
 }
 module.exports = routers;

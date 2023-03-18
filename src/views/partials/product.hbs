@@ -1,0 +1,73 @@
+<div class="card-box">
+    <!-- Card -->
+    <div class="card border-0 card-h-100">
+      <div class="card-header border-0 card-header-space-between">
+
+        <!-- Title -->
+        <h2 class="card-header-title h4 text-uppercase">
+          Recent orders
+        </h2>
+
+        <!-- Dropdown -->
+
+      </div>
+
+      <!-- Table -->
+      <div class="table-responsive">
+        <table
+          id="projectsTable"
+          class="table align-middle table-edge table-nowrap mb-0"
+        >
+          <thead class="thead-light">
+            <tr>
+              <th class="w-60px">No</th>
+              <th>ID</th>
+              <th>Product name</th>
+              <th>Order date</th>
+              <th>Price</th>
+              <th>Feeship</th>
+              <th>Description</th>
+              <th>Brand</th>
+              <th class="text-end">Button</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {{#each products}}
+              <tr>
+                <td>1</td>
+                <td>{{this._id}}</td>
+                <td>
+                  <span class="avatar-sm me-2">
+                    <img
+                      src="{{this.image}}"
+                      alt="..."
+                      width="40"
+                      height="40"
+                    />
+                  </span>
+                  {{this.name}}
+                </td>
+                <td>{{this.dateOrder}}</td>
+                <td>{{this.cost.currency}}</td>
+                <td>{{this.feeship}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.brand}}</td>
+                <td class="text-end">
+                  <button type="button" class="btn btn-secondary"><i
+                      class="fa-solid fa-trash-can"
+                    ></i></button>
+                  <button type="button" class="btn btn-secondary"><i
+                      class="fa-solid fa-pen-to-square"
+                    ></i></button>
+
+                </td>
+              </tr>
+
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <!-- / .table-responsive -->
+    </div>
+  </div>
