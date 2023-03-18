@@ -1,7 +1,6 @@
 .logo {
   border-bottom: 2px solid #223d44;
   background-color: #fff;
-  top: 0;
   z-index: 999;
 
   .logo_header {
@@ -9,9 +8,6 @@
     justify-content: space-around;
     align-items: center;
     padding: 5px 0;
-    position: relative;
-    top: 0;
-
     .Navbar_home {
       margin: 0;
       list-style: none;
@@ -21,7 +17,6 @@
       align-items: center;
       width: 40%;
       z-index: 999;
-
       li {
         a {
           text-decoration: none;
@@ -183,19 +178,30 @@
 }
 
 .roll {
-  position: sticky;
+  position: fixed;
+  width: 100%;
+  right: 0;
+  left: 0;
   top: 0;
-  animation-name: top-to-down;
-  animation-duration: 0.5s;
+  animation: top-to-down 0.5s;
 }
+
 @keyframes top-to-down {
   0% {
     transform: translateY(-100%);
   }
 
   100% {
-    transform: translateY(0);
+    transform: translateY(0%);
   }
+  // 0% {
+  //   top: -300px;
+  //   opacity: 0;
+  // }
+  // 100% {
+  //   top: 0;
+  //   opacity: 1;
+  // }
 }
 
 @media only screen and (max-width: 47.1875em) {

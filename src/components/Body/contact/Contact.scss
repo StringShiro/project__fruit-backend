@@ -21,6 +21,16 @@ h1 {
     width: 50%;
     padding: 0;
     display: flex;
+    .contact_content {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
     .contact_left {
       width: 50%;
       padding: 0 10px 0 0;

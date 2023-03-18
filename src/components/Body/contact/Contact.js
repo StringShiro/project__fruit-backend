@@ -15,7 +15,18 @@ export default function Contact() {
           ></iframe>
         </div>
         <div className="contact">
-          <h1>Liên hệ với chúng tôi</h1>
+          <div className="contact_content">
+            <img
+              src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
+              alt=""
+            />
+            <ul>
+              <li>319 C16 Lý thường kiệt, Phường 15, Quận 11, Tp.HCM</li>
+              <li>076.922.0162</li>
+              <li>demo@gmail.com</li>
+            </ul>
+          </div>
+          <h1>Liên Hệ Với Chúng Tôi</h1>
           <div className="contact_left">
             <div className="col-12">
               <input

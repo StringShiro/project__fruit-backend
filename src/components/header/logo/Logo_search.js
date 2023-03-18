@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Logosearch() {
   const [nav, setnav] = useState(false);
   const scroll_down = () => {
-    if (window.scrollY >= 200) {
+    if (window.scrollY > 90) {
       setnav(true);
     } else {
       setnav(false);
@@ -14,8 +14,8 @@ function Logosearch() {
   window.addEventListener("scroll", scroll_down);
   return (
     <>
-      <div className={nav ? "logo roll" : "logo"}>
-        <div className="logo_header">
+      <div className={nav === true ? " logo roll" : "logo "}>
+        <div className="logo_header ">
           <Link to="/">
             <div className="image">
               <img
