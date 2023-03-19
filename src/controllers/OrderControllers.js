@@ -1,6 +1,6 @@
 class OrderControllers {
   index(req, res) {
-    res.send('order')
+    res.render('order')
   }
   show(req, res) {
     res.send('order')

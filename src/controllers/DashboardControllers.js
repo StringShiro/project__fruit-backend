@@ -1,6 +1,6 @@
 class DashboardControllers {
   index(req, res) {
-    res.send('dashboard')
+    res.render('dashboard')
   }
   show(req, res) {
     res.send('dashboard')

@@ -1,6 +1,6 @@
 class CustomerControllers {
   index(req, res) {
-    res.send('customer')
+    res.render('customer')
   }
   show(req, res) {
     res.send('customer')
