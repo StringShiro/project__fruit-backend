@@ -94,7 +94,7 @@ export default function Shopping() {
               <div className="select">
                 <input type="checkbox" className="form-check-input" />
                 <span>Chọn Tất cả</span>
-                <span>Xóa</span>
+                <button className="btn btn-danger">Xóa</button>
               </div>
               <div className="pay">
                 <div className="text-center">

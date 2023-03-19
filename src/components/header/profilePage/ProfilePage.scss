@@ -49,6 +49,12 @@
 
       width: 73%;
       padding: 10px;
+      .profile__header {
+        position: relative;
+        left: 9%;
+        transform: translateX(-9%);
+        display: inline-block;
+      }
       .profile__header-container {
         width: 100%;
         display: flex;
@@ -189,8 +195,8 @@
     }
     button {
       display: block;
-
-      width: 20%;
+      margin: 20px auto;
+      width: 15%;
     }
   }
 }

@@ -178,12 +178,10 @@
 }
 
 .roll {
-  position: fixed;
-  width: 100%;
-  right: 0;
-  left: 0;
+  position: sticky;
+
   top: 0;
-  animation: top-to-down 0.5s;
+  animation: top-to-down 0.7s;
 }
 
 @keyframes top-to-down {

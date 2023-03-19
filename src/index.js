@@ -7,12 +7,13 @@ import Web_routers from "./routers/Web_routers";
 import { BrowserRouter as Router } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <React.StrictMode>
-      <App />
-      <Web_routers></Web_routers>
-    </React.StrictMode>
-  </Router>
+  <React.StrictMode>
+    <Router>
+      <App>
+        <Web_routers />
+      </App>
+    </Router>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

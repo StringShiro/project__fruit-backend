@@ -64,7 +64,7 @@ export default function ProfilePage() {
           </Col>
           <Col className="Col_content" lg={9}>
             <div className="profile__header">
-              <span>Hồ sơ của tôi</span>
+              <h4>Hồ sơ của tôi</h4>
               <p>quản lý thông tin hồ sơ cần xử lý</p>
             </div>
 
