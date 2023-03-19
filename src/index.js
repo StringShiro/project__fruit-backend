@@ -17,6 +17,7 @@ app.engine(
   "hbs",
   hbs.engine({
     defaultLayout: "main",
+    // defaultLayout: "customer",
     extname:".hbs"
   })
 );
@@ -26,5 +27,6 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
 app.listen(process.env.PORT, () => {
-  console.log("server is running on port: http://127.0.0.1:3000/products");
+  console.log(`server is running on port: http://127.0.0.1:${process.env.PORT}`);
+  console.log(`server is running on port: http://127.0.0.1:${process.env.PORT}/products`);
 });

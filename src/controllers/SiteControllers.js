@@ -1,19 +1,10 @@
-const Product = require("../models/products");
-
 class SiteController {
   index(req, res, next) {
-    Product.find({})
-      .then((products) => {
-        products = products.map(product=>product.toObject())
-        
-        res.render("home", { products})})
-      .catch(next);
+    res.render('home')
   }
   show(req, res) {
-    res.send('home')
-    
+    res.render("home");
   }
-  
 }
 
 module.exports = new SiteController();

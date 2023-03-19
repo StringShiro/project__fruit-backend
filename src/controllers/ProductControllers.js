@@ -1,6 +1,16 @@
+const Product = require("../models/products");
+const { mutipleMongooseObject } = require("../util/mongoose");
+
 class ProductControllers {
-  index(req, res) {
-    res.render("home");
+  index(req, res, next) {
+    Product.find({})
+      .then((products) => {
+        res.render("home", {
+          products: mutipleMongooseObject(products),
+        });
+      })
+
+      .catch(next);
   }
   show(req, res) {
     res.send('home')
