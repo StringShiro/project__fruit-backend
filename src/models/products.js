@@ -24,7 +24,9 @@ const priceProduct = new mongoose.Schema({
   });
 
 const productSchema = new mongoose.Schema({
-  
+  id:{
+    type:Number
+  },
   productname: {
     type: String,
     max: 30,

@@ -3,10 +3,11 @@ const app = express();
 const routers = require("./routers/");
 const db = require("./config/");
 const path = require("path");
+// const morgan = require("morgan")
+
 require("dotenv").config();
-
-app.use(express.static(__dirname + "../public"));
-
+// app.use(express.morgan)
+app.use(express.static(path.join(__dirname, "public")));
 routers(app);
 
 db.connect();
