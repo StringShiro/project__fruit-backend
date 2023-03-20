@@ -21,9 +21,16 @@ export default function Contact() {
               alt=""
             />
             <ul>
-              <li>319 C16 Lý thường kiệt, Phường 15, Quận 11, Tp.HCM</li>
-              <li>076.922.0162</li>
-              <li>demo@gmail.com</li>
+              <li>
+                <i className="fa-solid fa-location-dot"></i>319 C16 Lý thường
+                kiệt, Phường 15, Quận 11, Tp.HCM
+              </li>
+              <li>
+                <i className="fa-solid fa-phone"></i>076.922.0162
+              </li>
+              <li>
+                <i className="fa-solid fa-envelope"></i>demo@gmail.com
+              </li>
             </ul>
           </div>
           <h1>Liên Hệ Với Chúng Tôi</h1>

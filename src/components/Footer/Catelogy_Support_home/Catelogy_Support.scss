@@ -9,20 +9,29 @@
   color: #fff;
   text-align: left;
   display: flex;
-  justify-content: space-evenly;
-
+  justify-content: center;
+  gap: 10px;
   padding: 20px 0;
-  // gap: 50px;
+
   background-color: #233c43;
 
   ul {
     margin: 0;
     padding: 0;
     text-align: left;
+    &:nth-child(1) {
+      // width: 40%;
+    }
+    &:nth-child(2) {
+      width: 15%;
+    }
     li {
       display: block;
       margin: 10px 0;
       font-size: 15px;
+      i {
+        margin-right: 10px;
+      }
     }
 
     .form_check {
