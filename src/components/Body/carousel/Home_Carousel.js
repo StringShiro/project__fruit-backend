@@ -25,7 +25,7 @@ export default function HomeCarousel() {
               return (
                 <>
                   <SwiperSlide>
-                    <div className="HomeCarousel_form">
+                    <div className="HomeCarousel_form" key={item.id}>
                       <img src={item.imgUrl} alt="" />
                       <p>{item.name}</p>
                       <p>{item.price}</p>

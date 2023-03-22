@@ -1,100 +1,101 @@
 .Container {
   // border: 2px solid #223d44;
   padding: 20px;
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-
-    width: 100%;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-    tr {
-      & > th {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #000;
+  .has_card {
+    display: flex;
+    justify-content: center;
+    .form_has_card {
+      overflow: auto;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+      width: 70%;
+      height: 70vh;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: start;
+      &::-webkit-scrollbar {
+        width: 0;
       }
-      & > td {
+      .stick {
+        width: 95%;
+        height: 50px;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        display: flex;
         align-items: center;
-        text-align: center;
-        padding: 20px;
-        &:nth-child(1) {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding-left: 0;
+        justify-content: space-between;
+        padding: 10px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        z-index: 1;
+      }
+      .infor_card {
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &:first-child {
+          margin-top: 0;
         }
-        &:nth-child(3) {
-          display: flex;
-          justify-content: center;
-          input {
-            width: 50px;
-            margin: 0 2px;
-            box-shadow: none;
-            text-align: center;
-          }
-        }
-
-        .infor_product {
+        .image {
+          width: 20%;
           img {
-            display: block;
-            margin: 0 auto;
-            height: 100px;
             width: 100px;
-            background-size: cover;
+            height: 100px;
             background-position: center;
             object-fit: cover;
-            background-size: cover;
-            background-repeat: no-repeat;
-          }
-          margin-left: 20px;
-          span {
-            display: inline-block;
-            width: 150px;
-            overflow-wrap: break-word;
           }
         }
       }
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-  }
-  .payment {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 15px 0;
-    padding: 10px;
-    width: 100%;
-
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    .select {
-      width: calc(100% / 2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      input {
-        margin-right: 20px;
-      }
-      span {
-        margin: 0 10px;
+      .content_card {
+        width: 70%;
+        p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .quantity {
+          input {
+            width: 50px;
+          }
+          display: flex;
+        }
       }
     }
-    .pay {
-      padding: 10px;
-      width: calc(100% / 2);
-      background-color: #fff;
-
-      span {
-        font-size: 1.5rem;
+    .payment {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      width: 30%;
+      height: 70vh;
+      & > h2 {
+        text-align: center;
       }
-      button {
-        width: 100%;
-        margin: 10px 0;
+      & > .form {
+        padding: 10px;
+        & > input {
+          margin: 10px 0;
+        }
+        .pay_momo {
+          border: 1px solid pink;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 10px 0;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        & > button {
+          display: block;
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -117,95 +118,95 @@
   }
 }
 
-@media only screen and (max-width: 46.25em) {
-  .Container {
-    padding: 20px 0;
-    width: 100%;
+// @media only screen and (max-width: 46.25em) {
+//   .Container {
+//     padding: 20px 0;
+//     width: 100%;
 
-    table {
-      tr {
-        margin: 0;
-        width: 100%;
-        th {
-          font-size: 0.8rem;
-          padding: 0;
-          text-align: center;
-        }
-        td {
-          padding: 10px 0;
-          .infor_product {
-            width: calc(100% / 2);
-            height: 100%;
-            margin: 0;
-            img {
-              width: 50px;
-              height: 50px;
-            }
-            span {
-              font-size: 0.7rem;
-              margin: 0;
-              display: block;
-              padding: 10px 0;
-            }
-          }
-          button.btn {
-            width: 80%;
-            height: 80%;
-            font-size: 0.6rem;
-            padding: 4px 0;
-          }
-        }
-        td:nth-child(2),
-        td:nth-child(4) {
-          font-size: 0.7rem;
-        }
-        td:nth-child(3) {
-          width: 100%;
-          height: 100%;
-          button.btn-success {
-            height: 80%;
-            width: (100%/4);
-          }
-          input {
-            width: 1.563rem;
-            height: 80%;
-            padding: 0.188rem 0;
-          }
-        }
-      }
-    }
-    .payment {
-      margin: 0;
-      padding: 0;
-      .select {
-        padding: 0;
-        font-size: 0.8rem;
-        input {
-          margin: 0;
-          width: 15px;
-          height: 15px;
-          margin-left: 4px;
-        }
-        span {
-          margin: 0 5px;
-        }
-      }
-      .pay {
-        margin: 0;
-        padding: 20px 0;
-        font-size: 0.8rem;
-        .text-center {
-          span:nth-child(2) {
-            display: block;
-          }
-        }
-        span {
-          font-size: unset;
-        }
-        button {
-          padding: 0;
-        }
-      }
-    }
-  }
-}
+//     table {
+//       tr {
+//         margin: 0;
+//         width: 100%;
+//         th {
+//           font-size: 0.8rem;
+//           padding: 0;
+//           text-align: center;
+//         }
+//         td {
+//           padding: 10px 0;
+//           .infor_product {
+//             width: calc(100% / 2);
+//             height: 100%;
+//             margin: 0;
+//             img {
+//               width: 50px;
+//               height: 50px;
+//             }
+//             span {
+//               font-size: 0.7rem;
+//               margin: 0;
+//               display: block;
+//               padding: 10px 0;
+//             }
+//           }
+//           button.btn {
+//             width: 80%;
+//             height: 80%;
+//             font-size: 0.6rem;
+//             padding: 4px 0;
+//           }
+//         }
+//         td:nth-child(2),
+//         td:nth-child(4) {
+//           font-size: 0.7rem;
+//         }
+//         td:nth-child(3) {
+//           width: 100%;
+//           height: 100%;
+//           button.btn-success {
+//             height: 80%;
+//             width: (100%/4);
+//           }
+//           input {
+//             width: 1.563rem;
+//             height: 80%;
+//             padding: 0.188rem 0;
+//           }
+//         }
+//       }
+//     }
+//     .payment {
+//       margin: 0;
+//       padding: 0;
+//       .select {
+//         padding: 0;
+//         font-size: 0.8rem;
+//         input {
+//           margin: 0;
+//           width: 15px;
+//           height: 15px;
+//           margin-left: 4px;
+//         }
+//         span {
+//           margin: 0 5px;
+//         }
+//       }
+//       .pay {
+//         margin: 0;
+//         padding: 20px 0;
+//         font-size: 0.8rem;
+//         .text-center {
+//           span:nth-child(2) {
+//             display: block;
+//           }
+//         }
+//         span {
+//           font-size: unset;
+//         }
+//         button {
+//           padding: 0;
+//         }
+//       }
+//     }
+//   }
+// }
