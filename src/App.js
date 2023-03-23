@@ -8,12 +8,17 @@ import Introduce from "./components/Body/shop/Introduce";
 import Contact from "./components/Body/contact/Contact";
 import Product from "./components/Body/food/Product";
 import Login from "./routers/Login";
+
 function App() {
   return (
     <>
       <div className="app">
         <Routes>
-          <Route path="/" element={<PageHome />}></Route>
+          <Route
+            path="/"
+            preventScrollReset={true}
+            element={<PageHome />}
+          ></Route>
           <Route path="/ProfilePage" element={<ProfilePage />}></Route>
           <Route path="/gioithieu" element={<Introduce />}></Route>
           <Route path="/sanpham" element={<Product />}></Route>

@@ -39,7 +39,7 @@ function Product() {
           </div>
         </div>
         <div className="right_product">
-          <Component_list_product></Component_list_product>
+          <Component_list_product />
         </div>
       </div>
 

@@ -22,8 +22,8 @@ export default function ProfilePage() {
     <>
       <Logosearch />
       <div className="ProfilePage">
-        <Row className="row_profile">
-          <Col className="Col_infor" lg={3}>
+        <div className="row_profile">
+          <div className="Col_infor">
             <div className="infor">
               <div className="image">
                 <Image
@@ -61,8 +61,8 @@ export default function ProfilePage() {
                 <span>Thông Báo</span>
               </li>
             </ul>
-          </Col>
-          <Col className="Col_content" lg={9}>
+          </div>
+          <div className="Col_content">
             <div className="profile__header">
               <h4>Hồ sơ của tôi</h4>
               <p>quản lý thông tin hồ sơ cần xử lý</p>
@@ -163,8 +163,8 @@ export default function ProfilePage() {
             <button className="btn btn-danger" onClick={handlebtn}>
               gửi
             </button>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
       <Homefooter></Homefooter>
     </>

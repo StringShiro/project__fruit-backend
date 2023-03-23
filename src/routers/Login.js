@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { Toaster } from "react-hot-toast";
 import { checkUserName } from "./validate";
+import Logosearch from "../components/header/logo/Logo_search";
+import Home_footer from "../components/Footer/Home_footer";
 export default function Login() {
   let [authMode, setAuthMode] = useState("signin");
   let [showPassword, setShowPassword] = useState({
@@ -31,40 +33,96 @@ export default function Login() {
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
     return (
+      <>
+        <Logosearch />
+        <div className="Auth-form-container">
+          <Toaster position="top-right" reverseOrder={false}></Toaster>
+          <form className="Auth-form" onSubmit={formik.handleSubmit}>
+            <div className="Auth-form-content">
+              <h3 className="Auth-form-title">Đăng nhập</h3>
+              <div className="text-center">
+                Chưa đăng ký? {""}
+                <span className="link-primary" onClick={changeAuthMode}>
+                  Đăng ký
+                </span>
+              </div>
+              <div className="form-group mt-3">
+                <label>Địa chỉ email</label>
+                <input
+                  {...formik.getFieldProps("username")}
+                  type="text"
+                  className="form-control mt-1"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div className="form-group mt-3 input_password">
+                <label>Password</label>
+                <input
+                  {...formik.getFieldProps("password")}
+                  type={showPassword ? "text" : "password"}
+                  className="form-control mt-1"
+                  placeholder="Enter password"
+                />
+                <i
+                  className={
+                    showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
+                  }
+                  onClick={onClickShow}
+                ></i>
+              </div>
+              <div className="d-grid gap-2 mt-3">
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </div>
+              <p className="text-center mt-2">
+                Forgot <Link href="">password?</Link>
+              </p>
+            </div>
+          </form>
+        </div>
+        <Home_footer />
+        <></>
+      </>
+    );
+  }
+  return (
+    <>
+      {" "}
+      <Logosearch />
       <div className="Auth-form-container">
-        <Toaster position="top-right" reverseOrder={false}></Toaster>
-        <form className="Auth-form" onSubmit={formik.handleSubmit}>
+        <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
-              Not registered yet?{" "}
+              Already registered?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
+                Sign In
               </span>
+            </div>
+            <div className="form-group mt-3">
+              <label>Full Name</label>
+              <input
+                type="email"
+                className="form-control mt-1"
+                placeholder="e.g Jane Doe"
+              />
             </div>
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
-                {...formik.getFieldProps("username")}
-                type="text"
+                type="email"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Email Address"
               />
             </div>
-            <div className="form-group mt-3 input_password">
+            <div className="form-group mt-3">
               <label>Password</label>
               <input
-                {...formik.getFieldProps("password")}
-                type={showPassword ? "text" : "password"}
+                type="password"
                 className="form-control mt-1"
-                placeholder="Enter password"
+                placeholder="Password"
               />
-              <i
-                className={
-                  showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
-                }
-                onClick={onClickShow}
-              ></i>
             </div>
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
@@ -72,59 +130,12 @@ export default function Login() {
               </button>
             </div>
             <p className="text-center mt-2">
-              Forgot <Link href="">password?</Link>
+              Forgot <Link to={"#"}>password?</Link>
             </p>
           </div>
         </form>
       </div>
-    );
-  }
-
-  return (
-    <div className="Auth-form-container">
-      <form className="Auth-form">
-        <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
-          <div className="text-center">
-            Already registered?{" "}
-            <span className="link-primary" onClick={changeAuthMode}>
-              Sign In
-            </span>
-          </div>
-          <div className="form-group mt-3">
-            <label>Full Name</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="e.g Jane Doe"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-control mt-1"
-              placeholder="Email Address"
-            />
-          </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control mt-1"
-              placeholder="Password"
-            />
-          </div>
-          <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </div>
-          <p className="text-center mt-2">
-            Forgot <Link to={"#"}>password?</Link>
-          </p>
-        </div>
-      </form>
-    </div>
+      <Home_footer />
+    </>
   );
 }

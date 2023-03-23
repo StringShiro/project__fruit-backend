@@ -52,7 +52,7 @@ function Logosearch() {
             </li>
 
             <li className="login">
-              <Link className="link" to="/ProfilePage">
+              <Link className="link" to="/login">
                 <i className="fa-solid fa-user"></i>
               </Link>
             </li>

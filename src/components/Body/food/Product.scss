@@ -6,7 +6,11 @@
 
   .left_product {
     .determine {
+      box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+        rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+      padding: 10px;
       & > span {
+        text-align: center;
         padding: 10px;
         font-size: 20px;
         display: block;
@@ -41,15 +45,16 @@
     width: 20%;
   }
   .right_product {
-    display: flex;
-    justify-content: center;
-
-    width: 90%;
+    width: 80%;
+    height: 100vh;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
     .list_product {
-      width: 80% !important;
       ul {
-        width: 100% !important;
-        gap: 30px !important;
       }
     }
   }
