@@ -5,19 +5,8 @@ import { Image, Row, Col, Container } from "react-bootstrap";
 import Homefooter from "../../Footer/Home_footer";
 
 //
-import { storage } from "../../../data/firebase";
-import { ref, uploadBytes } from "firebase/storage";
-import { v4 } from "uuid";
-export default function ProfilePage() {
-  const [ImgUpload, setImgUpload] = useState(null);
 
-  const handlebtn = () => {
-    if (ImgUpload == null) return;
-    const imgRef = ref(storage, `images/${ImgUpload.name + v4()}`);
-    uploadBytes(imgRef, ImgUpload).then(() => {
-      alert("uploaded");
-    });
-  };
+export default function ProfilePage() {
   return (
     <>
       <Logosearch />
@@ -142,14 +131,7 @@ export default function ProfilePage() {
                     className="profile__header-img"
                   />
                 </div>
-                <input
-                  type="file"
-                  id="files"
-                  className="hidden"
-                  onChange={(e) => {
-                    setImgUpload(e.target.files[0]);
-                  }}
-                />
+                <input type="file" id="files" className="hidden" />
                 <label htmlFor="files" className="profile__header-label">
                   Chọn Ảnh
                 </label>
@@ -160,9 +142,7 @@ export default function ProfilePage() {
                 </div>
               </div>
             </div>
-            <button className="btn btn-danger" onClick={handlebtn}>
-              gửi
-            </button>
+            <button className="btn btn-danger">gửi</button>
           </div>
         </div>
       </div>

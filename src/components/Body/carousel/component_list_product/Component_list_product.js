@@ -1,7 +1,14 @@
 import React from "react";
 import Stores from "../../../../data/stores.json";
+import { useNavigate, NavLink } from "react-router-dom";
 import "./Component_list_product.scss";
+import Product_details from "../../food/Product_details/Product_details";
 const Component_list_product = () => {
+  const navigate = useNavigate();
+  const handleOnclick = (id) => {
+    return navigate(`/Product_details?id=${id}`);
+  };
+
   return (
     <>
       <div className="list_product">
@@ -10,16 +17,11 @@ const Component_list_product = () => {
             return (
               <>
                 <li key={store.id}>
-                  <div className="list_product_img">
+                  <div
+                    className="list_product_img"
+                    onClick={() => handleOnclick(store.id)}
+                  >
                     <img alt="" src={store.imgUrl} />
-                    <div className="hover">
-                      <button className="btn btn-danger">
-                        Thông tin sản phẩm
-                      </button>
-                      <button className="btn btn-danger">
-                        Thêm vào giỏ hàng
-                      </button>
-                    </div>
                   </div>
                   <div className="infor_list_product">
                     <p className="name_product">{store.name}</p>

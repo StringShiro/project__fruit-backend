@@ -3,7 +3,8 @@ import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import Component_list_product from "../carousel/component_list_product/Component_list_product";
-
+import { PRODUCT } from "../../../data/infor_product";
+import ShopProduct from "../../../data/ShopProduct";
 function Product() {
   const [state, setState] = useState({
     listImg: [
@@ -17,24 +18,25 @@ function Product() {
   return (
     <>
       <Logosearch />
-
       <div className="Product">
         <div className="left_product">
           <div className="determine">
             <span>Danh mục sản phẩm</span>
             <ul>
               <li>
-                <a href="#" className="child_one">
-                  mít
-                </a>
-              </li>
-              <li>
-                <a href="#">soài</a>
-              </li>
-              <li>
-                <a href="#">Nhokhô</a>
+                {PRODUCT.map((products) => {
+                  return (
+                    <>
+                      <a href="#" className="child_one">
+                        {/* <ShopProduct data={products} /> */}
+                        {products.name}
+                      </a>
+                    </>
+                  );
+                })}
               </li>
             </ul>
+
             <span>Lọc theo giá</span>
           </div>
         </div>

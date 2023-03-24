@@ -22,11 +22,22 @@ function Introduce() {
               Nam Bộ Việt Nam
             </span>
             <h1>Sản phẩm</h1>
-            <span>
-              Sản phẩm được sấy dẻo và vẫn giữ nguyên vị của trái cây tươi rất
-              tiện lợi cho cả nhà có thể dùng làm quà tặng cho người thân trong
-              gia đình, người ngoài nước để giới thiệu về nông sản của Việt Nam
-            </span>
+
+            <div className="product_introduction">
+              <p>
+                Sản phẩm được sấy dẻo và vẫn giữ nguyên vị của trái cây tươi rất
+                tiện lợi cho cả nhà có thể dùng làm quà tặng cho người thân
+                trong gia đình, người ngoài nước để giới thiệu về nông sản của
+                Việt Nam
+              </p>
+              <div className="bar"></div>
+              <p>
+                Sản phẩm mà tôi sẽ giới thiệu với các bạn là một sản phẩm mới
+                của hãng Healthy Roo. Sản phẩm được tung ra thị trường Việt Nam
+                và trở thành một trong những sản phẩm sấy chất lượng nhất Việt
+                Nam.
+              </p>
+            </div>
           </div>
         </div>
         <div className="introduce_content_body">

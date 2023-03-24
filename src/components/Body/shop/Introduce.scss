@@ -23,6 +23,19 @@
       span {
         margin: 20px 0;
       }
+      .product_introduction {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        p {
+          width: 50%;
+          position: relative;
+          text-align: justify;
+        }
+        .bar {
+          border-left: 2px solid #000;
+        }
+      }
     }
   }
   .introduce_content_body {

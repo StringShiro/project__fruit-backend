@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Web_routers from "./routers/Web_routers";
+
 // import reportWebVitals from './reportWebVitals';
 import ScrollToTop from "./routers/Scrolltotop";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -11,9 +11,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <ScrollToTop />
-      <App>
-        <Web_routers />
-      </App>
+      <App></App>
     </Router>
   </React.StrictMode>
 );
