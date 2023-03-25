@@ -24,8 +24,8 @@ export default function HomeCarousel() {
             Stores.map((item) => {
               return (
                 <>
-                  <SwiperSlide>
-                    <div className="HomeCarousel_form" key={item.id}>
+                  <SwiperSlide key={item.id}>
+                    <div className="HomeCarousel_form">
                       <img src={item.imgUrl} alt="" />
                       <p>{item.name}</p>
                       <p>{item.price}</p>

@@ -23,20 +23,18 @@ function Product() {
           <div className="determine">
             <span>Danh mục sản phẩm</span>
             <ul>
-              <li>
-                {PRODUCT.map((products) => {
-                  return (
-                    <>
+              {PRODUCT.map((products) => {
+                return (
+                  <>
+                    <li key={products.id}>
                       <a href="#" className="child_one">
-                        {/* <ShopProduct data={products} /> */}
                         {products.name}
                       </a>
-                    </>
-                  );
-                })}
-              </li>
+                    </li>
+                  </>
+                );
+              })}
             </ul>
-
             <span>Lọc theo giá</span>
           </div>
         </div>

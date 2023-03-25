@@ -8,7 +8,7 @@ import Introduce from "./components/Body/shop/Introduce";
 import Contact from "./components/Body/contact/Contact";
 import Product from "./components/Body/food/Product";
 import Login from "./routers/Login";
-import Product_details from "./components/Body/food/Product_details/Product_details";
+import Productdetails from "./components/Body/food/Product_details/Product_details";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route path="/lienhe" element={<Contact />}></Route>
           <Route path="/shopping" element={<Shopping />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/Product_details" element={<Product_details />}></Route>
+          <Route path="/Product_details" element={<Productdetails />}></Route>
         </Routes>
       </div>
     </>
