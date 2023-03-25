@@ -19,7 +19,10 @@ class Advertisement extends React.Component {
           </div>
           <div className="table_sm">
             <div className="table_Advertisement table_2">
-              <img src="https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598" />
+              <img
+                src="https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598"
+                alt=""
+              />
             </div>
             <div className="table_Advertisement table_3">
               <img

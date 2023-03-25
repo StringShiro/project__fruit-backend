@@ -39,7 +39,7 @@ export default function CatelogySupport() {
         </li>
         <li>
           <i className="fa-solid fa-earth-americas"></i>
-          Website: <a href="#">hevamart.com</a>
+          Website: <a href="https://hevamart.com/">hevamart.com</a>
         </li>
         <li>Gửi tin nhắn trực tiếp tại đây</li>
       </ul>

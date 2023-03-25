@@ -1,5 +1,5 @@
 import "./Home_Carousel.scss";
-import React, { useState } from "react";
+import React from "react";
 // import Component_list_product from "./component_list_product/Component_list_product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";

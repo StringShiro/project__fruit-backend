@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-import { Row, Col, Container } from "react-bootstrap";
+// import { Row, Col, Container } from "react-bootstrap";
 // import Stores from "../../../data/stores.json";
 export default function Shopping() {
   // const [shoppingcards, setshoppingcards] = useState(false);

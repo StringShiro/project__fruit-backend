@@ -1,11 +1,11 @@
 import React from "react";
 import "./Introduce.scss";
-import Logo_search from "../../header/logo/Logo_search";
+import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 function Introduce() {
   return (
     <>
-      <Logo_search></Logo_search>
+      <Logosearch />
       <div className="introduce">
         <div className="introduce_pane">
           <div className="introduce_background">

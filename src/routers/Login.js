@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import { Toaster } from "react-hot-toast";
 import { checkUserName } from "./validate";
 import Logosearch from "../components/header/logo/Logo_search";
-import Home_footer from "../components/Footer/Home_footer";
+import Homefooter from "../components/Footer/Home_footer";
 export default function Login() {
   let [authMode, setAuthMode] = useState("signin");
   let [showPassword, setShowPassword] = useState({
@@ -81,7 +81,7 @@ export default function Login() {
             </div>
           </form>
         </div>
-        <Home_footer />
+        <Homefooter />
         <></>
       </>
     );
@@ -135,7 +135,7 @@ export default function Login() {
           </div>
         </form>
       </div>
-      <Home_footer />
+      <Homefooter />
     </>
   );
 }
