@@ -6,7 +6,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 50px 0;
+  margin: 50px 0 20px 0;
 }
 .carousel-caption {
   bottom: 100px;
@@ -24,7 +24,40 @@
   position: absolute;
   bottom: 50px;
 }
+.table_sm {
+  display: flex;
+  gap: 40px;
+  border-bottom: 2px solid #000;
+  position: relative;
+  z-index: -1;
+  &::before {
+    content: "Sản phẩm của chúng tôi";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
 
+    padding: 0 10px;
+    text-align: center;
+    transform: translateX(-50%);
+
+    z-index: 1;
+    background-color: #fff;
+  }
+  .table_2,
+  .table_3,
+  .table_4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+      border-radius: 50px;
+      width: 90%;
+      height: 90%;
+      background-size: cover;
+      object-fit: cover;
+    }
+  }
+}
 @media (max-width: 400px) {
   .displayImg {
     display: block;
@@ -38,22 +71,18 @@
   padding-bottom: 30px;
 }
 
-
 @media only screen and (max-width: 47.1875em) {
-  .carousel-indicators{
+  .carousel-indicators {
     bottom: 20%;
-
   }
-  .carousel-item{
-    .carousel-caption{
+  .carousel-item {
+    .carousel-caption {
       width: 100%;
       left: 0;
       top: 40%;
     }
-    .displayImg{
+    .displayImg {
       height: 300px;
-      
     }
   }
-
 }
