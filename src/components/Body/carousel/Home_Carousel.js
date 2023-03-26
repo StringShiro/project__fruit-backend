@@ -13,7 +13,6 @@ export default function HomeCarousel() {
       <div className="HomeCarousel">
         <Swiper
           slidesPerView={4}
-          spaceBetween={10}
           scrollbar={{
             hide: false,
           }}
