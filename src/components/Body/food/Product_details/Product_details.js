@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import { connect } from "react-redux";
 import "./Product_details.scss";
-const Product_details = (props) => {
+const Productdetails = (props) => {
   // const dataredux = props;
   return (
     <>
@@ -68,4 +68,4 @@ const Product_details = (props) => {
 const mapStateToProps = (state) => {
   return { data: state.users };
 };
-export default connect(mapStateToProps)(Product_details);
+export default connect(mapStateToProps)(Productdetails);
