@@ -1,6 +1,11 @@
 .Container {
   // border: 2px solid #223d44;
   padding: 20px;
+  width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
   .has_card {
     display: flex;
     justify-content: center;

@@ -1,73 +1,81 @@
-.form_contact {
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  height: 100vh;
-  .map {
-    width: 45%;
-    & > .iframe {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .contact {
-    width: 50%;
-    padding: 0;
+.body_form_contact {
+  width: 90%;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  .form_contact {
+    padding: 10px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    h1 {
-      text-align: center;
-      // display: block;
-      width: 100%;
-    }
-    .contact_content {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      & > img {
-        width: 80px;
-        height: 80px;
+    justify-content: center;
+    height: 100vh;
+    gap: 30px;
+    .map {
+      width: 45%;
+      & > .iframe {
+        width: 100%;
+        height: 100%;
       }
-      & > ul {
-        margin: 0;
-        padding: 20px;
-        li {
-          i {
-            margin-right: 10px;
+    }
+    .contact {
+      width: 50%;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      h1 {
+        text-align: center;
+        // display: block;
+        width: 100%;
+      }
+      .contact_content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        & > img {
+          width: 80px;
+          height: 80px;
+        }
+        & > ul {
+          margin: 0;
+          padding: 20px;
+          li {
+            i {
+              margin-right: 10px;
+            }
           }
         }
       }
-    }
-    .contact_left {
-      width: 50%;
-      padding: 0 10px 0 0;
-    }
-    .contact_right {
-      width: 50%;
-      padding: 0 0 0 10px;
-    }
-    input {
-      width: 100%;
-      margin: 10px 0;
-    }
-    .form-control:focus {
-      border: 2px solid #223d44;
-      box-shadow: none;
-    }
-    .form-floating {
-      textarea {
-        height: 150px;
+      .contact_left {
+        width: 50%;
+        padding: 0 10px 0 0;
       }
-      button {
-        text-align: center;
-        width: 20%;
-        display: block;
-        margin: 10px auto;
-        background-color: #223d44;
-        color: #fff;
+      .contact_right {
+        width: 50%;
+        padding: 0 0 0 10px;
+      }
+      input {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .form-control:focus {
+        border: 2px solid #223d44;
+        box-shadow: none;
+      }
+      .form-floating {
+        textarea {
+          height: 150px;
+        }
+        button {
+          text-align: center;
+          width: 20%;
+          display: block;
+          margin: 10px auto;
+          background-color: #223d44;
+          color: #fff;
+        }
       }
     }
   }
