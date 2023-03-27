@@ -56,7 +56,7 @@ const Productdetails = (props) => {
                     is not intended for production of food or for medicine.
                   </p>
                 </div>
-                <button className="add-to-cart">Add To Cart</button>
+                <button className="add-to-cart">Thêm vào giỏ hàng</button>
               </div>
             </div>
           </div>

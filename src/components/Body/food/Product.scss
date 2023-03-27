@@ -21,6 +21,7 @@
         background-color: #223d44;
         color: #fff;
       }
+
       ul {
         width: 100%;
         margin: 0;
@@ -51,6 +52,13 @@
             }
           }
         }
+      }
+      input {
+        margin: 10px 0;
+      }
+      .price {
+        height: 30vh;
+        overflow: scroll;
       }
     }
   }

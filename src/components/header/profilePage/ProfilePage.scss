@@ -1,14 +1,19 @@
 .ProfilePage {
-  padding: 10px;
   margin: 0;
+  width: 85%;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 0;
   .row_profile {
+    width: 100%;
     display: flex;
-    // width: 73%;
-    padding: 10px;
+
     .Col_infor {
       box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
         rgb(60 64 67 / 15%) 0px 1px 3px 1px;
-      margin: 0 10px;
+      margin-right: 10px;
       padding: 10px;
       width: 25%;
       .infor {
