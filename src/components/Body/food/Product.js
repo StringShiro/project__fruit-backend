@@ -32,6 +32,14 @@ function Product(props) {
                   })}
                 </ul>
                 <span>Lọc theo giá</span>
+                <input type="text" className="form-control" />
+                <ul className="price">
+                  <li>10k-20k</li>
+                  <li>10k-20k</li>
+                  <li>10k-20k</li>
+                  <li>10k-20k</li>
+                  <li>10k-20k</li>
+                </ul>
               </div>
             </div>
             <div className="right_product">
