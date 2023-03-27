@@ -1,8 +1,7 @@
-const express = require("express")
-const router = express.Router()
-const OrderControllers = require('../controllers/OrderControllers')
+const express = require("express");
+const router = express.Router();
+const OrderControllers = require("../controllers/OrderControllers");
 
-router.use('/:slug', OrderControllers.show )
-router.use('/', OrderControllers.index )
-
-module.exports = router
+router.get("/", OrderControllers.index);
+router.get("/:slug", OrderControllers.show);
+module.exports = router;

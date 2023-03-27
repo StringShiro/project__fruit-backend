@@ -1,8 +1,12 @@
+
 class OrderControllers {
-  index(req, res) {
+  
+  index(req, res, next) {
+
     res.render('order')
+
   }
-  show(req, res) {
+  show(req,res){
     res.send('order')
   }
 }

@@ -4,10 +4,15 @@ const routers = require("./routers/");
 const db = require("./config/");
 const path = require("path");
 // const morgan = require("morgan")
+const cors = require('cors')
+
 
 require("dotenv").config();
 // app.use(express.morgan)
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors({
+  origin:"*"
+}))
 routers(app);
 
 db.connect();

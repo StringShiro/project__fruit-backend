@@ -1,9 +1,10 @@
+
 class SiteController {
   index(req, res, next) {
-    res.render('home')
+    res.send('home')
   }
   show(req, res) {
-    res.render("home");
+    res.send("home");
   }
 }
 
