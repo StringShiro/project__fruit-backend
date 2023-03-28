@@ -40,21 +40,37 @@ function Logosearch() {
           </ul>
 
           <ul className="icon">
-            <li className="search">
+            <li>
               <i className="fa-solid fa-magnifying-glass"></i>
-
-              <div className="input_search">
-                <input type="text" placeholder="Tìm kiếm...." />
-                <button>
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </div>
+              <ul>
+                <li>
+                  <input type="text" placeholder="Tìm kiếm...." />
+                  <button>
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </li>
+              </ul>
             </li>
 
             <li className="login">
-              <Link className="link" to="/ProfilePage">
-                <i className="fa-solid fa-user"></i>
-              </Link>
+              <i className="fa-solid fa-user"></i>
+              <ul>
+                <Link className="link" to="/ProfilePage">
+                  <li>
+                    <span>Thông tin tài khoản</span>
+                  </li>
+                </Link>
+                <Link className="link">
+                  <li>
+                    <span>Đơn hàng của tôi</span>
+                  </li>
+                </Link>
+                <Link className="link">
+                  <li>
+                    <span>Đăng xuất</span>
+                  </li>
+                </Link>
+              </ul>
             </li>
             <li>
               <Link className="link" to="/shopping">
