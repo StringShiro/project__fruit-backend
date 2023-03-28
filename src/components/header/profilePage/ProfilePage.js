@@ -37,17 +37,17 @@ export default function ProfilePage() {
                 <i className="fa-solid fa-user"></i>
                 <span>Tài khoản của tôi</span>
               </li>
-              <li>Hồ sơ</li>
-              <li>Ngân hàng</li>
-              <li>Địa chỉ</li>
-              <li>Đổi mật khẩu</li>
               <li>
                 <i className="fa-solid fa-newspaper"></i>
-                <span>Đơn mua</span>
+                <span>Quản lý đơn hàng</span>
               </li>
               <li>
                 <i className="fa-solid fa-bell"></i>
                 <span>Thông Báo</span>
+              </li>
+              <li>
+                <i className="fa-solid fa-bell"></i>
+                <span>Đánh giá sản phẩm</span>
               </li>
             </ul>
           </div>
@@ -58,91 +58,53 @@ export default function ProfilePage() {
             </div>
 
             <div className="d-flex justify-content-space-between align-items-center">
-              <table>
-                <tr>
-                  <td>
-                    <span>Tên đăng nhập</span>
-                  </td>
-                  <td>trí</td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Email</span>
-                  </td>
-                  <td>
-                    <input type="text" className="form-control" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Số điện thoại</span>
-                  </td>
-                  <td>
-                    <input type="text" className="form-control" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Giới tính</span>
-                  </td>
-                  <td className="gender">
-                    <input
-                      type="radio"
-                      className="form-check-input"
-                      name="gender"
+              <form className="row g-3">
+                <div className="d-flex align-items-center"></div>
+                  <div className="image col-md-6">
+                    <img
+                      src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
+                      alt=""
                     />
-                    <span>Nam</span>
-                    <input
-                      type="radio"
-                      className="form-check-input"
-                      name="gender"
-                    />
-                    <span>nữ</span>
-                    <input
-                      type="radio"
-                      className="form-check-input"
-                      name="gender"
-                    />
-                    <span>khác</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span>Ngày sinh</span>
-                  </td>
-                  <td>
-                    <select name="" id="">
-                      <option value="">15</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">Tháng 7</option>
-                    </select>
-                    <select name="" id="">
-                      <option value="">2002</option>
-                    </select>
-                  </td>
-                </tr>
-              </table>
-              <div className="profile__header-avatar">
-                <div className="profile__header-images">
-                  <img
-                    src="https://ik.imagekit.io/alejk5lwty/image/73d7c068ddf4bb78a711f72f440b91ed-removebg-preview.png?updatedAt=1678593174049"
-                    alt=""
-                    className="profile__header-img"
-                  />
-                </div>
-                <input type="file" id="files" className="hidden" />
-                <label htmlFor="files" className="profile__header-label">
-                  Chọn Ảnh
-                </label>
-                <div className="profile__header-description">
-                  <div className="profile__header-spandes">
-                    Dung Lượng file tối đa 1 MB Định dạng:JPEG,PNG
+                  </div>
+                  <div className="">
+                    <div className="col-md-12">
+                      <label className="form-label">Họ và tên</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="inputEmail4"
+                      />
+                    </div>
+                    <div className="col-md-12">
+                      <label className="form-label">Email</label>
+                      <input type="email" className="form-control" />
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="col-12">
+                  <label className="form-label">Địa chỉ</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="inputAddress"
+                  />
+                </div>
+                <div className="col-4">
+                  <label className="form-label">Số điện thoại</label>
+                  <input type="number" className="form-control" />
+                </div>
+                <div className="col-md-4 ">
+                  <label className="form-label">City</label>
+                  <input type="text" className="form-control" id="inputCity" />
+                </div>
+
+                <div className="col-12">
+                  <button type="submit" className="btn btn-primary">
+                    Cập nhật
+                  </button>
+                </div>
+              </form>
             </div>
-            <button className="btn btn-danger">gửi</button>
           </div>
         </div>
       </div>
