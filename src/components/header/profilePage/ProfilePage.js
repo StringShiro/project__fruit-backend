@@ -60,27 +60,27 @@ export default function ProfilePage() {
             <div className="d-flex justify-content-space-between align-items-center">
               <form className="row g-3">
                 <div className="d-flex align-items-center"></div>
-                  <div className="image col-md-6">
-                    <img
-                      src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
-                      alt=""
+                <div className="image col-md-6">
+                  <img
+                    src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <div className="col-md-12">
+                    <label className="form-label">Họ và tên</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="inputEmail4"
                     />
                   </div>
-                  <div className="">
-                    <div className="col-md-12">
-                      <label className="form-label">Họ và tên</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="inputEmail4"
-                      />
-                    </div>
-                    <div className="col-md-12">
-                      <label className="form-label">Email</label>
-                      <input type="email" className="form-control" />
-                    </div>
+                  <div className="col-md-12">
+                    <label className="form-label">Email</label>
+                    <input type="email" className="form-control" />
                   </div>
                 </div>
+
                 <div className="col-12">
                   <label className="form-label">Địa chỉ</label>
                   <input
