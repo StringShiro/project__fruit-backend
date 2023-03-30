@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image } from "react-bootstrap";
 import Homefooter from "../../Footer/Home_footer";
 
-//
-
 export default function ProfilePage() {
+  const [imgae, setImage] = useState(null);
+  const [files, setFiles] = useState("no image");
+  const handleImg = () => {
+    document.querySelector(".input-field").click();
+  };
   return (
     <>
       <Logosearch />
@@ -52,58 +55,90 @@ export default function ProfilePage() {
             </ul>
           </div>
           <div className="Col_content">
-            <div className="profile__header">
-              <h4>Hồ sơ của tôi</h4>
-              <p>quản lý thông tin hồ sơ cần xử lý</p>
-            </div>
-
-            <div className="d-flex justify-content-space-between align-items-center">
-              <form className="row g-3">
-                <div className="d-flex align-items-center"></div>
-                <div className="image col-md-6">
-                  <img
-                    src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
-                    alt=""
-                  />
-                </div>
-                <div className="">
-                  <div className="col-md-12">
-                    <label className="form-label">Họ và tên</label>
+            <div className="form-profile">
+              <div className="profile__header">
+                <h4>Hồ sơ của tôi</h4>
+                <p>quản lý thông tin hồ sơ cần xử lý</p>
+              </div>
+              <form>
+                <ul>
+                  <li>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Họ và tên"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="inputEmail4"
+                      placeholder="Tên đăng nhập"
+                    />
+                  </li>
+                  <li>
                     <input
                       type="email"
                       className="form-control"
-                      id="inputEmail4"
+                      placeholder="Email"
                     />
-                  </div>
-                  <div className="col-md-12">
-                    <label className="form-label">Email</label>
-                    <input type="email" className="form-control" />
-                  </div>
-                </div>
-
-                <div className="col-12">
-                  <label className="form-label">Địa chỉ</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="inputAddress"
-                  />
-                </div>
-                <div className="col-4">
-                  <label className="form-label">Số điện thoại</label>
-                  <input type="number" className="form-control" />
-                </div>
-                <div className="col-md-4 ">
-                  <label className="form-label">City</label>
-                  <input type="text" className="form-control" id="inputCity" />
-                </div>
-
-                <div className="col-12">
-                  <button type="submit" className="btn btn-primary">
-                    Cập nhật
-                  </button>
-                </div>
+                  </li>
+                  <li>
+                    <input
+                      type="date"
+                      className="form-control"
+                      placeholder="Ngày sinh"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="inputAddress"
+                      placeholder="Địa chỉ"
+                    />
+                  </li>
+                  <li>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Số điện thoại"
+                    />
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <div className="image" onClick={handleImg}>
+                      {imgae ? (
+                        <img src={imgae} />
+                      ) : (
+                        <i
+                          className="fa-solid fa-cloud-arrow-up"
+                          style={{ color: "#223d44", fontSize: "50px" }}
+                        ></i>
+                      )}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="input-field"
+                        hidden
+                        onChange={({ target: { files } }) => {
+                          files[0] && setFiles(files[0].name);
+                          if (files) {
+                            setImage(URL.createObjectURL(files[0]));
+                          }
+                        }}
+                      />
+                    </div>
+                  </li>
+                </ul>
               </form>
+              <div className="col-12">
+                <button type="button" className="btn btn-primary">
+                  Cập nhật
+                </button>
+              </div>
             </div>
           </div>
         </div>
