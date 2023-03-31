@@ -1,13 +1,13 @@
-@import "lala";
-
 .Product {
-  display: flex;
-  justify-content: center;
+  width: 85%;
+  display: inline-flex;
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px 0;
-
+  gap: 50px;
   .left_product {
-    width: 19%;
+    width: 20%;
 
     .determine {
       padding: 10px 10px 10px 10px;
@@ -35,7 +35,7 @@
             opacity: 0.9;
           }
           a {
-            color: $primary_cool-color;
+            color: #000;
             text-decoration: none;
             display: block;
             padding: 5px;
@@ -63,12 +63,12 @@
     }
   }
   .right_product {
-    width: 70%;
+    width: 75%;
     // height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    // justify-content: center;
+    gap: 30px;
     .card {
       width: 190px;
       background: white;

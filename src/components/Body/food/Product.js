@@ -1,16 +1,21 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import Stores from "../../../data/stores.json";
 import { PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
-function Product(props) {
+// import { NavLink } from "react-router-dom";
+import { connect, useDispatch, useSelector } from "react-redux";
+import GetdataProduct from "../../../redux/action";
+import { NavLink, useNavigate } from "react-router-dom";
+
+const Product = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleOnclick = (id) => {
-    return navigate(`/Product_details?id=${id}`);
+  const handleOnclick = (data) => {
+    dispatch(GetdataProduct(data));
+    return navigate(`/Product_details?id=${data.id}`);
   };
 
   return (
@@ -45,16 +50,24 @@ function Product(props) {
             <div className="right_product">
               {Stores.map((store) => {
                 return (
-                  <div
-                    className="card"
-                    key={store.id}
-                    onClick={() => handleOnclick(store.id)}
-                  >
-                    <div className="card-image">
-                      <img src={store.imgUrl} alt="" />
+                  <div key={store.id}>
+                    <div
+                      className="card"
+                      onClick={() =>
+                        handleOnclick({
+                          id: store.id,
+                          name: store.name,
+                          price: store.price,
+                          img: store.imgUrl,
+                        })
+                      }
+                    >
+                      <div className="card-image">
+                        <img src={store.imgUrl} alt="" />
+                      </div>
+                      <div className="heading">{store.name}</div>
+                      <div className="category">{store.price} </div>
                     </div>
-                    <div className="heading">{store.name}</div>
-                    <div className="category">{store.price} </div>
                   </div>
                 );
               })}
@@ -62,13 +75,16 @@ function Product(props) {
           </div>
         </Col>
       </Row>
-
       <Homefooter></Homefooter>
     </>
   );
-}
-const mapStateToProps = (state) => {
-  return state;
 };
-
+const mapStateToProps = (state) => {
+  return {
+    datas: state.users,
+  };
+};
+// const mapDispatchToProps = (dispatch) => ({
+//   getdataProduct: (data) => dispatch(GetdataProduct(data)),
+// });
 export default connect(mapStateToProps)(Product);
