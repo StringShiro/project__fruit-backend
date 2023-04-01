@@ -1,6 +1,5 @@
-const Users = require('../models/Users')
 const { mutipleMongooseObject } = require("../util/mongoose");
-
+const Users = require('../models/Users')
 class CustomerControllers {
   index(req, res, next) {
     Users.find({})
@@ -12,8 +11,8 @@ class CustomerControllers {
     })
     .catch(next)
   }
-  show(req, res) {
-    res.send('customer')
-  }
+  async show(req, res, next) {
+    res.send('sen')
+}
 }
 module.exports = new CustomerControllers();

@@ -54,7 +54,7 @@
                 <td>{{this.description}}</td>
                 <td>{{this.brand}}</td>
                 <td class="text-end">
-                  <button type="button" class="btn btn-secondary"><i
+                  <button type="button" class="btn btn-secondary" onclick="deleteField()"><i
                       class="fa-solid fa-trash-can"
                     ></i></button>
                   <button type="button" class="btn btn-secondary"><i
@@ -68,6 +68,11 @@
           </tbody>
         </table>
       </div>
+      <script>
+        function deleteField(){
+          console.log('ok')
+        }
+      </script>
       <!-- / .table-responsive -->
     </div>
   </div>
