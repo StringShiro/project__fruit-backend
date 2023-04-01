@@ -17,7 +17,7 @@ class ProductControllers {
   }
   store(req,res){
     // save data
-    
+    console.log(req.body)
     res.json(req.body)
    
   }
