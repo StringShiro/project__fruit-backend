@@ -13,45 +13,39 @@ const Productdetails = (props) => {
     <>
       <Logosearch></Logosearch>
       <div className="Product_details">
-        <main>
-          <div className="container">
-            <NavLink to={"/sanpham"}>trở lại</NavLink>
-            {getdataProducts &&
-              getdataProducts.map((item) => {
-                return (
-                  <div className="grid product" key={item.id}>
-                    <h1>{item.id}</h1>
-                    <div className="column-xs-12 column-md-7">
-                      <div className="product-gallery">
-                        <div className="product-image">
-                          <img className="active" src={item.img} alt="" />
-                        </div>
-                        <ul className="image-list">
-                          <li className="image-item">
-                            <img src={item.img} alt="" />
-                          </li>
-                          <li className="image-item">
-                            <img src={item.img} alt="" />
-                          </li>
-                          <li className="image-item">
-                            <img src={item.img} alt="" />
-                          </li>
-                        </ul>
-                      </div>
+        {getdataProducts &&
+          getdataProducts.map((item) => {
+            return (
+              <div className="flex" key={item.id}>
+                <div className="column-xs-12 column-md-7">
+                  <div className="product-gallery">
+                    <div className="product-image">
+                      <img className="active" src={item.img} alt="" />
                     </div>
-                    <div className="column-xs-12 column-md-5">
-                      <h1>{item.name}</h1>
-                      <h2>{item.price}</h2>
-                      <div className="description">
-                        <p>content</p>
-                      </div>
-                      <button className="add-to-cart">Thêm vào giỏ hàng</button>
-                    </div>
+                    <ul className="image-list">
+                      <li className="image-item">
+                        <img src={item.img} alt="" />
+                      </li>
+                      <li className="image-item">
+                        <img src={item.img} alt="" />
+                      </li>
+                      <li className="image-item">
+                        <img src={item.img} alt="" />
+                      </li>
+                    </ul>
                   </div>
-                );
-              })}
-          </div>
-        </main>
+                </div>
+                <div className="column-xs-12 column-md-5">
+                  <h1>{item.name}</h1>
+                  <h2>{item.price}</h2>
+                  <div className="description">
+                    <p>content</p>
+                  </div>
+                  <button className="add-to-cart">Thêm vào giỏ hàng</button>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </>
   );

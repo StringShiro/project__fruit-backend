@@ -1,5 +1,5 @@
 const initState = {
-  users: [{ id: 1, name: "thang" }],
+  // users: [{ id: 1, name: "thang" }],
   dataProduct: [],
 };
 const rootReducer = (state = initState, action) => {
