@@ -1,25 +1,23 @@
 const Product = require("../models/products");
 const { mutipleMongooseObject } = require("../util/mongoose");
+const handleFactory = require("../controllers/handlerFactory")
+const catchAsync = require("../util/catchAsync")
 
-class ProductControllers {
-  
-  show(req, res,next) {
-    Product.find({})
-      .then((products) => {
-        res.render("product", {
-          products: mutipleMongooseObject(products),
-        });
-      })
-      .catch(next);
-  }
-  create(req,res,next){
-    res.render('createproduct')
-  }
-  store(req,res){
-    // save data
-    console.log(req.body)
-    res.json(req.body)
-   
-  }
-}
-module.exports = new ProductControllers();
+
+
+exports.getAllProducts = handleFactory.getAll(Product)
+exports.getOneProduct = handleFactory.getOne(Product)
+exports.createProduct = handleFactory.createOne(Product)
+exports.updateProduct = handleFactory.updateOne(Product)
+exports.deleteProduct = handleFactory.deleteOne(Product)
+
+
+  // exports.create(req,res,next){
+  //   res.render('createproduct')
+  // }
+
+  // exports.store(req,res){
+  //   // save data
+  //   console.log(req.body)
+  //   res.json(req.body)
+  // }

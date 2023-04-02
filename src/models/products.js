@@ -1,27 +1,5 @@
 
 const mongoose = require('mongoose')
-const priceProduct = new mongoose.Schema({
-    currency: {
-      type: Object,
-      
-    },
-    weight: {
-      type: Number,
-      
-    },
-    quality: {
-      type: Number,
-      
-    },
-    discount: {
-      type: Number,
-      
-    },
-    codeDown: {
-      type: String,
-      
-    }
-  });
 
 const productSchema = new mongoose.Schema({
   id:{
@@ -30,10 +8,28 @@ const productSchema = new mongoose.Schema({
   productname: {
     type: String,
     max: 30,
-    
     lowercase: true,
   },
-  cost:priceProduct,
+  currency: {
+    type: Object,
+    default:''
+  },
+  weight: {
+    type: Number,
+    default:''
+  },
+  quality: {
+    type: Number,
+    default:''
+  },
+  discount: {
+    type: Number,
+    default:''
+  },
+  codeDown: {
+    type: String,
+    default:''
+  },
   brand: {
     type: String,
     
@@ -57,14 +53,13 @@ const productSchema = new mongoose.Schema({
   },
   sold: {
     type: Number,
-    
+    default:''
   },
   feeShip: {
     type: Number,
-    
+    default:''
   }
 
- 
 });
 
 module.exports = mongoose.model("Products", productSchema)
