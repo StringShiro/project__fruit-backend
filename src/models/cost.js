@@ -3,7 +3,6 @@ const priceProduct = new mongoose.Schema({
     currency: {
       type: Number,
       required: true,
-  
     },
     weight: {
       type: Number,
