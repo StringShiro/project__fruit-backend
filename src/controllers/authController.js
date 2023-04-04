@@ -33,7 +33,7 @@ const createSendToken = (user, statusCode, res) => {
     }
   });
 };
-
+//đăng kí user 
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     username: req.body.username,
