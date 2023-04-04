@@ -61,15 +61,28 @@ $button-hover: #565657;
     margin: 2rem 0;
     padding: 1rem 0 0 0;
   }
-
+  .quantity {
+    margin-right: 50px;
+    input {
+      width: 50px;
+      text-align: center;
+      outline: none;
+    }
+    display: flex;
+    button {
+      background-color: #223d44;
+      color: #fff;
+      border-radius: 0px;
+    }
+  }
   .add-to-cart {
     position: relative;
     display: inline-block;
-    background: $button;
+    background: #223d44;
     color: $white;
     border: none;
     border-radius: 0;
-    padding: 1.25rem 2.5rem;
+    padding: 15px;
     font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
@@ -89,7 +102,7 @@ $button-hover: #565657;
       left: 0;
       right: 0;
       bottom: 0;
-      background: $button-hover;
+      background: #5c6e7267;
       transform: scaleX(0);
       transform-origin: 0 50%;
       transition: transform 0.3s ease-out;

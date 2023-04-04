@@ -4,7 +4,7 @@
 //  */
 import React from "react";
 import "./Catelogy_Support.scss";
-
+import { Link } from "react-router-dom";
 export default function CatelogySupport() {
   return (
     <div className="wrap">
@@ -35,12 +35,30 @@ export default function CatelogySupport() {
               </ul>
             </li>
           </ul>
-          {/* mua sắm */}
+
           <ul>
             <h6>MENU</h6>
-            <li>Giới thiệu</li>
-            <li>Sản phẩm</li>
-            <li>Liên hệ</li>
+
+            <li>
+              <Link className="Link" to={"/"}>
+                Trang chủ
+              </Link>
+            </li>
+            <li>
+              <Link className="Link" to={"/gioithieu"}>
+                Giới thiệu
+              </Link>
+            </li>
+            <li>
+              <Link className="Link" to={"/sanpham"}>
+                Sản phẩm
+              </Link>
+            </li>
+            <li>
+              <Link className="Link" to={"/lienhe"}>
+                Liên hệ
+              </Link>
+            </li>
           </ul>
           <ul>
             <h6>Tài khoản</h6>
@@ -69,7 +87,6 @@ export default function CatelogySupport() {
               </button>
             </div>
           </ul>
-          {/* giới thiệu */}
         </div>
         <div className="Footer_home">
           <div className="nav_footer">

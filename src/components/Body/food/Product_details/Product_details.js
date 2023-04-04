@@ -35,13 +35,20 @@ const Productdetails = (props) => {
                     </ul>
                   </div>
                 </div>
-                <div className="column-xs-12 column-md-5">
+                <div className="column-xs-12 column-md-6 col-6">
                   <h1>{item.name}</h1>
                   <h2>{item.price}</h2>
                   <div className="description">
                     <p>content</p>
                   </div>
-                  <button className="add-to-cart">Thêm vào giỏ hàng</button>
+                  <div className="d-flex ">
+                    <div className="quantity">
+                      <button className="btn">+</button>
+                      <input type="number" />
+                      <button className="btn">-</button>
+                    </div>
+                    <button className="add-to-cart">Thêm vào giỏ hàng</button>
+                  </div>
                 </div>
               </div>
             );
