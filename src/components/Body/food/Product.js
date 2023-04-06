@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import Stores from "../../../data/stores.json";
 import { PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-// import { NavLink } from "react-router-dom";
-import { connect, useDispatch, useSelector } from "react-redux";
-import GetdataProduct from "../../../redux/action";
-import { NavLink, useNavigate } from "react-router-dom";
+
+import { connect, useDispatch } from "react-redux";
+import actions from "../../../redux/action";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnclick = (data) => {
-    dispatch(GetdataProduct(data));
+    dispatch(actions.GetdataProduct(data));
     return navigate(`/Product_details?id=${data.id}`);
   };
 
@@ -84,7 +84,5 @@ const mapStateToProps = (state) => {
     datas: state.users,
   };
 };
-// const mapDispatchToProps = (dispatch) => ({
-//   getdataProduct: (data) => dispatch(GetdataProduct(data)),
-// });
+
 export default connect(mapStateToProps)(Product);

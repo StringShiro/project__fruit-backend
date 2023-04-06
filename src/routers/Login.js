@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import { Toaster } from "react-hot-toast";
 import { checkUserName } from "./validate";
 import Logosearch from "../components/header/logo/Logo_search";
-import Homefooter from "../components/Footer/Home_footer";
+
 export default function Login() {
   let [authMode, setAuthMode] = useState("signin");
   let [showPassword, setShowPassword] = useState({
@@ -81,7 +81,7 @@ export default function Login() {
             </div>
           </form>
         </div>
-        <Homefooter />
+
         <></>
       </>
     );
@@ -93,15 +93,15 @@ export default function Login() {
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">
-            <h3 className="Auth-form-title">Sign In</h3>
+            <h3 className="Auth-form-title">Đăng ký</h3>
             <div className="text-center">
-              Already registered?{" "}
+              Đã Đăng ký?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
-                Sign In
+                Đăng Nhập
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Full Name</label>
+              <label>Họ và tên</label>
               <input
                 type="email"
                 className="form-control mt-1"
@@ -117,7 +117,7 @@ export default function Login() {
               />
             </div>
             <div className="form-group mt-3">
-              <label>Password</label>
+              <label>Mật khẩu</label>
               <input
                 type="password"
                 className="form-control mt-1"
@@ -126,16 +126,15 @@ export default function Login() {
             </div>
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
-                Submit
+                Đăng ký
               </button>
             </div>
             <p className="text-center mt-2">
-              Forgot <Link to={"#"}>password?</Link>
+              Quên mật khẩu <Link to={"#"}>Mật khẩu?</Link>
             </p>
           </div>
         </form>
       </div>
-      <Homefooter />
     </>
   );
 }

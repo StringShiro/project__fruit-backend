@@ -109,7 +109,43 @@ $button-hover: #565657;
     }
   }
 }
+.Product_details_comment {
+  width: 85%;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 40px 0;
+  .comment {
+    & > ul {
+      padding: 0;
+      &.last {
+        display: flex;
+        gap: 14px;
+        & > li {
+          width: 50%;
+        }
+      }
 
+      textarea,
+      input {
+        border-radius: 0;
+        box-shadow: none;
+        border: 1px solid #cccdce;
+        &:focus {
+          border: 1px solid #223d44;
+        }
+      }
+    }
+    button {
+      &.submit {
+        background-color: #223d44;
+        color: #fff;
+        border-radius: 0;
+      }
+    }
+  }
+}
 @media (min-width: 750px) {
   .product-image img,
   .image-list img {

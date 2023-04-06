@@ -4,4 +4,10 @@ const GetdataProduct = (data) => {
     payload: data,
   };
 };
-export default GetdataProduct;
+const AddToCart = (data) => {
+  return {
+    type: "ADDTOCART",
+    payload: data,
+  };
+};
+export default { GetdataProduct, AddToCart };

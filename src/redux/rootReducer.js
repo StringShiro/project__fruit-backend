@@ -1,6 +1,7 @@
 const initState = {
   // users: [{ id: 1, name: "thang" }],
   dataProduct: [],
+  addtocart: [],
 };
 const rootReducer = (state = initState, action) => {
   // console.log("chekc check", state, action);
@@ -9,6 +10,10 @@ const rootReducer = (state = initState, action) => {
       // console.log("check action", action.payload);
       return {
         dataProduct: [action.payload],
+      };
+    case "ADDTOCART":
+      return {
+        addtocart: [action.payload],
       };
     default:
       return state;

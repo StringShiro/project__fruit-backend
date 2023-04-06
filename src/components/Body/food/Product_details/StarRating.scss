@@ -1,0 +1,23 @@
+.star-rating {
+  position: relative;
+
+  width: 50%;
+  display: inline-block;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    & > .star {
+      font-size: 20px;
+    }
+  }
+  .on {
+    color: #000;
+  }
+  .off {
+    color: #ccc;
+  }
+}
