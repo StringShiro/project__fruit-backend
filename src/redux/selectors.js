@@ -1,2 +1,2 @@
 export const getdataProduct = (state) => state.dataProduct;
-export const getAddToCart = (state) => state.addtocart;
+export const getaddtocart = (state) => state.dataAddToCarts;

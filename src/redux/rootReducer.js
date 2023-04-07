@@ -1,20 +1,63 @@
 const initState = {
-  // users: [{ id: 1, name: "thang" }],
   dataProduct: [],
-  addtocart: [],
+  dataAddToCarts: [],
 };
 const rootReducer = (state = initState, action) => {
-  // console.log("chekc check", state, action);
+  console.log("chekc check", state.dataAddToCarts, action);
   switch (action.type) {
     case "DATAPRODUCT":
-      // console.log("check action", action.payload);
       return {
         dataProduct: [action.payload],
       };
-    case "ADDTOCART":
+
+    case "ADD_PRODUCT":
+      const existingProduct = state.dataAddToCarts.find(
+        (product) => product.id === action.payload.id
+      );
+      // console.log("existingProduct", existingProduct);
+      if (existingProduct) {
+        return {
+          ...state,
+
+          dataAddToCarts: state.dataAddToCarts.map((product) => {
+            if (product.id === existingProduct.id) {
+              return {
+                ...product,
+                quantity: product.quantity + 1,
+              };
+            }
+            return product;
+          }),
+        };
+      }
       return {
-        addtocart: [action.payload],
+        ...state,
+        dataAddToCarts: [
+          ...state.dataAddToCarts,
+          { ...action.payload, quantity: 1 },
+        ],
       };
+    case "INCREMENT_QUANTITY":
+      return {
+        ...state,
+        dataAddToCarts: state.dataAddToCarts.map((product) => {
+          if (product.id === action.payload) {
+            return {
+              ...product,
+              quantity: product.quantity + 1,
+            };
+          }
+          return product;
+        }),
+      };
+    case "REMOVE_PRODUCT":
+      return {
+        ...state,
+        dataAddToCarts: state.dataAddToCarts.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+
     default:
       return state;
   }

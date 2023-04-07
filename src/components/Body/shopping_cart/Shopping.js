@@ -2,17 +2,29 @@ import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-// import { Row, Col, Container } from "react-bootstrap";
-// import Stores from "../../../data/stores.json";
-export default function Shopping() {
+import { connect, useSelector } from "react-redux";
+import { getdataProduct, getaddtocart } from "../../../redux/selectors";
+const Shopping = () => {
   // const [shoppingcards, setshoppingcards] = useState(false);
-  const show = () => {};
+  const getaddtocarts = useSelector(getaddtocart);
+
   return (
     <>
       <Logosearch />
 
       <div className="Container">
-        {show ? (
+        {getaddtocarts.length < 0 ? (
+          <div className="no_card">
+            <div className="form_card">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
+                alt=""
+              />
+              <p>Giỏ hàng của bạn đang trống</p>
+              <button className="btn btn-danger">Mua ngay</button>
+            </div>
+          </div>
+        ) : (
           <>
             <div className="has_card">
               <div className="form_has_card">
@@ -20,28 +32,30 @@ export default function Shopping() {
                   <button className="btn btn-danger">Chọn tất cả</button>
                   <button className="btn btn-danger">Xóa tất cả</button>
                 </div>
-                <div className="infor_card">
-                  <input type="checkbox" className="form-check-input" />
-                  <div className="image">
-                    <img
-                      src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
-                      alt=""
-                    />
-                  </div>
-                  <div className="content_card">
-                    <h5>{`Tên sản phẩm: tên`}</h5>
-                    <p>{`Thông tin: ...`}</p>
-                    <p>{`Giá sản phẩm: 200.000Đ`}</p>
-                    <div className="quantity">
-                      <button className="btn">+</button>
-                      <input type="number" />
-                      <button className="btn">-</button>
-                    </div>
-                  </div>
-                  <div className="delete_card">
-                    <button className="btn btn-danger">Xóa</button>
-                  </div>
-                </div>
+                {getaddtocarts &&
+                  getaddtocarts.map((item) => {
+                    return (
+                      <div className="infor_card" key={item}>
+                        <input type="checkbox" className="form-check-input" />
+                        <div className="image">
+                          <img src={item.img} alt="" />
+                        </div>
+                        <div className="content_card">
+                          <h5>Tên sản phẩm: {item.name}</h5>
+                          <p>{`Thông tin: ...`}</p>
+                          <p>Giá sản phẩm:{item.price}</p>
+                          <div className="quantity">
+                            <button className="btn">+</button>
+                            <input type="number" />
+                            <button className="btn">-</button>
+                          </div>
+                        </div>
+                        <div className="delete_card">
+                          <button className="btn btn-danger">Xóa</button>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
               <div className="form_payment">
                 <div className="total">
@@ -83,20 +97,10 @@ export default function Shopping() {
               </div>
             </div>
           </>
-        ) : (
-          <div className="no_card">
-            <div className="form_card">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
-                alt=""
-              />
-              <p>Giỏ hàng của bạn đang trống</p>
-              <button className="btn btn-danger">Mua ngay</button>
-            </div>
-          </div>
         )}
       </div>
       <Homefooter></Homefooter>
     </>
   );
-}
+};
+export default connect()(Shopping);

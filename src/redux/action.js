@@ -1,13 +1,27 @@
+import * as actionType from "./actionType";
 const GetdataProduct = (data) => {
   return {
     type: "DATAPRODUCT",
     payload: data,
   };
 };
-const AddToCart = (data) => {
+const addToCart = (data) => {
   return {
-    type: "ADDTOCART",
+    type: "ADD_PRODUCT",
     payload: data,
   };
 };
-export default { GetdataProduct, AddToCart };
+const quantity = (data) => {
+  return {
+    type: "INCREMENT_QUANTITY",
+    payload: data,
+  };
+};
+const removeFromCart = (data) => {
+  return {
+    type: "REMOVE_PRODUCT",
+    payload: data,
+  };
+};
+
+export default { GetdataProduct, addToCart, removeFromCart, quantity };

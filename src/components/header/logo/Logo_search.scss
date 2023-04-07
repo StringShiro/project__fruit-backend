@@ -192,6 +192,15 @@
           }
         }
       }
+      & > li:nth-child(3) {
+        position: relative;
+        & > span {
+          position: absolute;
+          right: 15%;
+          top: 0;
+          color: red;
+        }
+      }
       .bar {
         display: none;
       }

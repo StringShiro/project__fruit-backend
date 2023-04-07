@@ -1,44 +1,25 @@
 import React, { Fragment, useState, createContext } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
-import { connect } from "react-redux";
+
 import "./Product_details.scss";
-import { getdataProduct } from "../../../../redux/selectors";
-import { useSelector } from "react-redux";
+import { getdataProduct, getaddtocart } from "../../../../redux/selectors";
+import { useSelector, useDispatch, connect } from "react-redux";
+import actions from "../../../../redux/action";
 import StarRating from "./StarRating";
 const Productdetails = (props) => {
+  const getaddtocarts = useSelector(getaddtocart);
   const getdataProducts = useSelector(getdataProduct);
-  console.log("check useSelector", getdataProducts);
-  const AddToCart = (addtocart) => {
-    console.log(addtocart);
+  console.log("check dispatch", getaddtocarts);
+  const dispatch = useDispatch();
+  const AddToCart = (data) => {
+    console.log(getaddtocarts);
   };
-  const getDefaultCart = () => {
-    let cart = {};
-    for (let i = 1; i < getdataProducts.lenght + 1; i++) {
-      cart[i] = 0;
-    }
-    return cart;
-  };
-  // const ShopContextProvider = (props) => {
-  //   const [cartItem, SetCartItem] = useState(getDefaultCart);
-  //   const addToCart = (itemId) => {
-  //     SetCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-  //   };
-  //   const removeFromCart = (itemId) => {
-  //     SetCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-  //   };
-  //   const contextValue = { cartItem, addToCart, removeFromCart };
-  //   return (
-  //     <ShopContextProvider.Provider>
-  //       {props.children}
-  //     </ShopContextProvider.Provider>
-  //   );
-  // };
   return (
     <>
       <Logosearch></Logosearch>
       <div className="Product_details">
         {getdataProducts &&
-          getdataProducts.map((item) => {
+          getdataProducts.map((item, index) => {
             return (
               <div className="flex" key={item.id}>
                 <div className="column-xs-12 column-md-7">
@@ -76,6 +57,7 @@ const Productdetails = (props) => {
                       onClick={() => AddToCart(item)}
                     >
                       Thêm vào giỏ hàng
+                      <span>{index}</span>
                     </button>
                   </div>
                 </div>
@@ -111,6 +93,6 @@ const Productdetails = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { addtocart: state.addtocart };
+  return { addtocart: state.dataAddToCart };
 };
 export default connect(mapStateToProps)(Productdetails);

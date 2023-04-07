@@ -1,5 +1,6 @@
 import "./Logo_search.scss";
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Logosearch() {
@@ -51,7 +52,6 @@ function Logosearch() {
                 </li>
               </ul>
             </li>
-
             <li className="login">
               <Link className="link" to={"/login"}>
                 <i className="fa-solid fa-user"></i>
@@ -78,6 +78,8 @@ function Logosearch() {
               <Link className="link" to="/shopping">
                 <i className="fa-solid fa-cart-shopping"></i>
               </Link>
+              {}
+              <span>{}</span>
             </li>
             <li className="bar">
               <Link className="link" to="#">
@@ -105,4 +107,4 @@ function Logosearch() {
     </>
   );
 }
-export default Logosearch;
+export default connect()(Logosearch);
