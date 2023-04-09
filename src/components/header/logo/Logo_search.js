@@ -1,9 +1,10 @@
 import "./Logo_search.scss";
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { getaddtocart, getquantity } from "../../../redux/selectors";
 function Logosearch() {
+  const getquantitys = useSelector(getquantity);
   const [nav, setnav] = useState(false);
   const scroll_down = () => {
     if (window.scrollY > 90) {
@@ -76,9 +77,13 @@ function Logosearch() {
             </li>
             <li>
               <Link className="link" to="/shopping">
-                <i className="fa-solid fa-cart-shopping"></i>
+                <i className="fa-solid fa-cart-shopping">
+                  {getquantitys.map((item) => {
+                    return <span key={item}>{item.quantity}</span>;
+                  })}
+                </i>
               </Link>
-              {}
+
               <span>{}</span>
             </li>
             <li className="bar">

@@ -1,25 +1,38 @@
 import React from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
-import { getdataProduct, getaddtocart } from "../../../../redux/selectors";
+import {
+  getdataProduct,
+  getaddtocart,
+  getquantity,
+} from "../../../../redux/selectors";
 import { useSelector, useDispatch, connect } from "react-redux";
 import actions from "../../../../redux/action";
 import StarRating from "./StarRating";
-import { useNavigate } from "react-router-dom";
+import Homefooter from "../../../Footer/Home_footer";
+//
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Productdetails = (props) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const getdataProducts = useSelector(getdataProduct);
-  console.log("getdataProducts", getdataProducts);
+
   const AddToCart = (data) => {
     let getdata = dispatch(actions.addToCart(data));
-    console.log(getdata);
-    // return navigate(`/shopping`);
+
+    if (getdata) {
+      toast.success("Thêm thành công");
+    } else {
+      toast("Lỗi thêm sản phẩm");
+    }
   };
+
   return (
     <>
       <Logosearch></Logosearch>
+
       <div className="Product_details">
+        <ToastContainer />
         {getdataProducts.map((item, index) => {
           return (
             <div className="flex" key={index}>
@@ -48,16 +61,12 @@ const Productdetails = (props) => {
                   <p>content</p>
                 </div>
                 <div className="d-flex ">
-                  <div className="quantity">
-                    <button className="btn">+</button>
-                    <input type="number" />
-                    <button className="btn">-</button>
-                  </div>
                   <button
                     className="add-to-cart"
                     onClick={() => AddToCart(item)}
                   >
                     Thêm vào giỏ hàng
+                    <span>0</span>
                   </button>
                 </div>
               </div>
@@ -89,6 +98,7 @@ const Productdetails = (props) => {
           <button className="btn submit">Gửi đi</button>
         </div>
       </div>
+      <Homefooter />
     </>
   );
 };

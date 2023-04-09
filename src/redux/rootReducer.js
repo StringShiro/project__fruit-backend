@@ -22,6 +22,7 @@ const rootReducer = (state = initState, action) => {
               return {
                 ...product,
                 quantity: product.quantity + 1,
+                quantityss: product.quantity - 1,
               };
             }
             return product;
@@ -32,7 +33,10 @@ const rootReducer = (state = initState, action) => {
         ...state,
         dataAddToCarts: [
           ...state.dataAddToCarts,
-          { ...action.payload, quantity: 1 },
+          {
+            ...action.payload,
+            quantity: 1,
+          },
         ],
       };
     case "INCREMENT_QUANTITY":

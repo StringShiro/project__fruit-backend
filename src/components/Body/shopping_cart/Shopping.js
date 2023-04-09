@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { getdataProduct, getaddtocart } from "../../../redux/selectors";
 import action from "../../../redux/action";
+import { Link } from "react-router-dom";
 const Shopping = () => {
-  // const [shoppingcards, setshoppingcards] = useState(false);
+  // const [quantity, setQuantity] = useState("2");
   const getaddtocarts = useSelector(getaddtocart);
 
   const dispatch = useDispatch();
   const handleRemove = (id) => {
     dispatch(action.removeFromCart(id));
   };
+
   return (
     <>
       <Logosearch />
       <div className="Container">
-        {getaddtocarts === [] ? (
+        {getaddtocarts.length === 0 ? (
           <div className="no_card">
             <div className="form_card">
               <img
@@ -25,7 +27,9 @@ const Shopping = () => {
                 alt=""
               />
               <p>Giỏ hàng của bạn đang trống</p>
-              <button className="btn btn-danger">Mua ngay</button>
+              <button className="btn btn-danger">
+                <Link to={"/sanpham"}>Mua ngay</Link>
+              </button>
             </div>
           </div>
         ) : (
@@ -49,8 +53,10 @@ const Shopping = () => {
                         <p>Giá sản phẩm:{item.price}</p>
                         <div className="quantity">
                           <button className="btn">+</button>
-                          <input type="number" />
-                          <button className="btn">-</button>
+                          <input defaultValue={item.quantity} />
+                          <button className="btn" onClick={item.quantityss}>
+                            -
+                          </button>
                         </div>
                       </div>
                       <div className="delete_card">
