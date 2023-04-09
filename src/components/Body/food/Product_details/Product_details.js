@@ -1,69 +1,69 @@
-import React, { Fragment, useState, createContext } from "react";
+import React from "react";
 import Logosearch from "../../../header/logo/Logo_search";
-
 import "./Product_details.scss";
 import { getdataProduct, getaddtocart } from "../../../../redux/selectors";
 import { useSelector, useDispatch, connect } from "react-redux";
 import actions from "../../../../redux/action";
 import StarRating from "./StarRating";
+import { useNavigate } from "react-router-dom";
 const Productdetails = (props) => {
-  const getaddtocarts = useSelector(getaddtocart);
-  const getdataProducts = useSelector(getdataProduct);
-  console.log("check dispatch", getaddtocarts);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const getdataProducts = useSelector(getdataProduct);
+  console.log("getdataProducts", getdataProducts);
   const AddToCart = (data) => {
-    console.log(getaddtocarts);
+    let getdata = dispatch(actions.addToCart(data));
+    console.log(getdata);
+    // return navigate(`/shopping`);
   };
   return (
     <>
       <Logosearch></Logosearch>
       <div className="Product_details">
-        {getdataProducts &&
-          getdataProducts.map((item, index) => {
-            return (
-              <div className="flex" key={item.id}>
-                <div className="column-xs-12 column-md-7">
-                  <div className="product-gallery">
-                    <div className="product-image">
-                      <img className="active" src={item.img} alt="" />
-                    </div>
-                    <ul className="image-list">
-                      <li className="image-item">
-                        <img src={item.img} alt="" />
-                      </li>
-                      <li className="image-item">
-                        <img src={item.img} alt="" />
-                      </li>
-                      <li className="image-item">
-                        <img src={item.img} alt="" />
-                      </li>
-                    </ul>
+        {getdataProducts.map((item, index) => {
+          return (
+            <div className="flex" key={index}>
+              <div className="column-xs-12 column-md-7">
+                <div className="product-gallery">
+                  <div className="product-image">
+                    <img className="active" src={item.img} alt="" />
                   </div>
-                </div>
-                <div className="column-xs-12 column-md-6 col-6">
-                  <h1>{item.name}</h1>
-                  <h2>{item.price}</h2>
-                  <div className="description">
-                    <p>content</p>
-                  </div>
-                  <div className="d-flex ">
-                    <div className="quantity">
-                      <button className="btn">+</button>
-                      <input type="number" />
-                      <button className="btn">-</button>
-                    </div>
-                    <button
-                      className="add-to-cart"
-                      onClick={() => AddToCart(item)}
-                    >
-                      Thêm vào giỏ hàng
-                      <span>{index}</span>
-                    </button>
-                  </div>
+                  <ul className="image-list">
+                    <li className="image-item">
+                      <img src={item.img} alt="" />
+                    </li>
+                    <li className="image-item">
+                      <img src={item.img} alt="" />
+                    </li>
+                    <li className="image-item">
+                      <img src={item.img} alt="" />
+                    </li>
+                  </ul>
                 </div>
               </div>
-            );
-          })}
+              <div className="column-xs-12 column-md-6 col-6">
+                <h1>{item.name}</h1>
+                <h2>{item.price}</h2>
+                <div className="description">
+                  <p>content</p>
+                </div>
+                <div className="d-flex ">
+                  <div className="quantity">
+                    <button className="btn">+</button>
+                    <input type="number" />
+                    <button className="btn">-</button>
+                  </div>
+                  <button
+                    className="add-to-cart"
+                    onClick={() => AddToCart(item)}
+                  >
+                    Thêm vào giỏ hàng
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="Product_details_comment">
         <div className="comment">

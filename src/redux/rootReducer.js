@@ -3,22 +3,20 @@ const initState = {
   dataAddToCarts: [],
 };
 const rootReducer = (state = initState, action) => {
-  console.log("chekc check", state.dataAddToCarts, action);
   switch (action.type) {
     case "DATAPRODUCT":
       return {
+        ...state,
         dataProduct: [action.payload],
       };
-
     case "ADD_PRODUCT":
       const existingProduct = state.dataAddToCarts.find(
         (product) => product.id === action.payload.id
       );
-      // console.log("existingProduct", existingProduct);
+
       if (existingProduct) {
         return {
           ...state,
-
           dataAddToCarts: state.dataAddToCarts.map((product) => {
             if (product.id === existingProduct.id) {
               return {

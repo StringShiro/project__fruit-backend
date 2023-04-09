@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-import Stores from "../../../data/stores.json";
-import { PRODUCT } from "../../../data/infor_product";
+
+import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
 import { connect, useDispatch, useSelector } from "react-redux";
 import actions from "../../../redux/action";
 import { useNavigate } from "react-router-dom";
-import { getaddtocart } from "../../../redux/selectors";
+import { getdataProduct } from "../../../redux/selectors";
 
 const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // const getdataProducts = useSelector(getdataProduct);
+
   const handleOnclick = (data) => {
-    dispatch(actions.GetdataProduct(data));
-    // dispatch(actions.addToCart(data));
-    // console.log("check dis", dispatch(actions.addToCart(data)));
+    let getdata = dispatch(actions.GetdataProduct(data));
+
+    // console.log("selector", getdataProducts);
     return navigate(`/Product_details?id=${data.id}`);
   };
 
@@ -50,7 +53,7 @@ const Product = () => {
               </div>
             </div>
             <div className="right_product">
-              {Stores.map((store, index) => {
+              {STORES_PRODUCT.map((store) => {
                 return (
                   <div key={store.id}>
                     <div
@@ -58,9 +61,9 @@ const Product = () => {
                       onClick={() =>
                         handleOnclick({
                           id: store.id,
+                          img: store.imgUrl,
                           name: store.name,
                           price: store.price,
-                          img: store.imgUrl,
                         })
                       }
                     >
