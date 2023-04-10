@@ -22,10 +22,11 @@ const removeFromCart = (data) => {
     payload: data,
   };
 };
-
-export default {
+const action = {
   GetdataProduct,
   addToCart,
   removeFromCart,
   quantity,
 };
+
+export default action;
