@@ -77,11 +77,7 @@ function Logosearch() {
             </li>
             <li>
               <Link className="link" to="/shopping">
-                <i className="fa-solid fa-cart-shopping">
-                  {getquantitys.map((item) => {
-                    return <span key={item}>{item.quantity}</span>;
-                  })}
-                </i>
+                <i className="fa-solid fa-cart-shopping"></i>
               </Link>
 
               <span>{}</span>
