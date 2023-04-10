@@ -54,9 +54,7 @@ const Shopping = () => {
                         <div className="quantity">
                           <button className="btn">+</button>
                           <input defaultValue={item.quantity} />
-                          <button className="btn" onClick={item.quantityss}>
-                            -
-                          </button>
+                          <button className="btn">-</button>
                         </div>
                       </div>
                       <div className="delete_card">
