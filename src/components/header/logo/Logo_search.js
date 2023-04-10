@@ -2,7 +2,7 @@ import "./Logo_search.scss";
 import React, { useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getaddtocart, getquantity } from "../../../redux/selectors";
+import { getquantity } from "../../../redux/selectors";
 function Logosearch() {
   const getquantitys = useSelector(getquantity);
   const [nav, setnav] = useState(false);

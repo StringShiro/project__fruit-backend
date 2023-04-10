@@ -1,11 +1,7 @@
 import React from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
-import {
-  getdataProduct,
-  getaddtocart,
-  getquantity,
-} from "../../../../redux/selectors";
+import { getdataProduct } from "../../../../redux/selectors";
 import { useSelector, useDispatch, connect } from "react-redux";
 import actions from "../../../../redux/action";
 import StarRating from "./StarRating";

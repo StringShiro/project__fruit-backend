@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 
 import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import actions from "../../../redux/action";
 import { useNavigate } from "react-router-dom";
-import { getdataProduct } from "../../../redux/selectors";
+// import { getdataProduct } from "../../../redux/selectors";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const Product = () => {
   // const getdataProducts = useSelector(getdataProduct);
 
   const handleOnclick = (data) => {
-    let getdata = dispatch(actions.GetdataProduct(data));
+    dispatch(actions.GetdataProduct(data));
 
     // console.log("selector", getdataProducts);
     return navigate(`/Product_details?id=${data.id}`);

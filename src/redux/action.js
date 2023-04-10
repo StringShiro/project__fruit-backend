@@ -1,4 +1,3 @@
-import * as actionType from "./actionType";
 const GetdataProduct = (data) => {
   return {
     type: "DATAPRODUCT",
@@ -24,4 +23,9 @@ const removeFromCart = (data) => {
   };
 };
 
-export default { GetdataProduct, addToCart, removeFromCart, quantity };
+export default {
+  GetdataProduct,
+  addToCart,
+  removeFromCart,
+  quantity,
+};

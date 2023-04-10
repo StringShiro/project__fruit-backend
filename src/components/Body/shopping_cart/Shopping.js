@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import { connect, useSelector, useDispatch } from "react-redux";
-import { getdataProduct, getaddtocart } from "../../../redux/selectors";
+import { getaddtocart } from "../../../redux/selectors";
 import action from "../../../redux/action";
 import { Link } from "react-router-dom";
 const Shopping = () => {

@@ -9,6 +9,7 @@ export default function ProfilePage() {
   const [files, setFiles] = useState("no image");
   const handleImg = () => {
     document.querySelector(".input-field").click();
+    console.log(files);
   };
   return (
     <>
