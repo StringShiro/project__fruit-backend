@@ -112,7 +112,7 @@ export default function ProfilePage() {
                   <li>
                     <div className="image" onClick={handleImg}>
                       {imgae ? (
-                        <img src={imgae} />
+                        <img src={imgae} alt="" />
                       ) : (
                         <i
                           className="fa-solid fa-cloud-arrow-up"

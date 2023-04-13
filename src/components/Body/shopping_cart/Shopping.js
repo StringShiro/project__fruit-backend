@@ -1,25 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-import { connect, useSelector, useDispatch } from "react-redux";
-import { getaddtocart } from "../../../redux/selectors";
-import action from "../../../redux/action";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart, increaseQuantity } from "../../../redux/cartSlice";
 const Shopping = () => {
-  // const [quantity, setQuantity] = useState("2");
-  const getaddtocarts = useSelector(getaddtocart);
-
   const dispatch = useDispatch();
-  const handleRemove = (id) => {
-    dispatch(action.removeFromCart(id));
-  };
+  const product = useSelector((state) => state.cartSlice.product);
 
+  const [quantity, setQuantity] = useState();
+
+  const Oncl = () => {};
+  const totalPrice = () => {
+    let total = 0;
+    product.forEach((item) => {
+      total += item.quantity * item.price;
+    });
+    return total.toLocaleString("en-US");
+  };
   return (
     <>
       <Logosearch />
       <div className="Container">
-        {getaddtocarts.length === 0 ? (
+        {product.length === 0 ? (
           <div className="no_card">
             <div className="form_card">
               <img
@@ -39,39 +43,52 @@ const Shopping = () => {
                 <button className="btn btn-danger">Chọn tất cả</button>
                 <button className="btn btn-danger">Xóa tất cả</button>
               </div>
-              {getaddtocarts &&
-                getaddtocarts.map((item, index) => {
-                  return (
-                    <div className="infor_card" key={index}>
-                      <input type="checkbox" className="form-check-input" />
-                      <div className="image">
-                        <img src={item.img} alt="" />
-                      </div>
-                      <div className="content_card">
-                        <h5>Tên sản phẩm: {item.name}</h5>
-                        <p>{`Thông tin: ...`}</p>
-                        <p>Giá sản phẩm:{item.price}</p>
-                        <div className="quantity">
-                          <button className="btn">+</button>
-                          <input defaultValue={item.quantity} />
-                          <button className="btn">-</button>
-                        </div>
-                      </div>
-                      <div className="delete_card">
+              {product.map((item, index) => {
+                return (
+                  <div className="infor_card" key={index}>
+                    <input type="checkbox" className="form-check-input" />
+                    <div className="image">
+                      <img src={item.img} alt="" />
+                    </div>
+                    <div className="content_card">
+                      <h5>Tên sản phẩm: {item.name}</h5>
+                      <p>{`Thông tin: ...`}</p>
+                      <p>Giá sản phẩm:{item.price}</p>
+                      <div className="quantity">
                         <button
-                          className="btn btn-danger"
-                          onClick={() => handleRemove(item.id)}
+                          className="btn"
+                          onClick={() =>
+                            dispatch(increaseQuantity(item.quantity))
+                          }
                         >
-                          Xóa
+                          +
+                        </button>
+                        <input type="text" defaultValue={item.quantity} />
+                        <button
+                          className="btn"
+                          onClick={() =>
+                            setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+                          }
+                        >
+                          -
                         </button>
                       </div>
                     </div>
-                  );
-                })}
+                    <div className="delete_card">
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => dispatch(removeFromCart(item.id))}
+                      >
+                        Xóa
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <div className="form_payment">
               <div className="total">
-                <h5>Tổng:{200.0}</h5>
+                <h5>{totalPrice()}</h5>
               </div>
               <div className="payment">
                 <h2>Thanh toán</h2>
@@ -108,4 +125,4 @@ const Shopping = () => {
     </>
   );
 };
-export default connect()(Shopping);
+export default Shopping;

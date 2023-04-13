@@ -5,21 +5,15 @@ import Homefooter from "../../Footer/Home_footer";
 
 import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-import { connect, useDispatch } from "react-redux";
-import actions from "../../../redux/action";
+
 import { useNavigate } from "react-router-dom";
-// import { getdataProduct } from "../../../redux/selectors";
-
+import { useDispatch } from "react-redux";
+import { getdataproduct } from "../../../redux/cartSlice";
 const Product = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const getdataProducts = useSelector(getdataProduct);
-
+  const dispatch = useDispatch();
   const handleOnclick = (data) => {
-    dispatch(actions.GetdataProduct(data));
-
-    // console.log("selector", getdataProducts);
+    dispatch(getdataproduct(data));
     return navigate(`/Product_details?id=${data.id}`);
   };
 
@@ -84,10 +78,5 @@ const Product = () => {
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    datas: state.users,
-  };
-};
 
-export default connect(mapStateToProps)(Product);
+export default Product;

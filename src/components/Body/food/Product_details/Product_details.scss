@@ -61,10 +61,12 @@ $button-hover: #565657;
     padding: 1rem 0 0 0;
   }
   .quantity {
-    margin-right: 50px;
+    margin-right: 20px;
     input {
       width: 50px;
+      padding: 10px;
       text-align: center;
+      border: none;
       outline: none;
     }
     display: flex;

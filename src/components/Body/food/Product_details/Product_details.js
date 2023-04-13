@@ -1,35 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
-import { getdataProduct } from "../../../../redux/selectors";
-import { useSelector, useDispatch, connect } from "react-redux";
-import actions from "../../../../redux/action";
 import StarRating from "./StarRating";
 import Homefooter from "../../../Footer/Home_footer";
-//
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../../redux/cartSlice";
 const Productdetails = (props) => {
+  const [quantity, setQuantity] = useState(1);
+  const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
   const dispatch = useDispatch();
-  const getdataProducts = useSelector(getdataProduct);
-
-  const AddToCart = (data) => {
-    let getdata = dispatch(actions.addToCart(data));
-
-    if (getdata) {
-      toast.success("Thêm thành công");
-    } else {
-      toast("Lỗi thêm sản phẩm");
-    }
-  };
 
   return (
     <>
       <Logosearch></Logosearch>
-
       <div className="Product_details">
-        <ToastContainer />
-        {getdataProducts.map((item, index) => {
+        {dataproduct.map((item, index) => {
           return (
             <div className="flex" key={index}>
               <div className="column-xs-12 column-md-7">
@@ -57,12 +43,38 @@ const Productdetails = (props) => {
                   <p>content</p>
                 </div>
                 <div className="d-flex ">
+                  <div className="quantity">
+                    <button
+                      className="btn"
+                      onClick={() => setQuantity((prev) => prev + 1)}
+                    >
+                      +
+                    </button>
+                    <input type="text" value={quantity} />
+                    <button
+                      className="btn"
+                      onClick={() =>
+                        setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+                      }
+                    >
+                      -
+                    </button>
+                  </div>
                   <button
                     className="add-to-cart"
-                    onClick={() => AddToCart(item)}
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          id: item.id,
+                          img: item.img,
+                          name: item.name,
+                          price: item.price,
+                          quantity,
+                        })
+                      )
+                    }
                   >
                     Thêm vào giỏ hàng
-                    <span>0</span>
                   </button>
                 </div>
               </div>
@@ -98,7 +110,5 @@ const Productdetails = (props) => {
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return { addtocart: state.dataAddToCart };
-};
-export default connect(mapStateToProps)(Productdetails);
+
+export default Productdetails;

@@ -1,18 +1,18 @@
-// import { createStoreHook } from "react-redux";
-import { createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
-import { composeWithDevTools } from "@redux-devtools/extension";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
 const persistConfig = {
-  key: "dataproduct",
+  key: "product",
   storage,
 };
-const composedEnhancers = composeWithDevTools();
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const Store = createStore(persistedReducer, composedEnhancers);
 
-// export default Store;
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk, logger],
+});
 
-export const persistor = persistStore(Store);
-export default Store;
+export const persistor = persistStore(store);
