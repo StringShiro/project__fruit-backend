@@ -10,7 +10,11 @@ const Productdetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
   const dispatch = useDispatch();
+  const inputonchange = (e) => {
+    const inputValue = Number(e.target.value);
 
+    setQuantity(inputValue);
+  };
   return (
     <>
       <Logosearch></Logosearch>
@@ -50,7 +54,11 @@ const Productdetails = (props) => {
                     >
                       +
                     </button>
-                    <input type="text" value={quantity} />
+                    <input
+                      type="text"
+                      value={quantity}
+                      onChange={(e) => inputonchange(e)}
+                    />
                     <button
                       className="btn"
                       onClick={() =>

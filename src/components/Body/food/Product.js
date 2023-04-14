@@ -30,6 +30,7 @@ const Product = () => {
                   {PRODUCT.map((products) => {
                     return (
                       <li key={products.id}>
+                        <input type="checkbox" className="form-check-input" />
                         <span className="child_one">{products.name}</span>
                       </li>
                     );

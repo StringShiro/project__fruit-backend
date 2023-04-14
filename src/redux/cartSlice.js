@@ -30,17 +30,19 @@ export const cartSlice = createSlice({
       state.product = [];
     },
     increaseQuantity: (state, action) => {
-      const productId = action.payload;
-      const product = state.product.find((p) => p.id === productId);
-      if (product) {
-        product.quantity--;
+      const itemIndex = state.product.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (state.product[itemIndex].quantity > 0) {
+        state.product[itemIndex].quantity += 1;
       }
     },
     decreaseQuantity: (state, action) => {
-      const productId = action.payload;
-      const product = state.find((p) => p.id === productId);
-      if (product && product.quantity > 0) {
-        product.quantity--;
+      const itemIndex = state.product.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (state.product[itemIndex].quantity > 1) {
+        state.product[itemIndex].quantity -= 1;
       }
     },
   },

@@ -4,14 +4,28 @@ import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, increaseQuantity } from "../../../redux/cartSlice";
+import {
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  resetCart,
+} from "../../../redux/cartSlice";
 const Shopping = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.cartSlice.product);
 
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(product);
 
-  const Oncl = () => {};
+  const handleOnclickI = (data) => {
+    dispatch(increaseQuantity(data));
+  };
+  const handleOnclickD = (data) => {
+    dispatch(decreaseQuantity(data));
+  };
+
+  const inputonchange = (e) => {
+    setQuantity(e.target.value);
+  };
   const totalPrice = () => {
     let total = 0;
     product.forEach((item) => {
@@ -41,7 +55,12 @@ const Shopping = () => {
             <div className="form_has_card">
               <div className="stick">
                 <button className="btn btn-danger">Chọn tất cả</button>
-                <button className="btn btn-danger">Xóa tất cả</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => dispatch(resetCart())}
+                >
+                  Xóa tất cả
+                </button>
               </div>
               {product.map((item, index) => {
                 return (
@@ -57,18 +76,18 @@ const Shopping = () => {
                       <div className="quantity">
                         <button
                           className="btn"
-                          onClick={() =>
-                            dispatch(increaseQuantity(item.quantity))
-                          }
+                          onClick={() => handleOnclickI(item)}
                         >
                           +
                         </button>
-                        <input type="text" defaultValue={item.quantity} />
+                        <input
+                          type="text"
+                          value={item.quantity}
+                          onChange={(e) => inputonchange(e)}
+                        />
                         <button
                           className="btn"
-                          onClick={() =>
-                            setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
-                          }
+                          onClick={() => handleOnclickD(item)}
                         >
                           -
                         </button>
@@ -88,7 +107,7 @@ const Shopping = () => {
             </div>
             <div className="form_payment">
               <div className="total">
-                <h5>{totalPrice()}</h5>
+                <h5>Tổng: {totalPrice()} VND</h5>
               </div>
               <div className="payment">
                 <h2>Thanh toán</h2>
