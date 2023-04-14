@@ -1,0 +1,165 @@
+<div class="container px-lg-5">
+  <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+    <div class="m-4 m-lg-5">
+      <h1 class="display-5 fw-bold">Healthy-Roo welcome!</h1>
+      <p class="fs-4">Overview About Healthy-Roo</p>
+      <a class="btn btn-primary btn-lg" href="/">BACK HOME</a>
+    </div>
+  </div>
+</div>
+
+  <form
+    class="container px-lg-5 py-5"
+    action="/products/api/product"
+    method="post"
+  >
+    <div class="mb-3">
+      <label for="productname" class="form-label">productname</label>
+      <input
+        type="text"
+        class="form-control",
+        name="productname"
+        placeholder="Enter your field's value"
+        id="productname"
+        value="{{product.productname}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="currency" class="form-label">currency</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="currency"
+        name="currency"
+        value="{{product.currency}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="weight" class="form-label">Weight</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="weight"
+        name="weight"
+        value="{{product.weight}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="quality" class="form-label">Quality</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="quality"
+        name="quality"
+        value="{{product.quality}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="discount" class="form-label">Discount</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="discount"
+        name="discount"
+        value="{{product.discount}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="codedown" class="form-label">Codedown</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="codedown"
+        name="codedown"
+        value="{{product.codedown}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="brand" class="form-label">Brand</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="brand"
+        name="brand"
+        value="{{product.brand}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="catelogy" class="form-label">Catelogy</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="catelogy"
+        name="catelogy"
+        value="{{product.catelogy}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="description"
+        name="description"
+        value="{{product.description}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="sold" class="form-label">Sold</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="sold"
+        name="sold"
+        value="{{product.sold}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="Image" class="form-label">Image</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your field's value"
+        id="image"
+        name="image"
+        value="{{product.image}}"
+      />
+   
+    </div>
+     <div class="mb-3 text-center">
+      <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+    </div> 
+
+  </form>
+
+{{! 
+  {
+    "productname":"naek",
+    "currency":200,
+    "weight":100,
+    "quality":1,
+    "discount":1,
+    "codedown":"102",
+    "brand":"Healthy-Roo",
+    "catelogy":"fruit",
+    "description":"good heal",
+    "image":1,
+    "sold":3
+
+  }
+
+
+
+ }}

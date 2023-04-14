@@ -1,70 +1,67 @@
 <div class="card-box">
-    <!-- Card -->
-    <div class="card border-0 card-h-100">
-      <div class="card-header border-0 card-header-space-between">
+  <!-- Card -->
+  <div class="card border-0 card-h-100">
+    <div class="card-header border-0 card-header-space-between">
 
-        <!-- Title -->
-        <h2 class="card-header-title h4 text-uppercase">
-          Users
-        </h2>
-        
-        <!-- Dropdown -->
+      <!-- Title -->
+      <h2 class="card-header-title h4 text-uppercase">
+        Users
+      </h2>
 
-      </div>
+      <!-- Dropdown -->
 
-      <!-- Table -->
-      <div class="table-responsive">
-        <table
-          id="projectsTable"
-          class="table align-middle table-edge table-nowrap mb-0"
-        >
-          <thead class="thead-light">
-            <tr>
-              <th class="w-60px">No</th>
-              <th>ID</th>
-              <th>username</th>
-              <th>password</th>
-              <th>phone</th>
-              <th>gmail</th>
-              <th>position</th>
-              <th>avatar</th>
-              <th class="text-end">Button</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {{#each users}}
-              <tr>
-                <td>1</td>
-                <td>{{this._id}}</td>
-                <td>{{this.username}}</td>
-                <td>{{this.password}}</td>
-                <td>{{this.phone}}</td>
-                <td>{{this.gmail}}</td>
-                <td>{{this.position}}</td>
-                <td><span class="avatar-sm me-2">
-                    <img
-                      src="{{this.avatar}}"
-                      alt="..."
-                      width="40"
-                      height="40"
-                    />
-                  </span></td>
-                <td class="text-end">
-                  <button type="button" class="btn btn-secondary"><i
-                      class="fa-solid fa-trash-can"
-                    ></i></button>
-                  <button type="button" class="btn btn-secondary"><i
-                      class="fa-solid fa-pen-to-square"
-                    ></i></button>
-
-                </td>
-              </tr>
-
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-      <!-- / .table-responsive -->
     </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+      <table
+        id="projectsTable"
+        class="table align-middle table-edge table-nowrap mb-0"
+      >
+        <thead class="thead-light">
+          <tr>
+            <th class="w-60px">No</th>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>PasswordComfirm</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Avatar</th>
+            <th class="text-end">Button</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each users}}
+            <tr>
+              <td>1</td>
+              <td>{{this._id}}</td>
+              <td>{{this.username}}</td>
+              <td>{{this.password}}</td>
+              <td>{{this.phone}}</td>
+              <td>{{this.email}}</td>
+              <td>{{this.position}}</td>
+              <td><span class="avatar-sm me-2">
+                  <img src="{{this.avatar}}" alt="..." width="40" height="40" />
+                </span></td>
+              <td class="text-end">
+
+                <button type="button" class="btn btn-secondary"><i
+                    class="fa-solid fa-pen-to-square"
+                  ></i></button>
+                <button type="button" class="btn btn-secondary"><i
+                    class="fa-solid fa-trash-can"
+                  ></i></button>
+              </td>
+            </tr>
+
+          {{/each}}
+        </tbody>
+      </table>
+      <a href=""><button></button></a>
+    </div>
+    <!-- / .table-responsive -->
   </div>
+</div>
