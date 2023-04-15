@@ -26,7 +26,11 @@
         width: 100%;
         margin: 0;
         padding: 0;
+
         li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
           cursor: pointer;
           padding: 10px;
           &:hover {
@@ -61,11 +65,11 @@
     }
   }
   .right_product {
-    width: 75%;
+    width: 80%;
     // height: 100%;
     display: flex;
     flex-wrap: wrap;
-    // justify-content: center;
+    justify-content: space-between;
     gap: 30px;
     .card {
       width: 190px;

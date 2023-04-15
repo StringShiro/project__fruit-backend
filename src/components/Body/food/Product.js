@@ -2,10 +2,8 @@ import React from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-
 import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getdataproduct } from "../../../redux/cartSlice";
@@ -16,7 +14,9 @@ const Product = () => {
     dispatch(getdataproduct(data));
     return navigate(`/Product_details?id=${data.id}`);
   };
-
+  const handlOnchange = (e) => {
+    console.log(e.target.name);
+  };
   return (
     <>
       <Logosearch />
@@ -30,7 +30,11 @@ const Product = () => {
                   {PRODUCT.map((products) => {
                     return (
                       <li key={products.id}>
-                        <input type="checkbox" className="form-check-input" />
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          onChange={() => handlOnchange(products.id)}
+                        />
                         <span className="child_one">{products.name}</span>
                       </li>
                     );

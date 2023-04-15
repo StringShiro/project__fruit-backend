@@ -20,7 +20,9 @@ export const cartSlice = createSlice({
         state.product.push(action.payload);
       }
     },
-
+    updatevalueinput: (state, action) => {
+      state.product = action.payload.product;
+    },
     removeFromCart: (state, action) => {
       state.product = state.product.filter(
         (item) => item.id !== action.payload
@@ -56,6 +58,7 @@ export const {
   resetCart,
   increaseQuantity,
   decreaseQuantity,
+  updatevalueinput,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
