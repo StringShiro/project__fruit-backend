@@ -5,8 +5,14 @@ import { useFormik } from "formik";
 import { Toaster } from "react-hot-toast";
 import { checkUserName } from "./validate";
 import Logosearch from "../components/header/logo/Logo_search";
+import Axios from "axios";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordconfirm, setPasswordconfirm] = useState("");
   let [authMode, setAuthMode] = useState("signin");
   let [showPassword, setShowPassword] = useState({
     isShow: false,
@@ -30,6 +36,55 @@ export default function Login() {
       console.log(values);
     },
   });
+  // const [data, setData] = useState({
+  //   username: username,
+  //   password: password,
+  //   phone: phone,
+  //   email: email,
+  //   passwordconfirm: password,
+  // });
+  // const handleInput = (e) => {
+  //   setData({ ...data, [e.target.username]: e.target.e });
+  // };
+  const data = {
+    username: username,
+    password: password,
+    passwordconfirm: passwordconfirm,
+    email: email,
+    phone: phone,
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+  
+    try {
+      await Axios.post(`http://127.0.0.1:3002/users/api/register`,  data )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleSubmitLogin = async(e)=>{
+    e.preventDefault()
+    try {
+      await Axios.post(`http://127.0.0.1:3002/users/api/login`,  data )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
     return (
@@ -37,7 +92,7 @@ export default function Login() {
         <Logosearch />
         <div className="Auth-form-container">
           <Toaster position="top-right" reverseOrder={false}></Toaster>
-          <form className="Auth-form" onSubmit={formik.handleSubmit}>
+          <form className="Auth-form" onSubmit={handleSubmitLogin} method="get">
             <div className="Auth-form-content">
               <h3 className="Auth-form-title">Đăng nhập</h3>
               <div className="text-center">
@@ -47,21 +102,33 @@ export default function Login() {
                 </span>
               </div>
               <div className="form-group mt-3">
-                <label>Địa chỉ email</label>
+                <label>Username</label>
                 <input
-                  {...formik.getFieldProps("username")}
+                  // {...formik.getFieldProps("username")}
                   type="text"
                   className="form-control mt-1"
                   placeholder="Enter email"
+                  value={username || ""}
+                  name="username"
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    console.log(e.target.value);
+                  }}
                 />
               </div>
               <div className="form-group mt-3 input_password">
                 <label>Password</label>
                 <input
-                  {...formik.getFieldProps("password")}
-                  type={showPassword ? "text" : "password"}
+                  // {...formik.getFieldProps("password")}
+                  type="text"
                   className="form-control mt-1"
                   placeholder="Enter password"
+                  value={password || ""}
+                  name ="password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    console.log(e.target.value);
+                  }}
                 />
                 <i
                   className={
@@ -91,7 +158,7 @@ export default function Login() {
       {" "}
       <Logosearch />
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" onSubmit={handleSubmit} method="post">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Đăng ký</h3>
             <div className="text-center">
@@ -103,9 +170,16 @@ export default function Login() {
             <div className="form-group mt-3">
               <label>Họ và tên</label>
               <input
-                type="email"
+                type="text"
                 className="form-control mt-1"
                 placeholder="e.g Jane Doe"
+                value={username || ""}
+                name="username"
+                // onChange={handleInput}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  console.log(e.target.value);
+                }}
               />
             </div>
             <div className="form-group mt-3">
@@ -114,6 +188,13 @@ export default function Login() {
                 type="email"
                 className="form-control mt-1"
                 placeholder="Email Address"
+                value={email || ""}
+                name="email"
+                // onChange={handleInput}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  console.log(e.target.value);
+                }}
               />
             </div>
             <div className="form-group mt-3">
@@ -122,6 +203,44 @@ export default function Login() {
                 type="password"
                 className="form-control mt-1"
                 placeholder="Password"
+                value={password || ""}
+                name="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  console.log(e.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Điền lại Mật khẩu</label>
+              <input
+                type="password"
+                className="form-control mt-1"
+                placeholder="passwordconfirm"
+                value={passwordconfirm || ""}
+                name="passwordconfirm"
+                // onChange={handleInput}
+
+                onChange={(e) => {
+                  setPasswordconfirm(e.target.value);
+                  console.log(e.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Phone</label>
+              <input
+                type="text"
+                className="form-control mt-1"
+                placeholder="Phone"
+                value={phone || ""}
+                name="phone"
+                // onChange={handleInput}
+
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                  console.log(e);
+                }}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
