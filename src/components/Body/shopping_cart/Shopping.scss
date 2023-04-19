@@ -146,3 +146,68 @@
     }
   }
 }
+
+@media only screen and (max-width: 47.1875em) {
+  .Container {
+    padding: unset;
+    .has_card {
+      display: block;
+      padding: unset;
+      left: unset;
+      transform: unset;
+      .form_has_card {
+        width: 100%;
+        height: unset;
+        padding: unset;
+        .stick {
+          width: 100%;
+          padding: unset;
+        }
+        .infor_card {
+          width: 100%;
+          gap: unset;
+          padding: unset;
+          margin: unset;
+          .image {
+            // width: unset;
+            width: 50px;
+
+            height: 50px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .content_card {
+            font-size: 0.8rem;
+            padding: 0 10px;
+            h5 {
+              font-size: 1rem;
+            }
+            .quantity {
+              display: flex;
+              align-items: center;
+              justify-content: left;
+
+              button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+              }
+            }
+          }
+        }
+      }
+      .form_payment{
+        width: 100%;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
+  .Container .has_card .form_has_card .infor_card .image {
+    width: unset;
+  }
+}

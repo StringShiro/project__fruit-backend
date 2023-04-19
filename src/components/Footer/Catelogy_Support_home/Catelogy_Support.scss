@@ -163,54 +163,43 @@
     }
   }
 }
-@media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
-  .Footer_home {
-    .nav_footer {
-      width: 100%;
-    }
-  }
-}
 
 @media only screen and (max-width: 47.1875em) {
   .Catelogy_Support {
     gap: 0;
-    display: block;
-    ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      h6 {
-        width: 100%;
-        font-size: 1.25rem;
-      }
-      li {
-        font-size: 1rem;
-      }
-    }
-    ul:nth-child(4) {
-      width: 100%;
-      padding: 0 10px;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    
+   
   }
+  .wrap > ul .Catelogy_Support ul:nth-child(2) {
+
+    width: unset;
+  }
+  
+  .wrap > ul .Catelogy_Support ul:nth-child(3) {
+    width: 100%;
+    text-align: center;
+  }
+  .wrap > ul .Catelogy_Support ul:nth-child(4) {
+    width: 100%;
+  }
+  
 }
 // X-Small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
 @media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
   .Catelogy_Support {
-    gap: unset;
-    flex-wrap: wrap;
+    display: flex;
+    
     ul {
-      text-align: center;
-      width: calc(100% / 2);
+      
       .icon {
         justify-content: space-between;
         padding: 0 30px;
       }
     }
-    ul:nth-child(4) {
-      width: 50%;
-    }
+    
   }
 }

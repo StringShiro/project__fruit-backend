@@ -11,7 +11,7 @@ export default function CatelogySupport() {
       <ul>
         <h3>Healthy-Roo</h3>
         <div className="Catelogy_Support">
-          <ul>
+          <ul className="catelogy__list">
             <h6>LIÊN HỆ</h6>
             <li>Địa chỉ 5/11 Hạnh Thông Phường 05, Quận Gò Vấp, TP.HCM</li>
             <li>
@@ -60,6 +60,7 @@ export default function CatelogySupport() {
               </Link>
             </li>
           </ul>
+
           <ul>
             <h6>Tài khoản</h6>
             <li>

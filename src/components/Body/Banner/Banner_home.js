@@ -11,7 +11,7 @@ import React from "react";
 // };
 export default function Bannerhome() {
   return (
-    <div className="">
+    <div className="banner__home">
       <Carousel fade>
         <Carousel.Item>
           <Row className="justify-content-md-center">

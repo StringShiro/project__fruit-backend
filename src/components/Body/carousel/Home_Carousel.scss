@@ -32,12 +32,13 @@
     object-fit: cover;
     background-position: center;
   }
-  .swiper-scrollbar {
-  }
+  // .swiper-scrollbar {
+  // }
 }
 
 @media only screen and (max-width: 47.1875em) {
-  .Home_Carousel {
+  .HomeCarousel {
+    margin: unset;
     .content {
       display: block;
     }
@@ -56,5 +57,17 @@
         }
       }
     }
+    .HomeCarousel_form{
+      width: 100%;
+      margin-bottom:15px;
+      padding: 2px;
+      overflow: hidden;
+      p{
+        font-size: 15px;
+      text-overflow: ellipsis;
+        
+      }
+    }
   }
+ 
 }

@@ -3,6 +3,7 @@ import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image } from "react-bootstrap";
 import Homefooter from "../../Footer/Home_footer";
+import axios from "axios";
 
 export default function ProfilePage() {
   const [imgae, setImage] = useState(null);
@@ -11,6 +12,13 @@ export default function ProfilePage() {
     document.querySelector(".input-field").click();
     console.log(files);
   };
+  const renderProfile = async () => {
+    const user = await axios.get("http://127.0.0.1:3002/users/get").then((res) => {
+      console.log(res);
+    });
+    
+  };
+
   return (
     <>
       <Logosearch />

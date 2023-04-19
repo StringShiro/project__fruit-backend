@@ -55,36 +55,33 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-  
-    try {
-      await Axios.post(`http://127.0.0.1:3002/users/api/register`,  data )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
 
+    try {
+      await Axios.post('http://127.0.0.1:3002/users/api/register', data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
   };
-  const handleSubmitLogin = async(e)=>{
-    e.preventDefault()
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
     try {
-      await Axios.post(`http://127.0.0.1:3002/users/api/login`,  data )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
+      await Axios.get(`http://127.0.0.1:3002/users/api/login`, data)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.log(err);
     }
-  }
+  };
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
     return (
@@ -92,7 +89,7 @@ export default function Login() {
         <Logosearch />
         <div className="Auth-form-container">
           <Toaster position="top-right" reverseOrder={false}></Toaster>
-          <form className="Auth-form" onSubmit={handleSubmitLogin} method="get">
+          <form className="Auth-form" method="get" onSubmit={handleSubmitLogin}>
             <div className="Auth-form-content">
               <h3 className="Auth-form-title">Đăng nhập</h3>
               <div className="text-center">
@@ -120,11 +117,11 @@ export default function Login() {
                 <label>Password</label>
                 <input
                   // {...formik.getFieldProps("password")}
-                  type="text"
+                  type="password"
                   className="form-control mt-1"
                   placeholder="Enter password"
                   value={password || ""}
-                  name ="password"
+                  name="password"
                   onChange={(e) => {
                     setPassword(e.target.value);
                     console.log(e.target.value);
