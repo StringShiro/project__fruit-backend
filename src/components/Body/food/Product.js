@@ -2,20 +2,17 @@ import React from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
-
 import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
 import { Col, Row } from "react-bootstrap";
-
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getdataproduct } from "../../../redux/cartSlice";
+import RenderProduct from '../food/productRender'
+// import { useState } from "react";
 const Product = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const handleOnclick = (data) => {
-    dispatch(getdataproduct(data));
-    return navigate(`/Product_details?id=${data.id}`);
-  };
+  const handleOnclick = (e) => {
+    console.log(e)
+    
+     
+   };
+  
 
   return (
     <>
@@ -48,7 +45,8 @@ const Product = () => {
               </div>
             </div>
             <div className="right_product">
-              {STORES_PRODUCT.map((store) => {
+                {/* <RenderProduct/> */}
+                {STORES_PRODUCT.map((store) => {
                 return (
                   <div key={store.id}>
                     <div

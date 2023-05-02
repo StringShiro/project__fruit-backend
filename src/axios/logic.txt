@@ -1,0 +1,9 @@
+const renderProfile = async () => {
+    const user = await axios.get("http://127.0.0.1:3002/users/get").then((res) => {
+      // console.log(res);
+    });
+    
+  };
+
+
+

@@ -6,32 +6,24 @@ import "swiper/scss";
 import "swiper/scss/scrollbar";
 import { Scrollbar } from "swiper";
 import Stores from "../../../data/stores.json";
-
+import HomeProduct from "./homeRender";
 export default function HomeCarousel() {
   return (
     <>
       <div className="HomeCarousel">
-        <Swiper
+        {/* <Swiper
           slidesPerView={4}
           scrollbar={{
             hide: false,
           }}
           modules={[Scrollbar]}
           className="mySwiper"
-        >
-          {Stores &&
-            Stores.map((item) => {
-              return (
-                <SwiperSlide key={item.id}>
-                  <div className="HomeCarousel_form">
-                    <img src={item.imgUrl} alt="" />
-                    <p>{item.name}</p>
-                    <p>{item.price}</p>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
-        </Swiper>
+        > 
+          <SwiperSlide> */}
+            <HomeProduct/>
+          {/* </SwiperSlide>
+
+        </Swiper> */}
       </div>
     </>
   );

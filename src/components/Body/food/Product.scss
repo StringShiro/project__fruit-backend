@@ -67,6 +67,24 @@
     flex-wrap: wrap;
     // justify-content: center;
     gap: 30px;
+    .containerBox{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .card{
+        margin: 10px 0;
+        height: 250px;
+        .card-image{
+          width: 100%;
+          background-size: contain;
+          height: 150px;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
     .card {
       width: 190px;
       background: white;
@@ -131,6 +149,26 @@
       width: 100%;
     }
     .right_product {
+      .containerBox{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .card{
+          width: calc(100%/2);
+          padding: 0;
+          margin: 0 -5px;
+
+          height: 250px;
+          .card-image{
+            height: 150px;
+
+          }
+          .heading{
+            width: 100%;
+          }
+        }
+      }
+        
       display: flex;
       flex-wrap: wrap;
       width: 100%;

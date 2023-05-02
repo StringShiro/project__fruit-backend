@@ -3,22 +3,17 @@ import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image } from "react-bootstrap";
 import Homefooter from "../../Footer/Home_footer";
-import axios from "axios";
+import Axios from "axios";
 
 export default function ProfilePage() {
   const [imgae, setImage] = useState(null);
   const [files, setFiles] = useState("no image");
   const handleImg = () => {
     document.querySelector(".input-field").click();
-    console.log(files);
-  };
-  const renderProfile = async () => {
-    const user = await axios.get("http://127.0.0.1:3002/users/get").then((res) => {
-      console.log(res);
-    });
-    
+    // console.log(files);
   };
 
+  
   return (
     <>
       <Logosearch />
@@ -132,12 +127,12 @@ export default function ProfilePage() {
                         accept="image/*"
                         className="input-field"
                         hidden
-                        onChange={({ target: { files } }) => {
-                          files[0] && setFiles(files[0].name);
-                          if (files) {
-                            setImage(URL.createObjectURL(files[0]));
-                          }
-                        }}
+                        // onChange={({ target: { files } }) => {
+                        //   files[0] && setFiles(files[0].name);
+                        //   if (files) {
+                        //     setImage(URL.createObjectURL(files[0]));
+                        //   }
+                        // }}
                       />
                     </div>
                   </li>

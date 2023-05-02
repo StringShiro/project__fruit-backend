@@ -1,3 +1,5 @@
+
+
 import "./Login.scss";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,38 +16,21 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [passwordconfirm, setPasswordconfirm] = useState("");
   let [authMode, setAuthMode] = useState("signin");
+
   let [showPassword, setShowPassword] = useState({
     isShow: false,
   });
+
+
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
   const onClickShow = () => {
     setShowPassword(!showPassword);
   };
-  //---------------------------------------------------------------------------------------------------------------------
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      password: "",
-    },
-    validate: checkUserName,
-    validateOnBlur: false,
-    validateOnChange: false,
-    onSubmit: async (values) => {
-      console.log(values);
-    },
-  });
-  // const [data, setData] = useState({
-  //   username: username,
-  //   password: password,
-  //   phone: phone,
-  //   email: email,
-  //   passwordconfirm: password,
-  // });
-  // const handleInput = (e) => {
-  //   setData({ ...data, [e.target.username]: e.target.e });
-  // };
+  
+
+
   const data = {
     username: username,
     password: password,
@@ -53,11 +38,12 @@ export default function Login() {
     email: email,
     phone: phone,
   };
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await Axios.post('http://127.0.0.1:3002/users/api/register', data)
+      await Axios.post("http://127.0.0.1:3002/users/api/register", data)
         .then((res) => {
           console.log(res);
         })
@@ -68,16 +54,25 @@ export default function Login() {
       console.log(err);
     }
   };
+  const redirect =()=>{
+   
+    window.location = 'http://localhost:3000/ProfilePage'
+
+  }
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
+   
     try {
-      await Axios.get(`http://127.0.0.1:3002/users/api/login`, data)
+      await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
           console.log(err);
         });
+      if(await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)){
+        redirect()
+      }
     } catch (err) {
       console.log(err);
     }
@@ -145,8 +140,6 @@ export default function Login() {
             </div>
           </form>
         </div>
-
-        <></>
       </>
     );
   }
@@ -253,4 +246,32 @@ export default function Login() {
       </div>
     </>
   );
+  
+
 }
+
+
+
+//---------------------------------------------------------------------------------------------------------------------
+  // const formik = useFormik({
+  //   initialValues: {
+  //     username: "",
+  //     password: "",
+  //   },
+  //   validate: checkUserName,
+  //   validateOnBlur: false,
+  //   validateOnChange: false,
+  //   onSubmit: async (values) => {
+  //     console.log(values);
+  //   },
+  // });
+  // const [data, setData] = useState({
+  //   username: username,
+  //   password: password,
+  //   phone: phone,
+  //   email: email,
+  //   passwordconfirm: password,
+  // });
+  // const handleInput = (e) => {
+  //   setData({ ...data, [e.target.username]: e.target.e });
+  // };
