@@ -45,30 +45,8 @@ const Product = () => {
               </div>
             </div>
             <div className="right_product">
-                {/* <RenderProduct/> */}
-                {STORES_PRODUCT.map((store) => {
-                return (
-                  <div key={store.id}>
-                    <div
-                      className="card"
-                      onClick={() =>
-                        handleOnclick({
-                          id: store.id,
-                          img: store.imgUrl,
-                          name: store.name,
-                          price: store.price,
-                        })
-                      }
-                    >
-                      <div className="card-image">
-                        <img src={store.imgUrl} alt="" />
-                      </div>
-                      <div className="heading">{store.name}</div>
-                      <div className="category">{store.price} </div>
-                    </div>
-                  </div>
-                );
-              })}
+                <RenderProduct/>
+                
             </div>
           </div>
         </Col>

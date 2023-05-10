@@ -54,11 +54,12 @@ export default function Login() {
       console.log(err);
     }
   };
-  const redirect =()=>{
+  const redirect =(data)=>{
    
     window.location = 'http://localhost:3000/ProfilePage'
-
+    console.log(data)
   }
+  
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
    
@@ -71,7 +72,7 @@ export default function Login() {
           console.log(err);
         });
       if(await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)){
-        redirect()
+        redirect(data)
       }
     } catch (err) {
       console.log(err);

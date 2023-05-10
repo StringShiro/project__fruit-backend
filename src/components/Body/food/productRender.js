@@ -24,7 +24,6 @@ export default class RenderProduct extends React.Component {
       });
   }
   render() {
-   
     const handleOnclick = (e) => {
      console.log(e)
      
@@ -33,7 +32,7 @@ export default class RenderProduct extends React.Component {
     return (
       <div className="containerBox">
         {this.state.products.map((product) => (
-          <div className="card" key={product._id} onClick={handleOnclick}>
+          <div className="card" key={product._id}>
             <div className="card-image">
               <img src={product.image} alt="..." />
             </div>
