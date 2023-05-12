@@ -1,16 +1,13 @@
 import "./Logo_search.scss";
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
-import { setLanguage } from "../../../redux/cartSlice";
 
 function Logosearch() {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
   //
-  const language = useSelector((state) => state.cartSlice.language);
 
   const product = useSelector((state) => state.cartSlice.product);
   //
