@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   dataproduct: [],
   product: [],
+  language: null,
 };
 
 export const cartSlice = createSlice({
@@ -47,6 +48,10 @@ export const cartSlice = createSlice({
         state.product[itemIndex].quantity -= 1;
       }
     },
+    //
+    setLanguage: (state, action) => {
+      state.language = action.payload;
+    },
   },
 });
 
@@ -59,6 +64,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   updatevalueinput,
+  setLanguage,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -7,9 +7,12 @@ import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getdataproduct } from "../../../redux/cartSlice";
+import { useTranslation } from "react-i18next";
+
 const Product = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const handleOnclick = (data) => {
     dispatch(getdataproduct(data));
     return navigate(`/Product_details?id=${data.id}`);
@@ -25,7 +28,7 @@ const Product = () => {
           <div className="Product">
             <div className="left_product">
               <div className="determine">
-                <span>Danh mục sản phẩm</span>
+                <span>{t("product.product_portfolio")}</span>
                 <ul>
                   {PRODUCT.map((products) => {
                     return (
@@ -40,7 +43,7 @@ const Product = () => {
                     );
                   })}
                 </ul>
-                <span>Lọc theo giá</span>
+                <span>{t("product.Filter_by_price")}</span>
                 <input type="text" className="form-control" />
                 <ul className="price">
                   <li>10k-20k</li>
@@ -64,8 +67,7 @@ const Product = () => {
                           name: store.name,
                           price: store.price,
                         })
-                      }
-                    >
+                      }>
                       <div className="card-image">
                         <img src={store.imgUrl} alt="" />
                       </div>

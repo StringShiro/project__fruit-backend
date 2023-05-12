@@ -1,11 +1,36 @@
 import "./Logo_search.scss";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../translate/config";
+import { setLanguage } from "../../../redux/cartSlice";
 
 function Logosearch() {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+  //
+  const language = useSelector((state) => state.cartSlice.language);
+
   const product = useSelector((state) => state.cartSlice.product);
+  //
+
   const [nav, setnav] = useState(false);
+  // chuyển đổi ngôn ngữ
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("language");
+    if (storedLanguage) {
+      i18n.changeLanguage(storedLanguage);
+    }
+  }, []);
+  const onclicklanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("language", lng);
+  };
+  // const onclicklanguage = (e) => {
+  //   i18n.changeLanguage(e);
+  // };
+
   const scroll_down = () => {
     if (window.scrollY > 90) {
       setnav(true);
@@ -13,6 +38,7 @@ function Logosearch() {
       setnav(false);
     }
   };
+
   window.addEventListener("scroll", scroll_down);
   return (
     <>
@@ -28,19 +54,19 @@ function Logosearch() {
           </Link>
           <ul className="Navbar_home">
             <li>
-              <Link to="/">Trang chủ</Link>
+              {/* <Link to="/">Trang chủ</Link> */}
+              <Link to="/">{t("navbar.home")}</Link>
             </li>
             <li>
-              <Link to="/gioithieu">Giới thiệu</Link>
+              <Link to="/gioithieu">{t("navbar.introduce")}</Link>
             </li>
             <li>
-              <Link to="/sanpham">Sản Phẩm</Link>
+              <Link to="/sanpham">{t("navbar.product")}</Link>
             </li>
             <li>
-              <Link to="/lienhe">Liên hệ</Link>
+              <Link to="/lienhe">{t("navbar.contact")}</Link>
             </li>
           </ul>
-
           <ul className="icon">
             <li>
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -87,9 +113,20 @@ function Logosearch() {
                 <i className="fa-solid fa-bars"></i>
               </Link>
             </li>
+            <li>
+              <i className="fa-solid fa-language"></i>
+              <ul className="lge">
+                <li>
+                  <span onClick={() => onclicklanguage("vi")}>vi</span>
+                </li>
+                <li>
+                  <span onClick={() => onclicklanguage("en")}>en</span>
+                </li>
+              </ul>
+            </li>
           </ul>
 
-          <ul className="Navbar_bar">
+          {/* <ul className="Navbar_bar">
             <li>
               <Link to="/">Trang chủ</Link>
             </li>
@@ -102,7 +139,7 @@ function Logosearch() {
             <li>
               <Link to="/lienhe">Liên hệ</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </>

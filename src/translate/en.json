@@ -1,0 +1,41 @@
+{
+  "navbar":{
+    "home":"Home",
+    "introduce":"Introduce",
+    "product":"Product",
+    "contact":"Contact"
+  },
+  "infor":{
+    "account_information":"Account information",
+    "My_order":"My order",
+    "logout":"Logout",
+    "infor":"Infor",
+    "greeting":"Welcome to Healthyroo! Here we have products with main origin from nature, originating from the southwestern region of Vietnam."
+    ,
+    "product_infor":{
+      "infor1":"The product is flexible and remains the taste of fresh fruits that are very convenient for the whole family to be used as gifts for family members and foreigners to introduce Vietnamese agricultural products.",
+      "infor2":"The product I will introduce to you is a new product of Healthy Roo. Products are launched in Vietnam and become one of the best quality drying products in Vietnam."
+    },
+    "customer_care":{
+      "text":"Customer care"
+    },
+    "genuine":{
+      "text":"Genuine"
+  
+    },
+    "new_product":"New product",
+    "Diverse_payment":"Diverse payment"
+
+  },
+  "product":{
+    "my_product":"My product",
+    "product_portfolio": "Product Portfolio",
+    "guava":"Guava",
+    "papaya":"Papaya",
+    "banana":"Banana",
+    "whisper":"Thớm",
+    "mango":"Mango",
+    "Filter_by_price":"Filter by price"
+  }
+
+}
