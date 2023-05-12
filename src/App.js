@@ -9,7 +9,10 @@ import Contact from "./components/Body/contact/Contact";
 import Product from "./components/Body/food/Product";
 import Login from "./routers/Login";
 import Productdetails from "./components/Body/food/Product_details/Product_details";
-
+import Admin from "./components/admin/Admin";
+import EmployeeManager from "./components/admin/EmployeeManager/EmployeeManager";
+import AddNewProduct from "./components/admin/AddNewProduct/AddNewProduct";
+import UserManagement from "./components/admin/UserManagement/UserManagement";
 function App() {
   return (
     <>
@@ -18,8 +21,7 @@ function App() {
           <Route
             path="/"
             preventScrollReset={true}
-            element={<PageHome />}
-          ></Route>
+            element={<PageHome />}></Route>
           <Route path="/ProfilePage" element={<ProfilePage />}></Route>
           <Route path="/gioithieu" element={<Introduce />}></Route>
           <Route path="/sanpham" element={<Product />}></Route>
@@ -27,6 +29,11 @@ function App() {
           <Route path="/shopping" element={<Shopping />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/Product_details" element={<Productdetails />}></Route>
+          <Route path="/admin" element={<Admin />}>
+            <Route path="EmployeeManager" element={<EmployeeManager />} />
+            <Route path="AddNewProduct" element={<AddNewProduct />} />
+            <Route path="UserManagement" element={<UserManagement />} />
+          </Route>
         </Routes>
       </div>
     </>
