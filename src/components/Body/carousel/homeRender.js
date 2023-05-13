@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import "./Home_Carousel.scss";
 
-
 export default class HomeProduct extends React.Component {
   state = {
     products: [],
@@ -25,16 +24,34 @@ export default class HomeProduct extends React.Component {
       });
   }
   render() {
-    const handleOnclick = (e) => {
-      console.log(e);
+    const redirect = (e) => {
+      const productData = [];
+      const target = e.target.parentElement;
+      const id = target.getAttribute("data-id");
+      window.location = `/sanpham/Product_details/${id}`;
+      const productname = target.querySelector(".heading");
+      const currency = target.querySelector(".category");
+      const image = target.querySelector("img");
+      productData.push({
+        id: id,
+        productname: productname.textContent,
+        currency: currency.textContent,
+        image: image.src,
+      });
+      localStorage.setItem("productData", JSON.stringify(productData));
     };
     return (
       <>
         {this.state.products.map((product) => (
-          <div className="HomeCarousel_form" key={product._id}>
+          <div
+            className="HomeCarousel_form"
+            key={product._id}
+            data-id={product._id}
+            onClick={redirect}
+          >
             <img src={product.image} alt="" />
-            <p>{product.productname}</p>
-            <p>{product.currency}</p>
+            <p className="heading">{product.productname}</p>
+            <p className="category">{product.currency}</p>
           </div>
         ))}
       </>
@@ -42,22 +59,4 @@ export default class HomeProduct extends React.Component {
   }
 }
 
-// \\<div key={products.id}>
-// <div
-//   className="card"
-//   // onClick={() =>
-//   //   handleOnclick({
-//   //     id: data.id,
-//   //     // img: data.imgUrl,
-//   //     // name: data.name,
-//   //     // price: data.price,
-//   //   })
-//   // }
-// >
-//   <div className="card-image">
-//     <img src={products.image} alt="" />
-//   </div>
-//   <div className="heading">{products.productname}</div>
-//   <div className="category">{products.currency} </div>
-// </div>
-// </div>
+

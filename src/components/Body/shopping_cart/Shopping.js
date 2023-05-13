@@ -29,10 +29,15 @@ const Shopping = () => {
   const totalPrice = () => {
     let total = 0;
     product.forEach((item) => {
-      total += item.quantity * item.price;
+      total += item.quantity * item.currency;
     });
     return total.toLocaleString("en-US");
   };
+  const showData  = ()=>{
+    let product = localStorage.getItem('productData')
+    console.log(product)
+  }
+  window.onload = showData
   return (
     <>
       <Logosearch />
@@ -72,7 +77,7 @@ const Shopping = () => {
                     <div className="content_card">
                       <h5>Tên sản phẩm: {item.name}</h5>
                       <p>{`Thông tin: ...`}</p>
-                      <p>Giá sản phẩm:{item.price}</p>
+                      <p>Giá sản phẩm:{item.currency}</p>
                       <div className="quantity">
                         <button
                           className="btn"

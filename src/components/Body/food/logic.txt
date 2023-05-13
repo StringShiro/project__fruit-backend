@@ -1,23 +1,288 @@
 {/* {STORES_PRODUCT.map((store) => {
-                return (
-                  <div key={store.id}>
-                    <div
-                      className="card"
-                      onClick={() =>
-                        handleOnclick({
-                          id: store.id,
-                          img: store.imgUrl,
-                          name: store.name,
-                          price: store.price,
-                        })
-                      }
-                    >
-                      <div className="card-image">
-                        <img src={store.imgUrl} alt="" />
-                      </div>
-                      <div className="heading">{store.name}</div>
-                      <div className="category">{store.price} </div>
-                    </div>
-                  </div>
-                );
+return (
+  <div key={store.id}>
+    <div
+      className="card"
+      onClick={() =>
+        handleOnclick({
+          id: store.id,
+          img: store.imgUrl,
+          name: store.name,
+          price: store.price,
+        })
+      }
+    >
+      <div className="card-image">
+        <img src={store.imgUrl} alt="" />
+      </div>
+      <div className="heading">{store.name}</div>
+      <div className="category">{store.price} </div>
+    </div>
+  </div>
+);
+
               })} */}
+
+
+
+cardAll.forEach((card) => {
+        card.addEventListener("click", (e) => {
+          const productname = card.querySelector(".heading").textContent;
+          const currency = card.querySelector(".category").textContent;
+          const image = card.querySelector(".card-image img").src;
+          
+          productData.push({
+            image: image,
+            productname: productname,
+            currency: currency,
+          });
+          
+
+        });
+      });
+
+
+
+// \\<div key={products.id}>
+// <div
+//   className="card"
+//   // onClick={() =>
+//   //   handleOnclick({
+//   //     id: data.id,
+//   //     // img: data.imgUrl,
+//   //     // name: data.name,
+//   //     // price: data.price,
+//   //   })
+//   // }
+// >
+//   <div className="card-image">
+//     <img src={products.image} alt="" />
+//   </div>
+//   <div className="heading">{products.productname}</div>
+//   <div className="category">{products.currency} </div>
+// </div>
+// </div>
+
+// let cardItem = document.querySelectorAll(".card");
+// cardItem.forEach((card,index)=>{
+//   console.log(card.getAttribute('data-id')+" vị trí "+ index)
+// })
+
+
+
+<div className="Product_details">
+        {dataproduct.map((item, index) => {
+          return (
+            <div className="flex" key={index}>
+              <div className="column-xs-12 column-md-7">
+<div className="product-gallery">
+  <div className="product-image">
+    <img className="active" src={item.img} alt="" />
+  </div>
+  <ul className="image-list">
+    <li className="image-item">
+      <img src={item.img} alt="" />
+    </li>
+    <li className="image-item">
+      <img src={item.img} alt="" />
+    </li>
+    <li className="image-item">
+      <img src={item.img} alt="" />
+    </li>
+  </ul>
+</div>
+              </div>
+              <div className="column-xs-12 column-md-6 col-6">
+<h1>{item.name}</h1>
+<h2>{item.price}</h2>
+<div className="description">
+  <p>content</p>
+</div>
+<div className="d-flex ">
+  <div className="quantity">
+    <button
+      className="btn"
+      onClick={() => setQuantity((prev) => prev + 1)}
+    >
+      +
+    </button>
+    <input
+      type="text"
+      value={quantity}
+      onChange={(e) => inputonchange(e)}
+    />
+    <button
+      className="btn"
+      onClick={() =>
+        setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+      }
+    >
+      -
+    </button>
+  </div>
+  <button
+    className="add-to-cart"
+    onClick={() =>
+      dispatch(
+        addToCart({
+          id: item.id,
+          img: item.img,
+          name: item.name,
+          price: item.price,
+          quantity,
+        })
+      )
+    }
+  >
+    Thêm vào giỏ hàng
+  </button>
+</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="Product_details_comment">
+        <div className="comment">
+          <h5>Nhận xét sản phẩm này</h5>
+          <ul>
+            <p>Đánh giá của bạn</p>
+            <StarRating />
+          </ul>
+          <ul>
+            <p>Nhận xét của bạn</p>
+            <textarea className="form-control" rows={5}></textarea>
+          </ul>
+          <ul className="last">
+            <li>
+              <p>Tên</p>
+              <input className="form-control" type="text" />
+            </li>
+            <li>
+              <p>Email</p>
+              <input className="form-control" type="email" />
+            </li>
+          </ul>
+          <button className="btn submit">Gửi đi</button>
+        </div>
+      </div>
+
+
+      const [quantity, setQuantity] = useState(1);
+  const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
+  const dispatch = useDispatch();
+  const inputonchange = (e) => {
+    const inputValue = Number(e.target.value);
+
+    setQuantity(inputValue);
+  };
+
+      const productname = document.querySelectorAll('.heading')
+
+
+ productname.forEach((product)=>{
+        product.addEventListener('click', ()=>{
+        const productData = []
+
+          const value = product.textContent
+          productData.push({value})
+          console.log(value)
+
+          console.log(productData)
+        })
+
+      })  
+
+
+
+
+ // const productData = [{
+    //   id:"",
+    //   productname:"",
+    //   currency:"",
+    //   image:"",
+
+    // }
+
+    // ];
+    // function ProductData (id,productname,currency,image){
+    //   this.id = id;
+    //   this.productname = productname;
+    //   this.currency = currency;
+    //   this.image = image
+
+    // }
+      // var product = new ProductData(id,productname,currency,image)
+
+
+        // const image = document.querySelector('.product-gallery .product-image img')
+    // const productname = document.querySelector('.productname')
+    // const currency = document.querySelector('.currency')
+    // // const showimage= localStorage.getItem('image')
+    // const showproductname = localStorage.getItem('productname')
+    // const showcurrency = localStorage.getItem('currency')
+    // image.src = showimage
+    // productname.textContent = showproductname
+    // currency.textContent = showcurrency
+
+
+
+    // \\<div key={products.id}>
+// <div
+//   className="card"
+//   // onClick={() =>
+//   //   handleOnclick({
+//   //     id: data.id,
+//   //     // img: data.imgUrl,
+//   //     // name: data.name,
+//   //     // price: data.price,
+//   //   })
+//   // }
+// >
+//   <div className="card-image">
+//     <img src={products.image} alt="" />
+//   </div>
+//   <div className="heading">{products.productname}</div>
+//   <div className="category">{products.currency} </div>
+// </div>
+// </div>
+
+
+
+  {Stores &&
+            Stores.map((item) => {
+              return (
+<SwiperSlide key={item.id}>
+  <div className="HomeCarousel_form">
+    <img src={item.imgUrl} alt="" />
+    <p>{item.name}</p>
+    <p>{item.price}</p>
+  </div>
+</SwiperSlide>
+              );
+            })}
+
+
+
+        {/* <ul className="image-list">
+<li className="image-item">
+  <img src={data.image} alt="..." />
+</li>
+<li className="image-item">
+  <img src={data.image} alt="..." />
+</li>
+<li className="image-item">
+  <img src={data.image} alt="..." />
+</li>
+              </ul> */}
+
+  <Swiper
+          slidesPerView={4}
+          scrollbar={{
+            hide: false,
+          }}
+          modules={[Scrollbar]}
+          className="mySwiper"
+        >
+          <SwiperSlide></SwiperSlide>
+        </Swiper>

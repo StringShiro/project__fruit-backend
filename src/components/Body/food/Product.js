@@ -7,11 +7,6 @@ import { Col, Row } from "react-bootstrap";
 import RenderProduct from '../food/productRender'
 // import { useState } from "react";
 const Product = () => {
-  const handleOnclick = (e) => {
-    console.log(e)
-    
-     
-   };
   
 
   return (
@@ -46,7 +41,6 @@ const Product = () => {
             </div>
             <div className="right_product">
                 <RenderProduct/>
-                
             </div>
           </div>
         </Col>

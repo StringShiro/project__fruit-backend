@@ -29,6 +29,11 @@
         li {
           cursor: pointer;
           padding: 10px;
+          display: flex;
+          align-items: center;
+          .child_one{
+            padding-left: 10px;
+          }
           &:hover {
             background-color: #e6e2e2;
             opacity: 0.9;

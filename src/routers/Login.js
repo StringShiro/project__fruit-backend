@@ -178,7 +178,7 @@ export default function Login() {
               <input
                 type="email"
                 className="form-control mt-1"
-                placeholder="Email Address"
+                placeholder="Email "
                 value={email || ""}
                 name="email"
                 // onChange={handleInput}
@@ -210,8 +210,6 @@ export default function Login() {
                 placeholder="passwordconfirm"
                 value={passwordconfirm || ""}
                 name="passwordconfirm"
-                // onChange={handleInput}
-
                 onChange={(e) => {
                   setPasswordconfirm(e.target.value);
                   console.log(e.target.value);
@@ -230,7 +228,7 @@ export default function Login() {
 
                 onChange={(e) => {
                   setPhone(e.target.value);
-                  console.log(e);
+                  console.log(e.target.value);
                 }}
               />
             </div>

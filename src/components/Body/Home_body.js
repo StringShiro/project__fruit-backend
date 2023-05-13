@@ -6,7 +6,6 @@ class Homebody extends React.Component {
     return (
       <>
         <Bannerhome />
-
         <HomeCarousel />
       </>
     );
