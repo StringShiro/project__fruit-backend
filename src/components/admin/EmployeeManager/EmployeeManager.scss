@@ -1,9 +1,14 @@
 .EmployeeManager{
-  padding: 20px;
+ form{
+  input{
+    border-radius: none;
+  }
+ }
   table {
        font-family: arial, sans-serif;
        border-collapse: collapse;
-       width: 100%;
+       width: 85% !important;
+       margin: 0 auto;
        td, th {
          border: 1px solid #dddddd;
          text-align: left;

@@ -1,12 +1,10 @@
 import React from "react";
 import "./Admin.scss";
-// import { useNavigate } from "react-router-dom";
-// import EmployeeManager from "./EmployeeManager/EmployeeManager";
 import { NavLink, Outlet } from "react-router-dom";
 const Admin = () => {
   return (
-    <div className="">
-      <section className="navigation">
+    <div className="d-flex justify-content-between p-3">
+      <section className="navigation col-md-2">
         <div className="nav-container">
           <nav>
             <div className="nav-mobile">
@@ -34,7 +32,10 @@ const Admin = () => {
           </nav>
         </div>
       </section>
-      <Outlet></Outlet>
+
+      <div className="col-md-10">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };

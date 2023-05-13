@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import rootReducer from "./rootReducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 import thunk from "redux-thunk";
 const persistConfig = {
   key: "product",
