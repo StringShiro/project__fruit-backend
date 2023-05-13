@@ -1,0 +1,41 @@
+{
+  "navbar":{
+    "home":"Trang chủ",
+    "introduce":"Giới thiệu",
+    "product":"Sản phẩm",
+    "contact":"Liên hệ"
+  },
+  "infor":{
+    "account_information":"Thông tin tài khoản",
+    "My_order":"Đơn hàng của tôi",
+    "logout":"Đăng xuất",
+    "infor":"Giới thiệu",
+    "greeting":"Chào mừng bạn đến với HealthyRoo! Tại đây chúng tôi có những sản phẩm có nguồn gốc chính từ thiên nhiên, được xuất xứ từ Miền Tây Nam Bộ Việt Nam."
+    ,
+    "product_infor":{
+      "infor1":"Sản phẩm được sấy dẻo và vẫn giữ nguyên vị của trái cây tươi rất tiện lợi cho cả nhà có thể dùng làm quà tặng cho người thân trong gia đình, người ngoài nước để giới thiệu về nông sản của Việt Nam.",
+      "infor2":"Sản phẩm mà tôi sẽ giới thiệu với các bạn là một sản phẩm mới của hãng Healthy Roo. Sản phẩm được tung ra thị trường Việt Nam và trở thành một trong những sản phẩm sấy chất lượng nhất Việt Nam."
+    },
+    "customer_care":{
+      "text":"Chăm sóc khách hàng"
+    },
+    "genuine":{
+      "text":"Hàng chính hãng"
+  
+    },
+    "new_product":"Sản phẩm mới",
+    "Diverse_payment":"Thanh toán đa dạng"
+
+  },
+  "product":{
+    "my_product":"Sản phẩm của tôi",
+    "product_portfolio": "Danh mục sản phẩm",
+    "guava":"Ổi",
+    "papaya":"Đu đủ",
+    "banana":"Chuối",
+    "whisper":"Thớm",
+    "mango":"Xoài",
+    "Filter_by_price":"Lọc theo giá"
+  }
+
+}

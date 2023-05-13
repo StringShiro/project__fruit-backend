@@ -3,7 +3,6 @@ import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
 import StarRating from "./StarRating";
 import Homefooter from "../../../Footer/Home_footer";
-// import  Axios  from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/cartSlice";
 // import { address } from "../productRender";

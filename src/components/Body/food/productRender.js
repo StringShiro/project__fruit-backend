@@ -23,7 +23,7 @@ export default class RenderProduct extends React.Component {
 
   render() {
     const redirect = (id) => {
-      window.location = `/sanpham/Product_details/${id}`;
+      window.location = `/Product_details/${id}`;
       // console.log(productData);
     };
     const showID = async (event) => {

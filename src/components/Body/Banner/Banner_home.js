@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Row from "react-bootstrap/Row";
 import "./Banner_home.scss";
 import React from "react";
+import { useTranslation } from "react-i18next";
 // const styleHeight = {
 //   display: "block",
 //   paddingLeft: "100px",
@@ -10,6 +11,7 @@ import React from "react";
 //   maxWidth: "100%",
 // };
 export default function Bannerhome() {
+  const { t } = useTranslation();
   return (
     <div className="banner__home">
       <Carousel fade>
@@ -75,6 +77,9 @@ export default function Bannerhome() {
             src="https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598"
             alt=""
           />
+        </div>
+        <div className="horizontal">
+          <span>{t("infor.My_order")}</span>
         </div>
       </div>
     </div>

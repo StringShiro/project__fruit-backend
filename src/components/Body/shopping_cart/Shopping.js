@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Shopping.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
@@ -9,23 +9,30 @@ import {
   increaseQuantity,
   decreaseQuantity,
   resetCart,
+  updatevalueinput,
 } from "../../../redux/cartSlice";
 const Shopping = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.cartSlice.product);
 
-  const [quantity, setQuantity] = useState(product);
-
+  // Tăng quantity
   const handleOnclickI = (data) => {
     dispatch(increaseQuantity(data));
   };
+  // giảm quantity
   const handleOnclickD = (data) => {
     dispatch(decreaseQuantity(data));
   };
-
-  const inputonchange = (e) => {
-    setQuantity(e.target.value);
+  // cập nhật số lượng mới
+  const inputonchange = (itemId, e) => {
+    const newQuantity = Number(e.target.value);
+    // Cập nhật số lượng sản phẩm cho sản phẩm có ID tương ứng
+    const updatedProducts = product.map((item) =>
+      item.id === itemId ? { ...item, quantity: newQuantity } : item
+    );
+    dispatch(updatevalueinput({ product: updatedProducts }));
   };
+  // tính tổng
   const totalPrice = () => {
     let total = 0;
     product.forEach((item) => {
@@ -50,8 +57,10 @@ const Shopping = () => {
                 alt=""
               />
               <p>Giỏ hàng của bạn đang trống</p>
-              <button className="btn btn-danger">
-                <Link to={"/sanpham"}>Mua ngay</Link>
+              <button className="btn">
+                <Link to={"/sanpham"} className="link">
+                  Mua ngay
+                </Link>
               </button>
             </div>
           </div>
@@ -88,7 +97,7 @@ const Shopping = () => {
                         <input
                           type="text"
                           value={item.quantity}
-                          onChange={(e) => inputonchange(e)}
+                          onChange={(e) => inputonchange(item.id, e)}
                         />
                         <button
                           className="btn"

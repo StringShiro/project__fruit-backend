@@ -8,42 +8,42 @@ export const PRODUCT = [
 export const STORES_PRODUCT = [
   {
     id: 1,
-    name: "soài",
+    name: "Xoài",
     price: 300000,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
   },
   {
     id: 2,
-    name: "soài",
+    name: "Ổi",
     price: 500000,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
   },
   {
     id: 3,
-    name: "soài",
+    name: "Chuối",
     price: 900,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
   },
   {
     id: 4,
-    name: "soài",
+    name: "Xoài",
     price: 1000,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
   },
   {
     id: 5,
-    name: "soài",
+    name: "Đu đủ",
     price: 500,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
   },
   {
     id: 6,
-    name: "soài",
+    name: "Xoài",
     price: 200,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",
@@ -64,7 +64,7 @@ export const STORES_PRODUCT = [
   },
   {
     id: 9,
-    name: "Thơm",
+    name: "Thớm",
     price: 15000,
     imgUrl:
       "https://media.discordapp.net/attachments/1077147401363673108/1077148205936025690/z4123791319370_e0a12483b6f1724c8b167e61fdd07736.jpg?width=547&height=598",

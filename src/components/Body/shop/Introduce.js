@@ -2,7 +2,9 @@ import React from "react";
 import "./Introduce.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
+import { useTranslation } from "react-i18next";
 function Introduce() {
+  const { t } = useTranslation();
   return (
     <>
       <Logosearch />
@@ -15,28 +17,14 @@ function Introduce() {
             />
           </div>
           <div className="introduce_content_head">
-            <h1>Giới thiệu</h1>
-            <span>
-              Chào mừng bạn đến với HealthyRoo! Tại đây chúng tôi có những sản
-              phẩm có nguồn gốc chính từ thiên nhiên, được xuất xứ từ Miền Tây
-              Nam Bộ Việt Nam
-            </span>
-            <h1>Sản phẩm</h1>
+            <h1>{t("infor.infor")}</h1>
+            <span>{t("infor.greeting")}</span>
+            <h1>{t("navbar.product")}</h1>
 
             <div className="product_introduction">
-              <p>
-                Sản phẩm được sấy dẻo và vẫn giữ nguyên vị của trái cây tươi rất
-                tiện lợi cho cả nhà có thể dùng làm quà tặng cho người thân
-                trong gia đình, người ngoài nước để giới thiệu về nông sản của
-                Việt Nam
-              </p>
+              <p>{t("infor.product_infor.infor1")}</p>
               <div className="bar"></div>
-              <p>
-                Sản phẩm mà tôi sẽ giới thiệu với các bạn là một sản phẩm mới
-                của hãng Healthy Roo. Sản phẩm được tung ra thị trường Việt Nam
-                và trở thành một trong những sản phẩm sấy chất lượng nhất Việt
-                Nam.
-              </p>
+              <p>{t("infor.product_infor.infor2")}</p>
             </div>
           </div>
         </div>
@@ -48,7 +36,7 @@ function Introduce() {
             />
 
             <div className="content">
-              <h4>Chăm sóc khách hàng</h4>
+              <h4>{t("infor.customer_care.text")}</h4>
               <span>
                 Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những
                 bằng chứng mang dấu ấn lịch sử Converse 100 năm, và đang không
@@ -64,7 +52,7 @@ function Introduce() {
               />
             </div>
             <div className="content">
-              <h4>Sản phẩm mới</h4>
+              <h4>{t("infor.new_product")}</h4>
               <span>
                 Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những
                 bằng chứng mang dấu ấn lịch sử Converse 100 năm, và đang không
@@ -80,7 +68,7 @@ function Introduce() {
               />
             </div>
             <div className="content">
-              <h4>Hàng chính hãng</h4>
+              <h4>{t("infor.genuine.text")}</h4>
               <span>
                 Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những
                 bằng chứng mang dấu ấn lịch sử Converse 100 năm, và đang không
@@ -96,7 +84,7 @@ function Introduce() {
               />
             </div>
             <div className="content">
-              <h4>Thanh toán đa dạng</h4>
+              <h4>{t("infor.Diverse_payment")}</h4>
               <span>
                 Tại đây, mỗi một dòng chữ, mỗi chi tiết và hình ảnh đều là những
                 bằng chứng mang dấu ấn lịch sử Converse 100 năm, và đang không

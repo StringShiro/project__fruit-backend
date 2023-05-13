@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   dataproduct: [],
   product: [],
+  language: null,
 };
 
 export const cartSlice = createSlice({
@@ -19,6 +20,9 @@ export const cartSlice = createSlice({
       } else {
         state.product.push(action.payload);
       }
+    },
+    updatevalueinput: (state, action) => {
+      state.product = action.payload.product;
     },
     removeFromCart: (state, action) => {
       state.product = state.product.filter(
@@ -44,6 +48,10 @@ export const cartSlice = createSlice({
         state.product[itemIndex].quantity -= 1;
       }
     },
+    //
+    setLanguage: (state, action) => {
+      state.language = action.payload;
+    },
   },
 });
 
@@ -55,6 +63,8 @@ export const {
   resetCart,
   increaseQuantity,
   decreaseQuantity,
+  updatevalueinput,
+  setLanguage,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

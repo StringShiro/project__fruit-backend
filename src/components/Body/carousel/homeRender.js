@@ -28,7 +28,7 @@ export default class HomeProduct extends React.Component {
       const productData = [];
       const target = e.target.parentElement;
       const id = target.getAttribute("data-id");
-      window.location = `/sanpham/Product_details/${id}`;
+      window.location = `/Product_details/${id}`;
       const productname = target.querySelector(".heading");
       const currency = target.querySelector(".category");
       const image = target.querySelector("img");
