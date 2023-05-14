@@ -41,7 +41,7 @@ function Logosearch() {
     <>
       <div className={nav === true ? " logo roll" : "logo "}>
         <div className="logo_header ">
-          <Link to="/">
+          <Link to="/" className="logoBrand">
             <div className="image">
               <img
                 src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
@@ -101,9 +101,8 @@ function Logosearch() {
             <li>
               <Link className="link" to="/shopping">
                 <i className="fa-solid fa-cart-shopping"></i>
+                <span className="number">{product.length}</span>
               </Link>
-
-              <span>{product.length}</span>
             </li>
             <li className="bar">
               <Link className="link" to="#">
@@ -121,6 +120,26 @@ function Logosearch() {
                 </li>
               </ul>
             </li>
+            <li>
+              <i className="fa-solid fa-bars" id="bar"></i>
+            </li>
+            <nav className="navbar">
+              <ul>
+                <li>
+                  {/* <Link to="/">Trang chủ</Link> */}
+                  <Link to="/">{t("navbar.home")}</Link>
+                </li>
+                <li>
+                  <Link to="/gioithieu">{t("navbar.introduce")}</Link>
+                </li>
+                <li>
+                  <Link to="/sanpham">{t("navbar.product")}</Link>
+                </li>
+                <li>
+                  <Link to="/lienhe">{t("navbar.contact")}</Link>
+                </li>
+              </ul>
+            </nav>
           </ul>
 
           {/* <ul className="Navbar_bar">

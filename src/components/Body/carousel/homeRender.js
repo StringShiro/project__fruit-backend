@@ -49,7 +49,7 @@ export default class HomeProduct extends React.Component {
             data-id={product._id}
             onClick={redirect}
           >
-            <img src={product.image} alt="" />
+            <img src={product.image} alt="..." />
             <p className="heading">{product.productname}</p>
             <p className="category">{product.currency}</p>
           </div>

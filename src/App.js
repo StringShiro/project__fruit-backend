@@ -17,24 +17,27 @@ function App() {
   return (
     <>
       <div className="app">
-        <Routes>
-          <Route
-            path="/"
-            preventScrollReset={true}
-            element={<PageHome />}></Route>
-          <Route path="/ProfilePage" element={<ProfilePage />}></Route>
-          <Route path="/gioithieu" element={<Introduce />}></Route>
-          <Route path="/sanpham" element={<Product />}></Route>
-          <Route path="/lienhe" element={<Contact />}></Route>
-          <Route path="/shopping" element={<Shopping />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/Product_details/:id" element={<Productdetails />}></Route>
-          <Route path="/admin" element={<Admin />}>
-            <Route path="EmployeeManager" element={<EmployeeManager />} />
-            <Route path="AddNewProduct" element={<AddNewProduct />} />
-            <Route path="UserManagement" element={<UserManagement />} />
-          </Route>
-        </Routes>
+        <div className="width-page">
+          <Routes>
+            <Route
+              path="/"
+              preventScrollReset={true}
+              element={<PageHome />}></Route>
+            <Route path="/ProfilePage" element={<ProfilePage />}></Route>
+            <Route path="/gioithieu" element={<Introduce />}></Route>
+            <Route path="/sanpham" element={<Product />}></Route>
+            <Route path="/lienhe" element={<Contact />}></Route>
+            <Route path="/shopping" element={<Shopping />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/Product_details/:id" element={<Productdetails />}></Route>
+            <Route path="/admin" element={<Admin />}>
+              <Route path="EmployeeManager" element={<EmployeeManager />} />
+              <Route path="AddNewProduct" element={<AddNewProduct />} />
+              <Route path="UserManagement" element={<UserManagement />} />
+            </Route>
+          </Routes>
+
+        </div>
       </div>
     </>
   );
