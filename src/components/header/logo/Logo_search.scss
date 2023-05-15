@@ -254,13 +254,16 @@
       .bar {
         display: none;
       }
-      .navbar{
+      nav.navbar{
         display: none;
       }
+
+
     }
     .Navbar_bar {
       display: none;
     }
+
   }
 }
 
@@ -328,6 +331,8 @@
         }
         li:nth-child(1) {
           width: 100%;
+          z-index: 9;
+
           ul {
             // display: block;
             left: 0;
@@ -345,6 +350,7 @@
         }
         li:nth-child(6) {
           display: flex;
+          z-index: 9;
         }
         li:nth-child(5)::before{
           content: "";
@@ -373,6 +379,9 @@
               width: 100%;
             }
         }
+        .block{
+          display: block !important
+        }
       }
       .Navbar_home {
         display: none;
@@ -393,8 +402,13 @@
           }
         }
       }
+      nav ul li a, nav ul li a:visited {
+        font-size: 15px;
+      }
+
     }
   }
+ 
 }
 
 @media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {

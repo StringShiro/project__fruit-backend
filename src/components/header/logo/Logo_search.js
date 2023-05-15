@@ -36,6 +36,12 @@ function Logosearch() {
     }
   };
 
+  const showNav = (e) => {
+    const bar = document.querySelector(".navbar");
+    bar.classList.toggle('block')
+    // bar.style.display = "block";
+    // console.log(bar);
+  };
   window.addEventListener("scroll", scroll_down);
   return (
     <>
@@ -120,7 +126,7 @@ function Logosearch() {
                 </li>
               </ul>
             </li>
-            <li>
+            <li onClick={showNav}>
               <i className="fa-solid fa-bars" id="bar"></i>
             </li>
             <nav className="navbar">
