@@ -37,10 +37,8 @@ const Product = () => {
                   })}
                 </ul>
                 <span>{t("product.Filter_by_price")}</span>
-                <input type="text" className="form-control" />
+
                 <ul className="price">
-                  <li>10k-20k</li>
-                  <li>10k-20k</li>
                   <li>10k-20k</li>
                   <li>10k-20k</li>
                   <li>10k-20k</li>
