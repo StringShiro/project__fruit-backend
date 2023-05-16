@@ -1,3 +1,5 @@
+
+
 {/* <div className="containerBox">
         <div className="ProfilePage">
           <div className="row_profile">
@@ -167,3 +169,30 @@
                             }
                           }}
                         /> */}
+
+
+
+                        
+//---------------------------------------------------------------------------------------------------------------------
+  // const formik = useFormik({
+  //   initialValues: {
+  //     username: "",
+  //     password: "",
+  //   },
+  //   validate: checkUserName,
+  //   validateOnBlur: false,
+  //   validateOnChange: false,
+  //   onSubmit: async (values) => {
+  //     console.log(values);
+  //   },
+  // });
+  // const [data, setData] = useState({
+  //   username: username,
+  //   password: password,
+  //   phone: phone,
+  //   email: email,
+  //   passwordconfirm: password,
+  // });
+  // const handleInput = (e) => {
+  //   setData({ ...data, [e.target.username]: e.target.e });
+  // };

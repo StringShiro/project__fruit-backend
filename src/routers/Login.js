@@ -1,11 +1,9 @@
-
-
 import "./Login.scss";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useFormik } from "formik";
 import { Toaster } from "react-hot-toast";
-import { checkUserName } from "./validate";
+import { checkValidate } from "./validate";
+import { checkValidateregister } from "./validate";
 import Logosearch from "../components/header/logo/Logo_search";
 import Axios from "axios";
 
@@ -21,27 +19,21 @@ export default function Login() {
     isShow: false,
   });
 
-
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
   const onClickShow = () => {
     setShowPassword(!showPassword);
   };
-  
-
-
-  const data = {
+const data = {
     username: username,
     password: password,
     passwordconfirm: passwordconfirm,
     email: email,
     phone: phone,
   };
- 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
+  const registerAxios = async () => {
     try {
       await Axios.post("http://127.0.0.1:3002/users/api/register", data)
         .then((res) => {
@@ -54,15 +46,7 @@ export default function Login() {
       console.log(err);
     }
   };
-  const redirect =(data)=>{
-   
-    window.location = 'http://localhost:3000/ProfilePage'
-    console.log(data)
-  }
-  
-  const handleSubmitLogin = async (e) => {
-    e.preventDefault();
-   
+  const axios = async () => {
     try {
       await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)
         .then((res) => {
@@ -71,12 +55,28 @@ export default function Login() {
         .catch((err) => {
           console.log(err);
         });
-      if(await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)){
-        redirect(data)
+      console.log(data);
+      if (await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)) {
+        redirect(data);
       }
     } catch (err) {
       console.log(err);
     }
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    checkValidateregister(data);
+    // registerAxios()
+  };
+  const redirect = (data) => {
+    window.location = "http://localhost:3000/ProfilePage";
+    console.log(data);
+  };
+
+  const handleSubmitLogin = async (e) => {
+    e.preventDefault();
+    checkValidate(data);
+    axios()
   };
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
@@ -97,10 +97,9 @@ export default function Login() {
               <div className="form-group mt-3">
                 <label>Username</label>
                 <input
-                  // {...formik.getFieldProps("username")}
                   type="text"
                   className="form-control mt-1"
-                  placeholder="Enter email"
+                  placeholder="Enter username"
                   value={username || ""}
                   name="username"
                   onChange={(e) => {
@@ -112,7 +111,6 @@ export default function Login() {
               <div className="form-group mt-3 input_password">
                 <label>Password</label>
                 <input
-                  // {...formik.getFieldProps("password")}
                   type="password"
                   className="form-control mt-1"
                   placeholder="Enter password"
@@ -245,32 +243,4 @@ export default function Login() {
       </div>
     </>
   );
-  
-
 }
-
-
-
-//---------------------------------------------------------------------------------------------------------------------
-  // const formik = useFormik({
-  //   initialValues: {
-  //     username: "",
-  //     password: "",
-  //   },
-  //   validate: checkUserName,
-  //   validateOnBlur: false,
-  //   validateOnChange: false,
-  //   onSubmit: async (values) => {
-  //     console.log(values);
-  //   },
-  // });
-  // const [data, setData] = useState({
-  //   username: username,
-  //   password: password,
-  //   phone: phone,
-  //   email: email,
-  //   passwordconfirm: password,
-  // });
-  // const handleInput = (e) => {
-  //   setData({ ...data, [e.target.username]: e.target.e });
-  // };
