@@ -66,7 +66,7 @@ const data = {
   const handleSubmit = async (e) => {
     e.preventDefault();
     checkValidateregister(data);
-    // registerAxios()
+    registerAxios()
   };
   const redirect = (data) => {
     window.location = "http://localhost:3000/ProfilePage";
