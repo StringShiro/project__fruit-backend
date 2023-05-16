@@ -25,7 +25,7 @@ export default function Login() {
   const onClickShow = () => {
     setShowPassword(!showPassword);
   };
-const data = {
+  const data = {
     username: username,
     password: password,
     passwordconfirm: passwordconfirm,
@@ -66,7 +66,7 @@ const data = {
   const handleSubmit = async (e) => {
     e.preventDefault();
     checkValidateregister(data);
-    registerAxios()
+    // registerAxios()
   };
   const redirect = (data) => {
     window.location = "http://localhost:3000/ProfilePage";
@@ -76,7 +76,7 @@ const data = {
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     checkValidate(data);
-    axios()
+    axios();
   };
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
@@ -164,7 +164,6 @@ const data = {
                 placeholder="e.g Jane Doe"
                 value={username || ""}
                 name="username"
-                // onChange={handleInput}
                 onChange={(e) => {
                   setUsername(e.target.value);
                   console.log(e.target.value);
@@ -179,7 +178,6 @@ const data = {
                 placeholder="Email "
                 value={email || ""}
                 name="email"
-                // onChange={handleInput}
                 onChange={(e) => {
                   setEmail(e.target.value);
                   console.log(e.target.value);

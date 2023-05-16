@@ -23,7 +23,7 @@ async function checkPassword(errors, data) {
   if (datas.password === "") {
     errors.datas.password = await toast.error("password không được để trống");
   }
-  else  {
+  else {
     errors.datas.password = await datas.password;
   }
 }
@@ -38,9 +38,6 @@ export function checkValidateregister(data) {
   const errors = checkField({}, data);
   return errors;
 }
-
-
-
 
 function checkField(errors = {}, data) {
   checkPassword(errors, data);
