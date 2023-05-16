@@ -18,7 +18,6 @@ const UserManagement = () => {
   const [valueData, setValueData] = useState([]);
   const [missingFields, setMissingFields] = useState([]);
 
-
   const hdlSubmit = (e) => {
     e.preventDefault();
     const username = e.target.username.value;
@@ -60,7 +59,6 @@ const UserManagement = () => {
       allFieldsFilled = false;
       missingFields.push("Phone");
     }
-
     if (allFieldsFilled) {
       const newUser = {
         username,
@@ -86,9 +84,7 @@ const UserManagement = () => {
     setValueData(updatedData);
   };
   //
-  const handleEdit = (index) => {
-
-  };
+  const handleEdit = (index) => {};
   return (
     <div className="UserManagement">
       <form className="p-10" onSubmit={hdlSubmit}>

@@ -1,17 +1,33 @@
 .AddNewProduct{
-     table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 85% !important;
-          margin: 0 auto;
-          td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-          }
-          
-          tr:nth-child(even) {
-            background-color: #dddddd;
-          }
-        }
+  
+  table {
+       font-family: arial, sans-serif;
+       border-collapse: collapse;
+       width: 85% !important;
+       margin: 0 auto;
+       tr{
+     
+         td, th {
+           border: 1px solid #dddddd;
+           text-align: left;
+           padding: 8px;
+           height: 100%;
+           &>ul{
+             
+             &>li{
+               list-style: disc;
+             }
+           }
+           &>ol{
+             &>li{
+               list-style-type: decimal-leading-zero;
+             }
+           }
+         }
+       }
+       
+       tr:nth-child(even) {
+         background-color: #dddddd;
+       }
+     }
 }

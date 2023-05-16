@@ -3,7 +3,8 @@ import "./AddNewProduct.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 const AddNewProduct = () => {
-  const [value, setValue] = useState("");
+  const [valueData, setValue] = useState([]);
+  const [valueInforProcduct, setValueInforProcduct] = useState("");
   const [imageData, setImageData] = useState(null);
 
   const handleFileInputChange = (event) => {
@@ -19,15 +20,34 @@ const AddNewProduct = () => {
     // reader.readAsDataURL(file);
     reader.readAsArrayBuffer(file);
   };
+  const hdlSubmit = (e) => {
+    e.preventDefault();
+    const nameproduct = e.target.nameproduct.value;
+    const price = e.target.price.value;
+    const img = e.target.img.files[0];
+    const inforProduct = valueInforProcduct;
+    const newUser = {
+      nameproduct,
+      price,
+      img,
+      inforProduct,
+    };
+    setValue([...valueData, newUser]);
+
+    e.target.reset();
+    console.log(valueData);
+  };
+
   return (
     <div className="AddNewProduct">
-      <form className="p-10">
+      <form className="p-10" onSubmit={hdlSubmit}>
         <div className="d-flex justify-content-center gap-3">
           <div className="col-md-5">
             <div className="form-row col-md-12">
               <div className="form-group col-md-12">
                 <label>Tên sản phẩm</label>
                 <input
+                  name="nameproduct"
                   type="text"
                   className="form-control  rounded-0"
                   placeholder="Tên sản phẩm"
@@ -35,7 +55,10 @@ const AddNewProduct = () => {
               </div>
               <div className="form-group col-md-12">
                 <label>Giá</label>
-                <select className="form-control  rounded-0" placeholder="Chọn">
+                <select
+                  name="price"
+                  className="form-control  rounded-0"
+                  placeholder="Chọn">
                   <option>10</option>
                   <option>20</option>
                   <option>30</option>
@@ -46,6 +69,7 @@ const AddNewProduct = () => {
               <div className="form-group col-md-12">
                 <label>Ảnh</label>
                 <input
+                  name="img"
                   type="file"
                   className="form-control  rounded-0"
                   onChange={handleFileInputChange}
@@ -67,8 +91,8 @@ const AddNewProduct = () => {
             <label htmlFor="">Thông tin sản phẩm</label>
             <ReactQuill
               theme="snow"
-              value={value}
-              onChange={setValue}
+              value={valueInforProcduct}
+              onChange={setValueInforProcduct}
               style={{ height: "" }}
             />
           </div>
@@ -87,16 +111,27 @@ const AddNewProduct = () => {
             <th>Ảnh</th>
             <th>Sửa xóa</th>
           </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-            <td>Germany</td>
-            <td className="d-flex gap-2">
-              <button className="btn btn-primary">sửa</button>
-              <button className="btn btn-danger">Xóa</button>
-            </td>
-          </tr>
+          {valueData.length > 0 &&
+            valueData.map((i, index) => {
+              return (
+                <tr key={index}>
+                  <td>{i.nameproduct}</td>
+                  <td>{i.price}</td>
+                  <td dangerouslySetInnerHTML={{ __html: i.inforProduct }}></td>
+                  <td>
+                    <img
+                      style={{ height: "50px", width: "50px" }}
+                      src={URL.createObjectURL(i.img)}
+                      alt="img"
+                    />
+                  </td>
+                  <td className="">
+                    <button className="btn btn-primary m-1">sửa</button>
+                    <button className="btn btn-danger">Xóa</button>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

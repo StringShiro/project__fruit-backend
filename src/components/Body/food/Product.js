@@ -17,9 +17,7 @@ const Product = () => {
     dispatch(getdataproduct(data));
     return navigate(`/Product_details?id=${data.id}`);
   };
-  const handlOnchange = (e) => {
-    console.log(e.target.name);
-  };
+
   return (
     <>
       <Logosearch />
@@ -33,11 +31,6 @@ const Product = () => {
                   {PRODUCT.map((products) => {
                     return (
                       <li key={products.id}>
-                        <input
-                          type="checkbox"
-                          className="form-check-input"
-                          onChange={() => handlOnchange(products.id)}
-                        />
                         <span className="child_one">{products.name}</span>
                       </li>
                     );

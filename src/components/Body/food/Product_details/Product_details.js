@@ -5,7 +5,9 @@ import StarRating from "./StarRating";
 import Homefooter from "../../../Footer/Home_footer";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/cartSlice";
+import { useTranslation } from "react-i18next";
 const Productdetails = (props) => {
+  const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
   const dispatch = useDispatch();
@@ -40,17 +42,21 @@ const Productdetails = (props) => {
                 </div>
               </div>
               <div className="column-xs-12 column-md-6 col-6">
-                <h1>{item.name}</h1>
-                <h2>{item.price}</h2>
+                <h1>
+                  {" "}
+                  {t("Product_details.name_product")}:{item.name}
+                </h1>
+                <h2>
+                  {t("Product_details.product_price")}: {item.price}
+                </h2>
                 <div className="description">
-                  <p>content</p>
+                  <p>{t("Product_details.content")}</p>
                 </div>
                 <div className="d-flex ">
                   <div className="quantity">
                     <button
                       className="btn"
-                      onClick={() => setQuantity((prev) => prev + 1)}
-                    >
+                      onClick={() => setQuantity((prev) => prev + 1)}>
                       +
                     </button>
                     <input
@@ -62,8 +68,7 @@ const Productdetails = (props) => {
                       className="btn"
                       onClick={() =>
                         setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
-                      }
-                    >
+                      }>
                       -
                     </button>
                   </div>
@@ -79,9 +84,8 @@ const Productdetails = (props) => {
                           quantity,
                         })
                       )
-                    }
-                  >
-                    Thêm vào giỏ hàng
+                    }>
+                    {t("Product_details.add_to_cart")}
                   </button>
                 </div>
               </div>
@@ -91,18 +95,18 @@ const Productdetails = (props) => {
       </div>
       <div className="Product_details_comment">
         <div className="comment">
-          <h5>Nhận xét sản phẩm này</h5>
+          <h5> {t("Product_details.comment")}</h5>
           <ul>
-            <p>Đánh giá của bạn</p>
+            <p>{t("Product_details.evaluate")}</p>
             <StarRating />
           </ul>
           <ul>
-            <p>Nhận xét của bạn</p>
+            <p>{t("Product_details.my_comment")}</p>
             <textarea className="form-control" rows={5}></textarea>
           </ul>
           <ul className="last">
             <li>
-              <p>Tên</p>
+              <p>{t("Product_details.name_product")}</p>
               <input className="form-control" type="text" />
             </li>
             <li>
@@ -110,7 +114,7 @@ const Productdetails = (props) => {
               <input className="form-control" type="email" />
             </li>
           </ul>
-          <button className="btn submit">Gửi đi</button>
+          <button className="btn submit">{t("Product_details.submit")}</button>
         </div>
       </div>
       <Homefooter />

@@ -2,7 +2,10 @@ import React from "react";
 import "./Contact.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../translate/config";
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <>
       <Logosearch />
@@ -13,8 +16,7 @@ export default function Contact() {
               className="iframe"
               title="map"
               id="gmap_canvas"
-              src="https://maps.google.com/maps?q=20KìđồngQ3&t=&z=10&ie=UTF8&iwloc=&output=embed"
-            ></iframe>
+              src="https://maps.google.com/maps?q=20KìđồngQ3&t=&z=10&ie=UTF8&iwloc=&output=embed"></iframe>
           </div>
           <div className="contact">
             <div className="contact_content">
@@ -24,8 +26,8 @@ export default function Contact() {
               />
               <ul>
                 <li>
-                  <i className="fa-solid fa-location-dot"></i>319 C16 Lý thường
-                  kiệt, Phường 15, Quận 11, Tp.HCM
+                  <i className="fa-solid fa-location-dot"></i>
+                  {t("contact.addressShop")}
                 </li>
                 <li>
                   <i className="fa-solid fa-phone"></i>076.922.0162
@@ -35,13 +37,13 @@ export default function Contact() {
                 </li>
               </ul>
             </div>
-            <h1>Liên Hệ Với Chúng Tôi</h1>
+            <h1> {t("contact.contact_us")}</h1>
             <div className="contact_left">
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Họ và tên"
+                  placeholder={t("contact.username")}
                 />
               </div>
               <div className="col-12">
@@ -57,14 +59,14 @@ export default function Contact() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Số điện thoại"
+                  placeholder={t("contact.phone")}
                 />
               </div>
               <div className="col-12">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Địa chỉ"
+                  placeholder={t("contact.addressUser")}
                 />
               </div>
             </div>
@@ -72,11 +74,10 @@ export default function Contact() {
               <textarea
                 className="form-control"
                 placeholder="Leave a comment here"
-                id="floatingTextarea2"
-              ></textarea>
+                id="floatingTextarea2"></textarea>
               <label>Comments</label>
               <button type="button" className="btn">
-                Gửi
+                {t("contact.submit")}
               </button>
             </div>
           </div>

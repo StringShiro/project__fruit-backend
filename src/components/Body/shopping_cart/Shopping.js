@@ -4,6 +4,7 @@ import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Home_footer";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import {
   removeFromCart,
   increaseQuantity,
@@ -12,6 +13,7 @@ import {
   updatevalueinput,
 } from "../../../redux/cartSlice";
 const Shopping = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.cartSlice.product);
 
@@ -51,10 +53,10 @@ const Shopping = () => {
                 src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
                 alt=""
               />
-              <p>Giỏ hàng của bạn đang trống</p>
+              <p>{t("shopping.empty_basket")}</p>
               <button className="btn">
                 <Link to={"/sanpham"} className="link">
-                  Mua ngay
+                  {t("shopping.buy_now")}
                 </Link>
               </button>
             </div>
@@ -63,12 +65,13 @@ const Shopping = () => {
           <div className="has_card">
             <div className="form_has_card">
               <div className="stick">
-                <button className="btn btn-danger">Chọn tất cả</button>
+                <button className="btn btn-danger">
+                  {t("shopping.select_all")}
+                </button>
                 <button
                   className="btn btn-danger"
-                  onClick={() => dispatch(resetCart())}
-                >
-                  Xóa tất cả
+                  onClick={() => dispatch(resetCart())}>
+                  {t("shopping.del_all")}{" "}
                 </button>
               </div>
               {product.map((item, index) => {
@@ -79,14 +82,19 @@ const Shopping = () => {
                       <img src={item.img} alt="" />
                     </div>
                     <div className="content_card">
-                      <h5>Tên sản phẩm: {item.name}</h5>
-                      <p>{`Thông tin: ...`}</p>
-                      <p>Giá sản phẩm:{item.price}</p>
+                      <h5>
+                        {t("shopping.name_product")}: {item.name}
+                      </h5>
+                      <p>
+                        {t("shopping.infor")}: {`...`}
+                      </p>
+                      <p>
+                        {t("shopping.product_price")}:{item.price}
+                      </p>
                       <div className="quantity">
                         <button
                           className="btn"
-                          onClick={() => handleOnclickI(item)}
-                        >
+                          onClick={() => handleOnclickI(item)}>
                           +
                         </button>
                         <input
@@ -96,8 +104,7 @@ const Shopping = () => {
                         />
                         <button
                           className="btn"
-                          onClick={() => handleOnclickD(item)}
-                        >
+                          onClick={() => handleOnclickD(item)}>
                           -
                         </button>
                       </div>
@@ -105,9 +112,8 @@ const Shopping = () => {
                     <div className="delete_card">
                       <button
                         className="btn btn-danger"
-                        onClick={() => dispatch(removeFromCart(item.id))}
-                      >
-                        Xóa
+                        onClick={() => dispatch(removeFromCart(item.id))}>
+                        {t("shopping.del")}
                       </button>
                     </div>
                   </div>
@@ -116,10 +122,12 @@ const Shopping = () => {
             </div>
             <div className="form_payment">
               <div className="total">
-                <h5>Tổng: {totalPrice()} VND</h5>
+                <h5>
+                  {t("shopping.total")}: {totalPrice()} VND
+                </h5>
               </div>
               <div className="payment">
-                <h2>Thanh toán</h2>
+                <h2>{t("shopping.pay")}</h2>
                 <div className="form">
                   <input
                     type="text"
@@ -142,7 +150,7 @@ const Shopping = () => {
                   <div className="pay_momo">
                     <img src="" alt="" />
                   </div>
-                  <button className="btn">Thanh toán</button>
+                  <button className="btn">{t("shopping.pay")}</button>
                 </div>
               </div>
             </div>

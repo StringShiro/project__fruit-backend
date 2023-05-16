@@ -13,6 +13,11 @@ import Admin from "./components/admin/Admin";
 import EmployeeManager from "./components/admin/EmployeeManager/EmployeeManager";
 import AddNewProduct from "./components/admin/AddNewProduct/AddNewProduct";
 import UserManagement from "./components/admin/UserManagement/UserManagement";
+import Myprofile from "./components/header/profilePage/page-child/Myprofile";
+import OrderManagement from "./components/header/profilePage/OrderManagement/OrderManagement";
+import Notification from "./components/header/profilePage/Notification/Notification";
+import ProducteEvaluation from "./components/header/profilePage/ProducteEvaluation/ProducteEvaluation";
+import NotFound from "./routers/NotFound";
 function App() {
   return (
     <>
@@ -22,7 +27,14 @@ function App() {
             path="/"
             preventScrollReset={true}
             element={<PageHome />}></Route>
-          <Route path="/ProfilePage" element={<ProfilePage />}></Route>
+          <Route path="/ProfilePage" element={<ProfilePage />}>
+            <Route path="Myprofile" element={<Myprofile />}></Route>
+            <Route path="OrderManagement" element={<OrderManagement />}></Route>
+            <Route path="Notification" element={<Notification />}></Route>
+            <Route
+              path="ProducteEvaluation"
+              element={<ProducteEvaluation />}></Route>
+          </Route>
           <Route path="/gioithieu" element={<Introduce />}></Route>
           <Route path="/sanpham" element={<Product />}></Route>
           <Route path="/lienhe" element={<Contact />}></Route>
@@ -34,6 +46,7 @@ function App() {
             <Route path="AddNewProduct" element={<AddNewProduct />} />
             <Route path="UserManagement" element={<UserManagement />} />
           </Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </>

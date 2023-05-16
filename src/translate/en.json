@@ -3,7 +3,10 @@
     "home":"Home",
     "introduce":"Introduce",
     "product":"Product",
-    "contact":"Contact"
+    "contact":"Contact",
+    "account_information":"Account",
+    "my_order":"My order",
+    "logout":"Logout"
   },
   "infor":{
     "account_information":"Account information",
@@ -36,6 +39,66 @@
     "whisper":"Thớm",
     "mango":"Mango",
     "Filter_by_price":"Filter by price"
+  },
+  "contact":{
+    "addressShop":"319 C16 Ly Thuong Kiet, Ward 15,District 11,Ho Chi Minh City",
+    "contact_us":"Contact Us",
+    "username":"Username",
+    "phone":"Phone Number",
+    "addressUser":"Address",
+    "submit":"Submit"
+  },
+  "footer":{
+    "addressShop":"Address 5/11 Hanh Thong Ward 05, Go Vap District, Ho Chi Minh City",
+    "home":"Home",
+    "introduce":"Introduce",
+    "product":"Product",
+    "contact":"Contact",
+    "account":"Account",
+    "account_information":"Account Information",
+    "order_management":"Order Management",
+    "product_evaluation":"Product Evaluation",
+    "register":"Register",
+    "registration_information":"Register to receive the latest information from us",
+    "notification":"Notification"
+  } ,
+  "profilePage":{
+    "my_account":"My Account",
+    "order_management":{
+      "text":"Order Management",
+      "no_orders":"No Order"
+    },
+    "notification":{
+      "text":"Notification",
+      "no_notice":"No Notice"
+    },
+    "product_evaluation":{
+      "text":"Product evaluation",
+      "no_evaluation":"No Evaluation"
+    }
+  },
+  "shopping":{
+    "empty_basket":"Empty basket",
+    "buy_now":"Buy now",
+    "name_product":"Name product",
+    "infor":"Product information",
+    "product_price":"Product price",
+    "del_all":"Delele all",
+    "del":"Delele",
+    "select_all":"Select all",
+    "total":"Total",
+    "pay":"Pay"
+  },
+  "Product_details":{
+    "name_product":"Name product",
+    "product_price":"Product price",
+    "content":"Content",
+    "add_to_cart":"Add to cart",
+    "comment":"Comment",
+    "evaluate":"Your review"
+    ,"my_comment":"My comment",
+    "name":"Name",
+    "submit":"Submit"
   }
 
 }
