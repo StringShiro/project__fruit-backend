@@ -65,8 +65,8 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    checkValidateregister(data);
-    // registerAxios()
+    // checkValidateregister(data);
+    registerAxios()
   };
   const redirect = (data) => {
     window.location = "http://localhost:3000/ProfilePage";
