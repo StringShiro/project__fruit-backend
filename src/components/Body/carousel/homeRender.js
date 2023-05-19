@@ -47,8 +47,7 @@ export default class HomeProduct extends React.Component {
             className="HomeCarousel_form"
             key={product._id}
             data-id={product._id}
-            onClick={redirect}
-          >
+            onClick={redirect}>
             <img src={product.image} alt="..." />
             <p className="heading">{product.productname}</p>
             <p className="category">{product.currency}</p>
@@ -58,5 +57,3 @@ export default class HomeProduct extends React.Component {
     );
   }
 }
-
-

@@ -30,10 +30,12 @@ function Introduce() {
         </div>
         <div className="introduce_content_body">
           <div className="content_pane">
-            <img
-              alt=""
-              src="https://cdn-icons-png.flaticon.com/512/3447/3447661.png"
-            />
+            <div className="image">
+              <img
+                alt=""
+                src="https://cdn-icons-png.flaticon.com/512/3447/3447661.png"
+              />
+            </div>
 
             <div className="content">
               <h4>{t("infor.customer_care.text")}</h4>

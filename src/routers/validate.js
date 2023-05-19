@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import Axios from "axios";
+import axios from "axios";
 
 export function checkValidate(data) {
   const errors = checkFields({}, data);
@@ -22,8 +22,7 @@ async function checkPassword(errors, data) {
   const datas = await data;
   if (datas.password === "") {
     errors.datas.password = await toast.error("password không được để trống");
-  }
-  else  {
+  } else {
     errors.datas.password = await datas.password;
   }
 }
@@ -38,9 +37,6 @@ export function checkValidateregister(data) {
   const errors = checkField({}, data);
   return errors;
 }
-
-
-
 
 function checkField(errors = {}, data) {
   checkPassword(errors, data);

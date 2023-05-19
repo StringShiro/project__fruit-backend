@@ -169,23 +169,30 @@
     gap: 0;
     display: flex;
     flex-wrap: wrap;
-    
-   
+    .catelogy__list {
+      & > li:last-child {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
   .wrap > ul .Catelogy_Support ul:nth-child(2) {
-
     width: 100%;
     text-align: center;
+    display: none;
   }
-  
+
   .wrap > ul .Catelogy_Support ul:nth-child(3) {
     width: 100%;
     text-align: center;
+    display: none;
   }
   .wrap > ul .Catelogy_Support ul:nth-child(4) {
+    h6 {
+      text-align: center;
+    }
     width: 100%;
   }
-  
 }
 // X-Small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
@@ -193,14 +200,12 @@
 @media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
   .Catelogy_Support {
     display: flex;
-    
+
     ul {
-      
       .icon {
         justify-content: space-between;
         padding: 0 30px;
       }
     }
-    
   }
 }

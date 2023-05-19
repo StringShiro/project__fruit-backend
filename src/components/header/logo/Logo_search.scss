@@ -82,8 +82,7 @@
 
         &:nth-child(1)::before,
         &:nth-child(2)::before,
-        &:nth-child(3)::before
-        {
+        &:nth-child(3)::before {
           content: "";
           border-left: 1px solid #223d44;
           opacity: 0.2;
@@ -91,7 +90,7 @@
           position: absolute;
           right: 0;
         }
-        &:nth-child(6){
+        &:nth-child(6) {
           display: none;
         }
         &:nth-child(5) {
@@ -241,29 +240,25 @@
       }
       & > li:nth-child(3) {
         position: relative;
-        .link{
+        .link {
           & > span {
             position: absolute;
             // right: 15%;
             top: 4px;
             color: red;
           }
-
         }
       }
       .bar {
         display: none;
       }
-      nav.navbar{
+      nav.navbar {
         display: none;
       }
-
-
     }
     .Navbar_bar {
       display: none;
     }
-
   }
 }
 
@@ -282,14 +277,6 @@
   100% {
     transform: translateY(0%);
   }
-  // 0% {
-  //   top: -300px;
-  //   opacity: 0;
-  // }
-  // 100% {
-  //   top: 0;
-  //   opacity: 1;
-  // }
 }
 
 @media only screen and (max-width: 47.1875em) {
@@ -323,7 +310,7 @@
           // padding: 10px;
           .link {
             padding: 0;
-            
+
             i {
               padding: 0;
             }
@@ -340,8 +327,8 @@
           }
         }
         li:nth-child(3) {
-          .link{
-            .number{
+          .link {
+            .number {
               position: absolute;
               top: 4px;
               color: red;
@@ -352,7 +339,7 @@
           display: flex;
           z-index: 9;
         }
-        li:nth-child(5)::before{
+        li:nth-child(5)::before {
           content: "";
           border-left: 1px solid #223d44;
           opacity: 0.2;
@@ -368,19 +355,19 @@
             right: unset;
           }
         }
-        .navbar{
+        .navbar {
           z-index: 10;
           display: flex;
           position: fixed;
           top: 45px;
           text-align: center;
-            ul{
-              display: block;
-              width: 100%;
-            }
+          ul {
+            display: block;
+            width: 100%;
+          }
         }
-        .block{
-          display: block !important
+        .block {
+          display: block !important;
         }
       }
       .Navbar_home {
@@ -402,16 +389,15 @@
           }
         }
       }
-      nav ul li a, nav ul li a:visited {
+      nav ul li a,
+      nav ul li a:visited {
         font-size: 15px;
       }
-
     }
   }
-  .logo .logo_header .icon > li.login > ul{
-    left:0
+  .logo .logo_header .icon > li.login > ul {
+    left: 0;
   }
- 
 }
 
 @media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
