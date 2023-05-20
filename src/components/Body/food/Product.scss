@@ -80,8 +80,10 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      margin:auto;
       .card{
-        margin: 10px 0;
+        // margin: 10px 0;
+        margin-bottom: 10px;
         height: 250px;
         .card-image{
           width: 100%;

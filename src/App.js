@@ -23,7 +23,7 @@ function App() {
               path="/"
               preventScrollReset={true}
               element={<PageHome />}></Route>
-            <Route path="/ProfilePage" element={<ProfilePage />}></Route>
+            <Route path="/ProfilePage/:username" element={<ProfilePage />}></Route>
             <Route path="/gioithieu" element={<Introduce />}></Route>
             <Route path="/sanpham" element={<Product />}></Route>
             <Route path="/lienhe" element={<Contact />}></Route>

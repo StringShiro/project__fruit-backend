@@ -3,7 +3,8 @@
     "home":"Home",
     "introduce":"Introduce",
     "product":"Product",
-    "contact":"Contact"
+    "contact":"Contact",
+    "login":"Login"
   },
   "infor":{
     "account_information":"Account information",

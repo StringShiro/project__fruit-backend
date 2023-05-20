@@ -14,17 +14,20 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [passwordconfirm, setPasswordconfirm] = useState("");
   let [authMode, setAuthMode] = useState("signin");
-
   let [showPassword, setShowPassword] = useState({
     isShow: false,
   });
-
+  
+  const [datastored, setDatastored] = useState("")
+  const Storage = localStorage.setItem('datastored',datastored)
+  console.log(Storage)
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
   const onClickShow = () => {
     setShowPassword(!showPassword);
   };
+
   const data = {
     username: username,
     password: password,
@@ -37,6 +40,7 @@ export default function Login() {
     try {
       await Axios.post("http://127.0.0.1:3002/users/api/register", data)
         .then((res) => {
+
           console.log(res);
         })
         .catch((err) => {
@@ -46,16 +50,19 @@ export default function Login() {
       console.log(err);
     }
   };
-  const axios = async () => {
+  const axios = async (data) => {
     try {
       await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
+          const datastg = JSON.stringify(res.data)
+          setDatastored(datastg)
+          console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
         });
-      console.log(data);
+
       if (await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)) {
         redirect(data);
       }
@@ -69,14 +76,13 @@ export default function Login() {
     registerAxios()
   };
   const redirect = (data) => {
-    window.location = "http://localhost:3000/ProfilePage";
-    console.log(data);
+    window.location = `http://localhost:3000/ProfilePage/${data.username}`;
   };
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
-    checkValidate(data);
-    axios();
+    // checkValidate(data);
+    axios(data);
   };
   //---------------------------------------------------------------------------------------------------------------------
   if (authMode === "signin") {
@@ -221,7 +227,6 @@ export default function Login() {
                 value={phone || ""}
                 name="phone"
                 // onChange={handleInput}
-
                 onChange={(e) => {
                   setPhone(e.target.value);
                   console.log(e.target.value);

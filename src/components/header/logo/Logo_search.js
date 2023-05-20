@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
-
+import Axios from "axios";
 function Logosearch() {
   const { t } = useTranslation();
   //
@@ -38,9 +38,29 @@ function Logosearch() {
 
   const showNav = (e) => {
     const bar = document.querySelector(".navbar");
-    bar.classList.toggle('block')
+    bar.classList.toggle("block");
     // bar.style.display = "block";
     // console.log(bar);
+  };
+  const redirect = async () => {
+    window.location = "/login";
+  };
+  const axios = async () => {
+    try {
+      await Axios.post("http://127.0.0.1:3002/users/api/login")
+        .then((res) => {
+          console.log(res.data);
+          // redirect()
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const resetData = async () => {
+    axios();
   };
   window.addEventListener("scroll", scroll_down);
   return (
@@ -97,7 +117,7 @@ function Logosearch() {
                     <span>Đơn hàng của tôi</span>
                   </li>
                 </Link>
-                <Link className="link">
+                <Link className="link" onClick={resetData}>
                   <li>
                     <span>Đăng xuất</span>
                   </li>
@@ -131,18 +151,31 @@ function Logosearch() {
             </li>
             <nav className="navbar">
               <ul>
+                
                 <li>
-                  {/* <Link to="/">Trang chủ</Link> */}
-                  <Link to="/">{t("navbar.home")}</Link>
+                  <Link to="/login">{t("navbar.login")}</Link>
                 </li>
                 <li>
-                  <Link to="/gioithieu">{t("navbar.introduce")}</Link>
+                  <Link to="/lienhe">{t("navbar.contact")}</Link>
                 </li>
                 <li>
                   <Link to="/sanpham">{t("navbar.product")}</Link>
                 </li>
                 <li>
-                  <Link to="/lienhe">{t("navbar.contact")}</Link>
+                  <Link to="/gioithieu">{t("navbar.introduce")}</Link>
+                </li>
+                <li>
+                  <Link to="/">{t("navbar.home")}</Link>
+                </li>
+                <li>
+                  <ul>
+                    <li>
+                      <input type="text" placeholder="Tìm kiếm...." />
+                      <button>
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                      </button>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </nav>
