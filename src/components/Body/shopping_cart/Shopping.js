@@ -1,7 +1,5 @@
 import React from "react";
 import "./Shopping.scss";
-import Logosearch from "../../header/logo/Logo_search";
-import Homefooter from "../../Footer/Home_footer";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -44,7 +42,6 @@ const Shopping = () => {
   };
   return (
     <>
-      <Logosearch />
       <div className="Container">
         {product.length === 0 ? (
           <div className="no_card">
@@ -157,7 +154,6 @@ const Shopping = () => {
           </div>
         )}
       </div>
-      <Homefooter></Homefooter>
     </>
   );
 };

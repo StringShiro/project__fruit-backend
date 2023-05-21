@@ -1,9 +1,7 @@
 import React from "react";
 import "./Product.scss";
-import Logosearch from "../../header/logo/Logo_search";
-import Homefooter from "../../Footer/Home_footer";
 import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Image, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getdataproduct } from "../../../redux/cartSlice";
@@ -19,61 +17,55 @@ const Product = () => {
   };
 
   return (
-    <>
-      <Logosearch />
+    <Container>
       <Row>
-        <Col xl={12}>
-          <div className="Product">
-            <div className="left_product">
-              <div className="determine">
-                <span>{t("product.product_portfolio")}</span>
-                <ul>
-                  {PRODUCT.map((products) => {
-                    return (
-                      <li key={products.id}>
-                        <span className="child_one">{products.name}</span>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <span>{t("product.Filter_by_price")}</span>
-
-                <ul className="price">
-                  <li>10k-20k</li>
-                  <li>10k-20k</li>
-                  <li>10k-20k</li>
-                </ul>
-              </div>
-            </div>
-            <div className="right_product">
-              {STORES_PRODUCT.map((store) => {
+        <Col lg={3}>
+          <div className="determine">
+            <span>{t("product.product_portfolio")}</span>
+            <ul>
+              {PRODUCT.map((products) => {
                 return (
-                  <div key={store.id}>
-                    <div
-                      className="card"
-                      onClick={() =>
-                        handleOnclick({
-                          id: store.id,
-                          img: store.imgUrl,
-                          name: store.name,
-                          price: store.price,
-                        })
-                      }>
-                      <div className="card-image">
-                        <img src={store.imgUrl} alt="" />
-                      </div>
-                      <div className="heading">{store.name}</div>
-                      <div className="category">{store.price} </div>
-                    </div>
-                  </div>
+                  <li key={products.id}>
+                    <span className="child_one">{products.name}</span>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
+            <span>{t("product.Filter_by_price")}</span>
+
+            <ul className="price">
+              <li>10k-20k</li>
+              <li>10k-20k</li>
+              <li>10k-20k</li>
+            </ul>
           </div>
         </Col>
+        <Col lg={9}>
+          <Row className="justify-content-center">
+            {STORES_PRODUCT.map((store) => {
+              return (
+                <Col
+                  lg={3}
+                  xs={6}
+                  key={store.id}
+                  onClick={() =>
+                    handleOnclick({
+                      id: store.id,
+                      img: store.imgUrl,
+                      name: store.name,
+                      price: store.price,
+                    })
+                  }>
+                  <Image src={store.imgUrl} thumbnail />
+                  <div className="heading">{store.name}</div>
+                  <div className="category">{store.price} </div>
+                </Col>
+              );
+            })}
+          </Row>
+        </Col>
       </Row>
-      <Homefooter></Homefooter>
-    </>
+    </Container>
   );
 };
 

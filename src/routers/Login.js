@@ -34,7 +34,6 @@ export default function Login() {
   if (authMode === "signin") {
     return (
       <>
-        <Logosearch />
         <div className="Auth-form-container">
           <Toaster position="top-right" reverseOrder={false}></Toaster>
           <form className="Auth-form" onSubmit={formik.handleSubmit}>
@@ -67,8 +66,7 @@ export default function Login() {
                   className={
                     showPassword ? "fa-solid fa-eye" : "fa-solid fa-eye-slash"
                   }
-                  onClick={onClickShow}
-                ></i>
+                  onClick={onClickShow}></i>
               </div>
               <div className="d-grid gap-2 mt-3">
                 <button type="submit" className="btn btn-primary">
@@ -89,7 +87,6 @@ export default function Login() {
   return (
     <>
       {" "}
-      <Logosearch />
       <div className="Auth-form-container">
         <form className="Auth-form">
           <div className="Auth-form-content">

@@ -18,35 +18,37 @@ import OrderManagement from "./components/header/profilePage/OrderManagement/Ord
 import Notification from "./components/header/profilePage/Notification/Notification";
 import ProducteEvaluation from "./components/header/profilePage/ProducteEvaluation/ProducteEvaluation";
 import NotFound from "./routers/NotFound";
+import HomeCarousel from "./components/Body/carousel/Home_Carousel";
 function App() {
   return (
     <>
       <div className="app">
         <Routes>
-          <Route
-            path="/"
-            preventScrollReset={true}
-            element={<PageHome />}></Route>
-          <Route path="/ProfilePage" element={<ProfilePage />}>
-            <Route path="Myprofile" element={<Myprofile />}></Route>
-            <Route path="OrderManagement" element={<OrderManagement />}></Route>
-            <Route path="Notification" element={<Notification />}></Route>
-            <Route
-              path="ProducteEvaluation"
-              element={<ProducteEvaluation />}></Route>
+          <Route path="/" preventScrollReset={true} element={<PageHome />}>
+            <Route path="ProfilePage" element={<ProfilePage />}>
+              <Route path="Myprofile" element={<Myprofile />}></Route>
+              <Route
+                path="OrderManagement"
+                element={<OrderManagement />}></Route>
+              <Route path="Notification" element={<Notification />}></Route>
+              <Route
+                path="ProducteEvaluation"
+                element={<ProducteEvaluation />}></Route>
+            </Route>
+            <Route path="introduce" element={<Introduce />}></Route>
+            <Route path="product" element={<Product />}></Route>
+            <Route path="contact" element={<Contact />}></Route>
+            <Route path="shopping" element={<Shopping />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="Product_details" element={<Productdetails />}></Route>
+            <Route path="HomeCarousel" element={<HomeCarousel />}></Route>
+            <Route path="admin" element={<Admin />}>
+              <Route path="EmployeeManager" element={<EmployeeManager />} />
+              <Route path="AddNewProduct" element={<AddNewProduct />} />
+              <Route path="UserManagement" element={<UserManagement />} />
+            </Route>
+            <Route path="*" element={<NotFound />}></Route>
           </Route>
-          <Route path="/gioithieu" element={<Introduce />}></Route>
-          <Route path="/sanpham" element={<Product />}></Route>
-          <Route path="/lienhe" element={<Contact />}></Route>
-          <Route path="/shopping" element={<Shopping />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/Product_details" element={<Productdetails />}></Route>
-          <Route path="/admin" element={<Admin />}>
-            <Route path="EmployeeManager" element={<EmployeeManager />} />
-            <Route path="AddNewProduct" element={<AddNewProduct />} />
-            <Route path="UserManagement" element={<UserManagement />} />
-          </Route>
-          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </div>
     </>

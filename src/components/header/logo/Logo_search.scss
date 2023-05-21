@@ -5,11 +5,11 @@
 
   .logo_header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 5px 0;
     z-index: 1;
-    gap: 100px;
+
     .Navbar_home {
       margin: 0;
       list-style: none;
@@ -36,7 +36,7 @@
           }
           &:hover::before {
             border-bottom: 2px solid #223d44;
-            width: 100%;
+            // width: 100%;
           }
         }
       }

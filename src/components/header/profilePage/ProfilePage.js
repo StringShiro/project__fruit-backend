@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 import { Image } from "react-bootstrap";
-import Homefooter from "../../Footer/Home_footer";
 import Myprofile from "./page-child/Myprofile";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -11,7 +10,6 @@ export default function ProfilePage() {
   const location = useLocation();
   return (
     <>
-      <Logosearch />
       <div className="ProfilePage">
         <div className="row_profile">
           <div className="Col_infor">
@@ -69,7 +67,6 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-      <Homefooter />
     </>
   );
 }

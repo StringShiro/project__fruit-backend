@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
+import { Container, Row, Col, Navbar } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
 
 function Logosearch() {
   const { t } = useTranslation();
@@ -38,33 +40,35 @@ function Logosearch() {
 
   window.addEventListener("scroll", scroll_down);
   return (
-    <>
-      <div className={nav === true ? " logo roll" : "logo "}>
-        <div className="logo_header ">
-          <Link to="/">
-            <div className="image">
-              <img
-                src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
-                alt="logo"
-              />
-            </div>
-          </Link>
-          <ul className="Navbar_home">
+    <div className={nav === true ? " logo roll" : "logo "}>
+      <Container>
+        <Row className="logo_header ">
+          <Col lg={2} xs={2}>
+            <Link to="/">
+              <div className="image">
+                <img
+                  src="https://ik.imagekit.io/fruitcompany/project__fruit/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1677304413280"
+                  alt="logo"
+                />
+              </div>
+            </Link>
+          </Col>
+
+          <Col className="Navbar_home">
             <li>
-              {/* <Link to="/">Trang chủ</Link> */}
               <Link to="/">{t("navbar.home")}</Link>
             </li>
             <li>
-              <Link to="/gioithieu">{t("navbar.introduce")}</Link>
+              <Link to="introduce">{t("navbar.introduce")}</Link>
             </li>
             <li>
-              <Link to="/sanpham">{t("navbar.product")}</Link>
+              <Link to="product">{t("navbar.product")}</Link>
             </li>
             <li>
-              <Link to="/lienhe">{t("navbar.contact")}</Link>
+              <Link to="contact">{t("navbar.contact")}</Link>
             </li>
-          </ul>
-          <ul className="icon">
+          </Col>
+          <Col xl={2} className="icon">
             {/* tìm kiếm */}
             <li>
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -124,25 +128,10 @@ function Logosearch() {
                 <i className="fa-solid fa-bars"></i>
               </Link>
             </li>
-          </ul>
-
-          {/* <ul className="Navbar_bar">
-            <li>
-              <Link to="/">Trang chủ</Link>
-            </li>
-            <li>
-              <Link to="/gioithieu">Giới thiệu</Link>
-            </li>
-            <li>
-              <Link to="/sanpham">Sản Phẩm</Link>
-            </li>
-            <li>
-              <Link to="/lienhe">Liên hệ</Link>
-            </li>
-          </ul> */}
-        </div>
-      </div>
-    </>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 export default Logosearch;

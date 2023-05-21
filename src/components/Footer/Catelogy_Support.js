@@ -2,14 +2,15 @@ import React from "react";
 import "./Catelogy_Support.scss";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Row, Col, Container } from "react-bootstrap";
 export default function CatelogySupport() {
   const { t } = useTranslation();
   return (
     <div className="wrap">
-      <ul>
-        <h3 className="my-2">Healthy-Roo</h3>
-        <div className="Catelogy_Support">
-          <ul>
+      <Container className="py-3">
+        <h3>Healthy-Roo</h3>
+        <Row className="Catelogy_Support">
+          <Col className="ul">
             <h6>{t("footer.contact")}</h6>
             <li>{t("footer.addressShop")}</li>
             <li>
@@ -32,9 +33,9 @@ export default function CatelogySupport() {
                 </li>
               </ul>
             </li>
-          </ul>
+          </Col>
 
-          <ul>
+          <Col className="ul">
             <h6>MENU</h6>
 
             <li>
@@ -57,8 +58,9 @@ export default function CatelogySupport() {
                 {t("footer.contact")}
               </Link>
             </li>
-          </ul>
-          <ul>
+          </Col>
+
+          <Col className="ul">
             <h6> {t("footer.account")}</h6>
             <li>
               <span> {t("footer.account_information")}</span>
@@ -72,8 +74,9 @@ export default function CatelogySupport() {
             <li>
               <span>{t("footer.product_evaluation")}</span>
             </li>
-          </ul>
-          <ul>
+          </Col>
+
+          <Col className="ul">
             <h6>{t("footer.register")}</h6>
             <li>
               <span>{t("footer.registration_information")}</span>
@@ -84,9 +87,9 @@ export default function CatelogySupport() {
                 <i className="fa-solid fa-paper-plane"></i>
               </button>
             </div>
-          </ul>
-        </div>
-        <div className="Footer_home">
+          </Col>
+        </Row>
+        <Row className="Footer_home">
           <div className="nav_footer">
             <h4>Heathy-Roo © 2023</h4>
             <img
@@ -94,8 +97,8 @@ export default function CatelogySupport() {
               alt=""
             />
           </div>
-        </div>
-      </ul>
+        </Row>
+      </Container>
     </div>
   );
 }

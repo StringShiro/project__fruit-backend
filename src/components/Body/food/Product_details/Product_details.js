@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
 import StarRating from "./StarRating";
-import Homefooter from "../../../Footer/Home_footer";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../../redux/cartSlice";
 import { useTranslation } from "react-i18next";
@@ -18,7 +17,6 @@ const Productdetails = (props) => {
   };
   return (
     <>
-      <Logosearch></Logosearch>
       <div className="Product_details">
         {dataproduct.map((item, index) => {
           return (
@@ -117,7 +115,6 @@ const Productdetails = (props) => {
           <button className="btn submit">{t("Product_details.submit")}</button>
         </div>
       </div>
-      <Homefooter />
     </>
   );
 };
