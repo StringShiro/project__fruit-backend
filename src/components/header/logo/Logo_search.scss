@@ -41,6 +41,25 @@
         }
       }
     }
+    #navbarIcon{
+      display: none;
+    }
+
+    #navbarbutton{
+      display: flex;
+      align-items: center;
+      margin: 0;
+      li{
+        padding-right: 5px;
+        button{
+          color:white;
+          background: #223d44;
+          padding: 10px ;
+          border: none;
+          border-radius: 10px;
+        }
+      }
+    }
     .image {
       width: 80px;
       height: 80px;
@@ -68,6 +87,24 @@
       color: #223d44;
       margin: 0;
       padding: 0;
+      #avatarLogin{
+        padding: 0;
+        display: none;
+        #imageId{
+          weight:50px;
+          height: 40px;
+          border-radius: 50%;
+          border: #223d44 1px solid;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        // display: none;
+      }
+      #logoLogin{
+        display: block;
+      }
       & > li {
         padding: 10px;
         display: flex;

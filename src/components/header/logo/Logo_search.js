@@ -24,9 +24,6 @@ function Logosearch() {
     i18n.changeLanguage(lng);
     localStorage.setItem("language", lng);
   };
-  // const onclicklanguage = (e) => {
-  //   i18n.changeLanguage(e);
-  // };
 
   const scroll_down = () => {
     if (window.scrollY > 90) {
@@ -39,8 +36,6 @@ function Logosearch() {
   const showNav = (e) => {
     const bar = document.querySelector(".navbar");
     bar.classList.toggle("block");
-    // bar.style.display = "block";
-    // console.log(bar);
   };
   const redirect = async () => {
     window.location = "/login";
@@ -62,11 +57,40 @@ function Logosearch() {
   const resetData = async () => {
     axios();
   };
+  const redirectLogin = () => {
+    window.location = `/login`;
+  };
+
+  const showIcon = async () => {
+    const localstorage = await localStorage.getItem("datastored");
+    const dataProduct = await JSON.parse(localstorage);
+    const logoheader = document.getElementById("logoheader");
+    logoheader.setAttribute("data-id", dataProduct._id);
+    const button = document.getElementById("navbarbutton");
+    const navbarIcon = document.getElementById("navbarIcon");
+    const imageData = document.querySelector('#imageId img')
+    imageData.src = dataProduct.avatar
+    const avatarLogin = document.getElementById('avatarLogin')
+    const logoLogin = document.getElementById('logoLogin')
+    if (dataProduct._id) {
+      button.style.display = "none";
+      navbarIcon.style.display = "flex";
+      logoLogin.style.display = 'none'
+    }
+    if(dataProduct._id){
+      avatarLogin.style.display="block"
+    }
+
+    
+    
+  };
+  showIcon();
+
   window.addEventListener("scroll", scroll_down);
   return (
     <>
       <div className={nav === true ? " logo roll" : "logo "}>
-        <div className="logo_header ">
+        <div className="logo_header" id="logoheader">
           <Link to="/" className="logoBrand">
             <div className="image">
               <img
@@ -90,7 +114,7 @@ function Logosearch() {
               <Link to="/lienhe">{t("navbar.contact")}</Link>
             </li>
           </ul>
-          <ul className="icon">
+          <ul className="icon" id="navbarIcon">
             <li>
               <i className="fa-solid fa-magnifying-glass"></i>
               <ul>
@@ -103,7 +127,12 @@ function Logosearch() {
               </ul>
             </li>
             <li className="login">
-              <Link className="link" to={"/login"}>
+              <Link className="link" to={"/login"} id="avatarLogin">
+                <div className="" id="imageId">
+                  <img src="" alt="..." />
+                </div>
+              </Link>
+              <Link className="link" to={"/login"} id="logoLogin">
                 <i className="fa-solid fa-user"></i>
               </Link>
               <ul>
@@ -149,9 +178,9 @@ function Logosearch() {
             <li onClick={showNav}>
               <i className="fa-solid fa-bars" id="bar"></i>
             </li>
+
             <nav className="navbar">
               <ul>
-                
                 <li>
                   <Link to="/login">{t("navbar.login")}</Link>
                 </li>
@@ -180,7 +209,14 @@ function Logosearch() {
               </ul>
             </nav>
           </ul>
-
+          <ul id="navbarbutton">
+            <li>
+              <button onClick={redirectLogin}>Đăng Nhập</button>
+            </li>
+            <li>
+              <button onClick={redirectLogin}>Đăng Kí</button>
+            </li>
+          </ul>
           {/* <ul className="Navbar_bar">
             <li>
               <Link to="/">Trang chủ</Link>
