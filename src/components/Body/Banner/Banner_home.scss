@@ -14,7 +14,7 @@
   position: absolute;
   padding: 0;
   width: 30%;
-  
+
   p {
     display: inline-block;
   }
@@ -42,7 +42,7 @@
   //   z-index: 1;
   //   background-color: #fff;
   // }
-  
+
   .table_2,
   .table_3,
   .table_4 {
@@ -58,8 +58,7 @@
     }
   }
 }
-.horizontal{
-
+.horizontal {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -70,14 +69,13 @@
   display: flex;
   justify-content: center;
   z-index: -1;
-  &>span{
+  & > span {
     transform: translateY(10px);
     z-index: 1;
     background-color: #fff;
     width: 15%;
     text-align: center;
   }
-  
 }
 @media (max-width: 400px) {
   .displayImg {
@@ -93,19 +91,19 @@
 }
 
 @media only screen and (max-width: 47.1875em) {
-  .banner__home{
-    .carousel{
+  .banner__home {
+    padding: 10px;
+    .carousel {
       top: -35px;
     }
-    .table_sm{
+    .table_sm {
       gap: 0px;
       top: -30px;
-      .horizontal{
+      .horizontal {
         left: 0;
         transform: unset;
         bottom: -30px;
       }
-  
     }
   }
   .carousel-indicators {
@@ -119,7 +117,9 @@
     }
     .displayImg {
       height: 300px;
+      background-position: center;
+      background-size: contain;
+      object-fit: contain;
     }
-    
   }
 }
