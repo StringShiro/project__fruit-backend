@@ -1,6 +1,6 @@
-import "./App.css";
+import "./App.scss";
 import React from "react";
-import PageHome from "./components/pages/Page_Home";
+import PageHome from "./components/Page_Home";
 import { Routes, Route } from "react-router-dom";
 import ProfilePage from "./components/header/profilePage/ProfilePage";
 import Shopping from "./components/Body/shopping_cart/Shopping";
