@@ -13,6 +13,8 @@ import Admin from "./components/admin/Admin";
 import EmployeeManager from "./components/admin/EmployeeManager/EmployeeManager";
 import AddNewProduct from "./components/admin/AddNewProduct/AddNewProduct";
 import UserManagement from "./components/admin/UserManagement/UserManagement";
+import ProfileUpdate from './components/header/profilePage/profileupdate'
+import Profile404 from './components/header/profilePage/404'
 function App() {
   return (
     <>
@@ -24,6 +26,8 @@ function App() {
               preventScrollReset={true}
               element={<PageHome />}></Route>
             <Route path="/ProfilePage/:username" element={<ProfilePage />}></Route>
+            <Route path="/ProfilePage/update" element={<ProfileUpdate />}></Route>
+            <Route path="/ProfilePage/404" element={<Profile404 />}></Route>
             <Route path="/gioithieu" element={<Introduce />}></Route>
             <Route path="/sanpham" element={<Product />}></Route>
             <Route path="/lienhe" element={<Contact />}></Route>

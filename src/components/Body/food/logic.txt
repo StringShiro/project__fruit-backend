@@ -286,3 +286,37 @@ cardAll.forEach((card) => {
         >
           <SwiperSlide></SwiperSlide>
         </Swiper>
+
+
+        // Tăng quantity
+  // const handleOnclickI = (data) => {
+  //   dispatch(increaseQuantity(data));
+  // };
+  // // giảm quantity
+  // const handleOnclickD = (data) => {
+  //   dispatch(decreaseQuantity(data));
+  // };
+  // // cập nhật số lượng mới
+  // const inputonchange = (itemId, e) => {
+  //   const newQuantity = Number(e.target.value);
+  //   // Cập nhật số lượng sản phẩm cho sản phẩm có ID tương ứng
+  //   const updatedProducts = product.map((item) =>
+  //     item.id === itemId ? { ...item, quantity: newQuantity } : item
+  //   );
+  //   dispatch(updatevalueinput({ product: updatedProducts }));
+  // };
+  \
+
+  import {
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  resetCart,
+  updatevalueinput,
+} from "../../../redux/cartSlice";
+import { use } from "i18next";
+
+
+import { useDispatch, useSelector } from "react-redux";
+const dispatch = useDispatch();
+  const product = useSelector((state) => state.cartSlice.product);

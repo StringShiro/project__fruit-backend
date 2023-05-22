@@ -109,6 +109,18 @@
             }
           }
         }
+        ul:last-child{
+          .preview{
+            .image{
+              img{
+                width: 100%;
+              }
+            }
+            input{
+              opacity: 0;
+            }
+          }
+        }
         button {
           display: block;
           margin: 20px auto;

@@ -35,15 +35,14 @@ export default function ProfilePage() {
     username.value = newData.username;
     avatar.src = newData.avatar;
     profilepage.setAttribute("name", newData._id);
-    
   };
 
   const profileUpdate = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const localStorag = await localStorage.getItem("datastored");
     const newData = JSON.parse(localStorag);
-    const id = newData._id
-    const url = `http://127.0.0.1:3002/users/api/profile/${id}`
+    const id = newData._id;
+    const url = `http://127.0.0.1:3002/users/api/profile/${id}`;
     const usernameAuthor = document.getElementById("usernameAuthor");
     const birthday = document.getElementById("birthday");
     const fullname = document.getElementById("fullname");
@@ -53,14 +52,14 @@ export default function ProfilePage() {
     const email = document.getElementById("email");
     const username = document.getElementById("username");
     const dataStorage = {
-      username:username.value,
-      fullname:fullname.value,
-      phone:phone.value,
-      email:email.value,
-      address:address.value,
-      birthday:birthday.value
-    }
-    const datastring = JSON.stringify(dataStorage)
+      username: username.value,
+      fullname: fullname.value,
+      phone: phone.value,
+      email: email.value,
+      address: address.value,
+      birthday: birthday.value,
+    };
+    const datastring = JSON.stringify(dataStorage);
     // await Axios({
     //   method:"POST",
     //   url:url,
@@ -68,14 +67,19 @@ export default function ProfilePage() {
     // }).then(res=>{
     //   console.log(res)
     // })
-    console.log(datastring)
-    await Axios.post(url, dataStorage).then(res=>{
-      console.log(res.data)
-    })
-    .catch(err=>{
-      console.log(err)
-    })
+    console.log(datastring);
+    await Axios.post(url, dataStorage)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+  const redirect = ()=>{
+    window.location  = `/ProfilePage/update`
+  }
+  
   window.onload = getUser;
   return (
     <>
@@ -88,13 +92,14 @@ export default function ProfilePage() {
                 <div className="image"></div>
                 <div className="user_name">
                   <span id="usernameAuthor">{data.username}</span>
-                  <div className="edit_user">
-                    <i className="fa-solid fa-pen"></i>
-                    <span>Sửa hồ sơ</span>
-                  </div>
+                  <div className="edit_user"></div>
                 </div>
               </div>
               <ul>
+                <li onClick={redirect}>
+                  <i className="fa-solid fa-pen"></i>
+                  <span>Sửa hồ sơ</span>
+                </li>
                 <li>
                   <i className="fa-solid fa-user"></i>
                   <span>Tài khoản của tôi</span>

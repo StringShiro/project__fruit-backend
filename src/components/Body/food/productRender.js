@@ -24,25 +24,34 @@ export default class RenderProduct extends React.Component {
   render() {
     const redirect = (id) => {
       window.location = `/Product_details/${id}`;
-      // console.log(productData);
     };
-    const showID = async (event) => {
+    const showID = async (e) => {
       const productData = [];
-      const target = event.target.parentElement;
-      const productname = target.querySelector(".heading");
-      const currency = target.querySelector(".category");
-      const image = target.querySelector(".card-image img");
-      const id = target.getAttribute("data-id");
+      const cardMain = e.target.parentElement;
+      const parentDivImage =
+        cardMain.querySelector("#productImage").parentElement.parentElement;
+      const productName = parentDivImage.querySelector("#productName");
+      const productCurrency = parentDivImage.querySelector("#productCurrency");
+      const productImage = parentDivImage.querySelector(
+        ".card-image #productImage"
+      );
+      const id = parentDivImage.getAttribute("data-id")
+      console.log(id)
+      const productN = productName.textContent;
+      const productC = productCurrency.textContent;
+      const productI = productImage.src;
       productData.push({
-        id: id,
-        productname: productname.textContent,
-        currency: currency.textContent,
-        image: image.src,
+        id:id,
+        productName: productN,
+        productCurrency: productC,
+        productImage: productI,
       });
-      localStorage.setItem("productData", JSON.stringify(productData));
-      redirect(id);
+      
+      const product = JSON.stringify(productData);
+      const localstorage = localStorage.setItem("productData", product);
+      // console.log(product);
+      redirect(id)
     };
-
     return (
       <div className="containerBox">
         {this.state.products.map((product) => (
@@ -50,13 +59,18 @@ export default class RenderProduct extends React.Component {
             className="card"
             key={product._id}
             data-id={product._id}
+            id="cardMain"
             onClick={showID}
           >
-            <div className="card-image">
-              <img src={product.image} alt="..." />
+            <label htmlFor="productImage" className="card-image">
+              <img src={product.image} id="productImage" alt="..." />
+            </label>
+            <div className="heading" id="productName">
+              {product.productname}
             </div>
-            <div className="heading">{product.productname}</div>
-            <div className="category">{product.currency} </div>
+            <div className="category" id="productCurrency">
+              {product.currency}{" "}
+            </div>
           </div>
         ))}
       </div>

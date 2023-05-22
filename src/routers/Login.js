@@ -54,7 +54,6 @@ export default function Login() {
     try {
       await Axios.post(`http://127.0.0.1:3002/users/api/login`, data)
         .then((res) => {
-          // console.log(res);
           const datastg = JSON.stringify(res.data)
           setDatastored(datastg)
           console.log(res.data)
@@ -226,7 +225,6 @@ export default function Login() {
                 placeholder="Phone"
                 value={phone || ""}
                 name="phone"
-                // onChange={handleInput}
                 onChange={(e) => {
                   setPhone(e.target.value);
                   console.log(e.target.value);

@@ -54,9 +54,7 @@ function Logosearch() {
       console.log(err);
     }
   };
-  const resetData = async () => {
-    axios();
-  };
+ 
   const redirectLogin = () => {
     window.location = `/login`;
   };
@@ -68,24 +66,30 @@ function Logosearch() {
     logoheader.setAttribute("data-id", dataProduct._id);
     const button = document.getElementById("navbarbutton");
     const navbarIcon = document.getElementById("navbarIcon");
-    const imageData = document.querySelector('#imageId img')
-    imageData.src = dataProduct.avatar
-    const avatarLogin = document.getElementById('avatarLogin')
-    const logoLogin = document.getElementById('logoLogin')
+    const imageData = document.querySelector("#imageId img");
+    imageData.src = dataProduct.avatar;
+    const avatarLogin = document.getElementById("avatarLogin");
+    const logoLogin = document.getElementById("logoLogin");
     if (dataProduct._id) {
       button.style.display = "none";
       navbarIcon.style.display = "flex";
-      logoLogin.style.display = 'none'
+      logoLogin.style.display = "none";
     }
-    if(dataProduct._id){
-      avatarLogin.style.display="block"
+    if (dataProduct._id) {
+      avatarLogin.style.display = "block";
     }
-
-    
-    
   };
   showIcon();
-
+  const redirectInformationAccount = async () => {
+    const localstorage = await localStorage.getItem("datastored");
+    const dataProduct = await JSON.parse(localstorage);
+    if(dataProduct._id){
+      window.location  = `/ProfilePage/${dataProduct.username}`
+    }
+    else{
+      window.location = `/PròilePage/404`
+    }
+  };
   window.addEventListener("scroll", scroll_down);
   return (
     <>
@@ -101,7 +105,6 @@ function Logosearch() {
           </Link>
           <ul className="Navbar_home">
             <li>
-              {/* <Link to="/">Trang chủ</Link> */}
               <Link to="/">{t("navbar.home")}</Link>
             </li>
             <li>
@@ -136,7 +139,7 @@ function Logosearch() {
                 <i className="fa-solid fa-user"></i>
               </Link>
               <ul>
-                <Link className="link" to="/ProfilePage">
+                <Link className="link" onClick={redirectInformationAccount}>
                   <li>
                     <span>Thông tin tài khoản</span>
                   </li>
@@ -146,7 +149,7 @@ function Logosearch() {
                     <span>Đơn hàng của tôi</span>
                   </li>
                 </Link>
-                <Link className="link" onClick={resetData}>
+                <Link className="link" onClick={redirectLogin}>
                   <li>
                     <span>Đăng xuất</span>
                   </li>

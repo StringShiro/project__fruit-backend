@@ -24,36 +24,58 @@ export default class HomeProduct extends React.Component {
       });
   }
   render() {
-    const redirect = (e) => {
-      const productData = [];
-      const target = e.target.parentElement;
-      const id = target.getAttribute("data-id");
+    const redirect = (id) => {
       window.location = `/Product_details/${id}`;
-      const productname = target.querySelector(".heading");
-      const currency = target.querySelector(".category");
-      const image = target.querySelector("img");
+    };
+    const showID = (e) => {
+      const productData = [];
+      const cardMain = e.target.parentElement;
+      const parentDivImage =
+        cardMain.querySelector("#productImage").parentElement.parentElement;
+      const productName = parentDivImage.querySelector("#productName");
+      const productCurrency = parentDivImage.querySelector("#productCurrency");
+      const productImage = parentDivImage.querySelector(
+        ".card-image #productImage"
+      );
+      const id = parentDivImage.getAttribute("data-id")
+      console.log(id)
+      const productN = productName.textContent;
+      const productC = productCurrency.textContent;
+      const productI = productImage.src;
       productData.push({
-        id: id,
-        productname: productname.textContent,
-        currency: currency.textContent,
-        image: image.src,
+        productName: productN,
+        productCurrency: productC,
+        productImage: productI,
       });
-      localStorage.setItem("productData", JSON.stringify(productData));
+      
+      const product = JSON.stringify(productData);
+      const localstorage = localStorage.setItem("productData", product);
+      // console.log(product);
+      redirect(id)
     };
     return (
       <>
         {this.state.products.map((product) => (
-          <div
+         <div
             className="HomeCarousel_form"
             key={product._id}
             data-id={product._id}
-            onClick={redirect}>
-            <img src={product.image} alt="..." />
-            <p className="heading">{product.productname}</p>
-            <p className="category">{product.currency}</p>
+            id="cardMain"
+            onClick={showID}
+          >
+            <label htmlFor="productImage" className="card-image">
+              <img src={product.image} id="productImage" alt="..." />
+            </label>
+            <div className="heading" id="productName">
+              {product.productname}
+            </div>
+            <div className="category" id="productCurrency">
+              {product.currency}{" "}
+            </div>
           </div>
         ))}
       </>
     );
   }
 }
+// HomeCarousel_form
