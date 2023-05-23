@@ -43,6 +43,7 @@ export default class HomeProduct extends React.Component {
       const productC = productCurrency.textContent;
       const productI = productImage.src;
       productData.push({
+        id:id,
         productName: productN,
         productCurrency: productC,
         productImage: productI,

@@ -3,10 +3,13 @@ import "./Contact.scss";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
 import { Col, Container, Row } from "react-bootstrap";
+import Logosearch from "../../header/logo/Logo_search";
+import Homefooter from "../../Footer/Catelogy_Support"
 export default function Contact() {
   const { t } = useTranslation();
   return (
     <>
+        <Logosearch/>
       <Container className="body_form_contact">
         <Row className="form_contact">
           <Col lg={6} className="map">
@@ -82,7 +85,9 @@ export default function Contact() {
             </Row>
           </Col>
         </Row>
+
       </Container>
+      <Homefooter/>
     </>
   );
 }

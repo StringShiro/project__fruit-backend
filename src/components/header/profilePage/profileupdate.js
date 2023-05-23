@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 // import { Image } from "react-bootstrap";
-import Homefooter from "../../Footer/Home_footer";
 import Axios from "axios";
+import Homefooter from "../../Footer/Catelogy_Support"
 import { redirect } from "react-router-dom";
 export default function ProfilePage() {
   const [data] = React.useState("");
