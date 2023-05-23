@@ -3,7 +3,11 @@
     "home":"Trang chủ",
     "introduce":"Giới thiệu",
     "product":"Sản phẩm",
-    "contact":"Liên hệ"
+    "contact":"Liên hệ",
+    "account_information":"Thông tin tài khoản",
+    "my_order":"Đơn hàng của tôi",
+    "logout":"Đăng xuất"
+
   },
   "infor":{
     "account_information":"Thông tin tài khoản",
@@ -36,6 +40,67 @@
     "whisper":"Thớm",
     "mango":"Xoài",
     "Filter_by_price":"Lọc theo giá"
+  },
+  "contact":{
+    "addressShop":"319 C16 Lý thường kiệt, Phường 15, Quận 11, Tp.HCM",
+    "contact_us":"Liên Hệ Với Chúng Tôi",
+    "username":"Họ và Tên",
+    "phone":"Số điện thoại",
+    "addressUser":"Địa chỉ khách hàng",
+    "submmit":"Gửi"
+  },
+  "footer":{
+    "addressShop":"Địa chỉ 5/11 Hạnh Thông Phường 05, Quận Gò Vấp, TP.HCM",
+    "home":"Trang chủ",
+    "introduce":"Giới thiệu",
+    "product":"Sản phẩm",
+    "contact":"Liên hệ",
+    "account":"Tài khoản",
+    "account_information":"Thông tin tài khoản",
+    "order_management":"Quản lý đơn hàng",
+    "product_evaluation":"Đánh giá sản phẩm",
+    "register":"Đăng ký",
+    "registration_information":"Đăng ký để nhận được thông tin mới nhất từ chúng tôi",
+    "notification":"Thông báo"
+  } ,
+  "profilePage":{
+    "my_account":"Tài khoản của tôi",
+    "order_management":{
+      "text":"Quản lý đơn hàng",
+      "no_orders":" Chưa có đơn hàng"
+    },
+    "notification":{
+      "text":"Thông báo",
+      "no_notice":"Chưa có thông báo nào"
+    },
+    "product_evaluation":{
+      "text":"Đánh giá sản phẩm",
+      "no_evaluation":"Chưa có thông báo nào"
+    }
+  },
+  "shopping":{
+    "empty_basket":"Giỏ hàng của bạn đang trống",
+    "buy_now":"Mua ngay",
+    "name_product":"Tên sản phẩm",
+    "infor":"Thông tin sản phẩm",
+    "product_price":"Giá sản phẩm",
+    "del_all":"Xóa tất cả",
+    "del":"Xóa",
+    "select_all":"Chọn tất cả",
+    "total":"Tổng",
+    "pay":"Thanh toán"
+  },
+  "Product_details":{
+    "name_product":"Tên sản phẩm",
+    "product_price":"Giá sản phẩm",
+    "content":"Nội dung",
+    "add_to_cart":"Thêm vào giỏ hàng",
+    "comment":"Nhận xét sản phẩm này",
+    "evaluate":"Đánh giá của bạn"
+    ,"my_comment":"Nhận xét của bạn",
+    "name":"Tên",
+    "submit":"Gửi đi"
   }
 
+  
 }

@@ -3,17 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Row from "react-bootstrap/Row";
 import "./Banner_home.scss";
 import React from "react";
+import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-// const styleHeight = {
-//   display: "block",
-//   paddingLeft: "100px",
-//   paddingRight: "100px",
-//   maxWidth: "100%",
-// };
 export default function Bannerhome() {
   const { t } = useTranslation();
   return (
-    <div className="banner__home">
+    <Container>
       <Carousel fade>
         <Carousel.Item>
           <Row className="justify-content-md-center">
@@ -82,6 +77,6 @@ export default function Bannerhome() {
           <span>{t("infor.My_order")}</span>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }

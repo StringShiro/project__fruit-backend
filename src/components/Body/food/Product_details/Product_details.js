@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
 import StarRating from "./StarRating";
-import Homefooter from "../../../Footer/Home_footer";
+import Homefooter from "../../../Footer/Catelogy_Support";
+import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../../../../redux/cartSlice";
 // import { address } from "../productRender";
 const Productdetails = (props) => {
+  const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [data, setData] = useState("");
   const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
@@ -134,18 +136,18 @@ const Productdetails = (props) => {
       </div>
       <div className="Product_details_comment">
         <div className="comment">
-          <h5>Nhận xét sản phẩm này</h5>
+          <h5> {t("Product_details.comment")}</h5>
           <ul>
-            <p>Đánh giá của bạn</p>
+            <p>{t("Product_details.evaluate")}</p>
             <StarRating />
           </ul>
           <ul>
-            <p>Nhận xét của bạn</p>
+            <p>{t("Product_details.my_comment")}</p>
             <textarea className="form-control" rows={5}></textarea>
           </ul>
           <ul className="last">
             <li>
-              <p>Tên</p>
+              <p>{t("Product_details.name_product")}</p>
               <input className="form-control" type="text" />
             </li>
             <li>
@@ -153,7 +155,7 @@ const Productdetails = (props) => {
               <input className="form-control" type="email" />
             </li>
           </ul>
-          <button className="btn submit">Gửi đi</button>
+          <button className="btn submit">{t("Product_details.submit")}</button>
         </div>
       </div>
 

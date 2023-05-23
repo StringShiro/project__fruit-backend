@@ -1,21 +1,20 @@
-// /**
-//  * @format
-//  * @Catelogy_Supportat
-//  */
 import React from "react";
 import "./Catelogy_Support.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Row, Col, Container } from "react-bootstrap";
 export default function CatelogySupport() {
+  const { t } = useTranslation();
   return (
     <div className="wrap">
-      <ul>
+      <Container className="py-3">
         <h3>Healthy-Roo</h3>
-        <div className="Catelogy_Support">
-          <ul className="catelogy__list">
-            <h6>LIÊN HỆ</h6>
-            <li>Địa chỉ 5/11 Hạnh Thông Phường 05, Quận Gò Vấp, TP.HCM</li>
+        <Row className="Catelogy_Support">
+          <Col className="ul">
+            <h6>{t("footer.contact")}</h6>
+            <li>{t("footer.addressShop")}</li>
             <li>
-              <i className="fa-solid fa-phone"></i>Tổng đài CSKH 090.249.2749
+              <i className="fa-solid fa-phone"></i>CSKH: 090.249.2749
             </li>
             <li>
               <i className="fa-solid fa-earth-americas" />
@@ -34,52 +33,53 @@ export default function CatelogySupport() {
                 </li>
               </ul>
             </li>
-          </ul>
+          </Col>
 
-          <ul>
+          <Col className="ul">
             <h6>MENU</h6>
 
             <li>
               <Link className="Link" to={"/"}>
-                Trang chủ
+                {t("footer.home")}
               </Link>
             </li>
             <li>
               <Link className="Link" to={"/gioithieu"}>
-                Giới thiệu
+                {t("footer.introduce")}
               </Link>
             </li>
             <li>
               <Link className="Link" to={"/sanpham"}>
-                Sản phẩm
+                {t("footer.product")}
               </Link>
             </li>
             <li>
               <Link className="Link" to={"/lienhe"}>
-                Liên hệ
+                {t("footer.contact")}
               </Link>
             </li>
-          </ul>
+          </Col>
 
-          <ul>
-            <h6>Tài khoản</h6>
+          <Col className="ul">
+            <h6> {t("footer.account")}</h6>
             <li>
-              <span>Thông tin tài khoản</span>
+              <span> {t("footer.account_information")}</span>
             </li>
             <li>
-              <span>Thông báo của tôi</span>
+              <span>{t("footer.notification")}</span>
             </li>
             <li>
-              <span>Quản lý đơn hàng</span>
+              <span>{t("footer.order_management")}</span>
             </li>
             <li>
-              <span>Đánh giá sản phẩm</span>
+              <span>{t("footer.product_evaluation")}</span>
             </li>
-          </ul>
-          <ul>
-            <h6>Đăng Ký</h6>
+          </Col>
+
+          <Col className="ul">
+            <h6>{t("footer.register")}</h6>
             <li>
-              <span>Đăng ký để nhận được thông tin mới nhất từ chúng tôi</span>
+              <span>{t("footer.registration_information")}</span>
             </li>
             <div className="form_check">
               <input type="text" name="" id="" placeholder="Email..." />
@@ -87,9 +87,9 @@ export default function CatelogySupport() {
                 <i className="fa-solid fa-paper-plane"></i>
               </button>
             </div>
-          </ul>
-        </div>
-        <div className="Footer_home">
+          </Col>
+        </Row>
+        <Row className="Footer_home">
           <div className="nav_footer">
             <h4>Heathy-Roo © 2023</h4>
             <img
@@ -97,8 +97,8 @@ export default function CatelogySupport() {
               alt=""
             />
           </div>
-        </div>
-      </ul>
+        </Row>
+      </Container>
     </div>
   );
 }

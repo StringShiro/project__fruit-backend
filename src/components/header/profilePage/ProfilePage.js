@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 // import { Image } from "react-bootstrap";
-import Homefooter from "../../Footer/Home_footer";
+
 import Axios from "axios";
 export default function ProfilePage() {
   const [data, setData] = React.useState("");
@@ -230,7 +230,6 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-      <Homefooter></Homefooter>
     </>
   );
 }

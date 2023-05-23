@@ -1,10 +1,12 @@
 import "./Logo_search.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
-import Axios from "axios";
+import { Container, Row, Col, Navbar } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import { Axios } from "axios";
 function Logosearch() {
   const { t } = useTranslation();
   //
@@ -132,6 +134,19 @@ function Logosearch() {
                 </li>
               </ul>
             </li>
+            {/* chuyển ngôn ngữ */}
+            <li>
+              <i className="fa-solid fa-language"></i>
+              <ul className="lge">
+                <li>
+                  <span onClick={() => onclicklanguage("vi")}>vi</span>
+                </li>
+                <li>
+                  <span onClick={() => onclicklanguage("en")}>en</span>
+                </li>
+              </ul>
+            </li>
+            {/* login */}
             <li className="login">
               <Link className="link" id="avatarLogin">
                 <div className="" id="imageId">
@@ -144,21 +159,22 @@ function Logosearch() {
               <ul>
                 <Link className="link" onClick={redirectInformationAccount}>
                   <li>
-                    <span>Thông tin tài khoản</span>
+                    <span>{t("navbar.account_information")}</span>
                   </li>
                 </Link>
-                <Link className="link">
+                <Link to={"/ProfilePage/OrderManagement/"} className="link">
                   <li>
-                    <span>Đơn hàng của tôi</span>
+                    <span>{t("navbar.my_order")}</span>
                   </li>
                 </Link>
                 <Link className="link" onClick={redirectLogin}>
                   <li>
-                    <span>Đăng xuất</span>
+                    <span>{t("navbar.logout")}</span>
                   </li>
                 </Link>
               </ul>
             </li>
+            {/* cart shop */}
             <li>
               <Link className="link" to="/shopping">
                 <i className="fa-solid fa-cart-shopping"></i>
@@ -170,7 +186,7 @@ function Logosearch() {
                 <i className="fa-solid fa-bars"></i>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <i className="fa-solid fa-language"></i>
               <ul className="lge">
                 <li>
@@ -180,9 +196,9 @@ function Logosearch() {
                   <span onClick={() => onclicklanguage("en")}>en</span>
                 </li>
               </ul>
-            </li>
-            <li onClick={showNav}>
-              <i className="fa-solid fa-bars" id="bar"></i>
+            </li> */}
+            <li onClick={showNav} id="bar">
+              <i className="fa-solid fa-bars" ></i>
             </li>
 
             <nav className="navbar">

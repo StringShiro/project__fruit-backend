@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import "./Shopping.scss";
-import Logosearch from "../../header/logo/Logo_search";
-import Homefooter from "../../Footer/Home_footer";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
+import Logosearch from "../../header/logo/Logo_search";
+import Homefooter from "../../Footer/Catelogy_Support"
 const Shopping = () => {
   const [data, setData] = useState("");
-
+  const { t } = useTranslation();
   // tính tổng
   const totalPrice = () => {
     let total = 0;
@@ -25,7 +25,7 @@ const Shopping = () => {
   
   return (
     <>
-      <Logosearch />
+    <Logosearch/>
       <div className="Container">
         {data.length == 0 ? (
           <div className="no_card">
@@ -79,10 +79,12 @@ const Shopping = () => {
             </div>
             <div className="form_payment">
               <div className="total">
-                <h5>Tổng: {totalPrice()} VND</h5>
+                <h5>
+                  {t("shopping.total")}: {totalPrice()} VND
+                </h5>
               </div>
               <div className="payment">
-                <h2>Thanh toán</h2>
+                <h2>{t("shopping.pay")}</h2>
                 <div className="form">
                   <input
                     type="text"
@@ -105,14 +107,14 @@ const Shopping = () => {
                   <div className="pay_momo">
                     <img src="" alt="" />
                   </div>
-                  <button className="btn">Thanh toán</button>
+                  <button className="btn">{t("shopping.pay")}</button>
                 </div>
               </div>
             </div>
           </div>
         )}
       </div>
-      <Homefooter></Homefooter>
+      <Homefooter/>
     </>
   );
 };

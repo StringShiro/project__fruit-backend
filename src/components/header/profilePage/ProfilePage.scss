@@ -1,6 +1,7 @@
 .ProfilePage {
   margin: 0;
   width: 85%;
+  min-height: 50vh;
   display: inline-block;
   position: relative;
   left: 50%;
@@ -19,7 +20,7 @@
       .infor {
         display: flex;
         justify-content: flex-start;
-
+        align-items: center;
         margin: 0;
         .image {
           margin-right: 15px;
@@ -36,104 +37,24 @@
         padding: 0;
         li {
           margin: 20px auto;
-          cursor: pointer;
-          span {
-            margin: 0 10px;
-          }
 
-          &:hover {
-            color: rgb(208, 3, 3);
+          & > a {
+            text-decoration: none;
+            color: #000;
+            cursor: pointer;
+            span {
+              margin: 0 10px;
+            }
+
+            &:hover {
+              color: rgb(208, 3, 3);
+            }
           }
         }
       }
     }
-    .Col_content {
-      box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
-        rgb(60 64 67 / 15%) 0px 1px 3px 1px;
-      padding: 10px;
-      width: 80%;
-    }
-    .form-profile {
-      padding: 0 10px;
-      .profile__header {
-        h4 {
-          margin: 0;
-        }
-      }
-      form {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 30px;
-        ul {
-          padding: 0;
-          gap: 50px;
-          &:first-child {
-            width: 50%;
-            li {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              margin-bottom: 10px;
-              i {
-                font-size: 20px;
-                display: inline-block;
-              }
-              input {
-                width: 100%;
-              }
-            }
-          }
-          &:last-child {
-            width: 50%;
-            & > li {
-              .image {
-                cursor: pointer;
-                width: 200px;
-                height: 200px;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                border: 2px dashed #223d44;
-                border-radius: 5px;
-                padding: 10px;
-                img {
-                  width: 90%;
-                  height: 90%;
-                  border-radius: 50%;
-                  object-fit: cover;
-                  background-position: center;
-                  background-repeat: no-repeat;
-                }
-              }
-            }
-          }
-        }
-        ul:last-child{
-          .preview{
-            .image{
-              img{
-                width: 100%;
-              }
-            }
-            input{
-              opacity: 0;
-            }
-          }
-        }
-        button {
-          display: block;
-          margin: 20px auto;
-          width: 15%;
-        }
-      }
-      button {
-        position: relative;
-        left: 50%;
-        width: 20%;
-        transform: translateX(-50%);
-        padding: 10px;
-      }
+    .Col_pageChild {
+      width: 75%;
     }
   }
 }
