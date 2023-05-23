@@ -133,6 +133,7 @@ export default function ProfilePage() {
                         placeholder="Họ và tên"
                         name="fullname"
                         id="fullname"
+                        disabled="disabled"
                         value={fullname || ""}
                         onChange={(e) => {
                           setFullname(e.target.value);
@@ -146,6 +147,7 @@ export default function ProfilePage() {
                         id="username"
                         placeholder="Tên đăng nhập"
                         name="username"
+                        disabled="disabled"
                         value={username || ""}
                         onChange={(e) => {
                           setUsername(e.target.value);
@@ -158,6 +160,7 @@ export default function ProfilePage() {
                         className="form-control"
                         placeholder="Email"
                         id="email"
+                        disabled="disabled"
                         value={email || ""}
                         onChange={(e) => {
                           setEmail(e.target.value);
@@ -170,6 +173,7 @@ export default function ProfilePage() {
                         className="form-control"
                         placeholder="Ngày sinh"
                         id="birthday"
+                        disabled="disabled"
                         value={birth || ""}
                         onChange={(e) => {
                           setBirthday(e.target.value);
@@ -182,6 +186,7 @@ export default function ProfilePage() {
                         className="form-control"
                         id="inputAddress"
                         placeholder="Địa chỉ"
+                        disabled="disabled"
                         value={address || ""}
                         onChange={(e) => {
                           setAddress(e.target.value);
@@ -194,6 +199,7 @@ export default function ProfilePage() {
                         className="form-control"
                         placeholder="Số điện thoại"
                         id="phone"
+                        disabled="disabled"
                         value={phone || ""}
                         onChange={(e) => {
                           setPhone(e.target.value);

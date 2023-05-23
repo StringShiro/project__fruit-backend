@@ -1,39 +1,9 @@
 import toast from "react-hot-toast";
-import axios from "axios";
-
-export function checkValidate(data) {
+export async function checkValidateRegister(data) {
   const errors = checkFields({}, data);
   return errors;
 }
-
-async function checkUsername(errors, data) {
-  const datas = await data;
-  if (datas.username === "") {
-    errors.datas.username = await toast.error("username không được để trống");
-  } else if (datas.username.length < 5) {
-    errors.datas.username = await toast.error("username không được < 5 ký tự");
-  } else if (datas.username.length > 10) {
-    errors.datas.username = await toast.error("username không được < 10 ký tự");
-  } else {
-    errors.datas.username = await datas.username;
-  }
-}
-async function checkPassword(errors, data) {
-  const datas = await data;
-  if (datas.password === "") {
-    errors.datas.password = await toast.error("password không được để trống");
-  } else {
-    errors.datas.password = await datas.password;
-  }
-}
-function checkFields(errors = {}, data) {
-  checkPassword(errors, data);
-  checkUsername(errors, data);
-
-  return errors;
-}
-
-export function checkValidateregister(data) {
+export async function checkValidate(data) {
   const errors = checkField({}, data);
   return errors;
 }
@@ -43,50 +13,84 @@ function checkField(errors = {}, data) {
   checkUsername(errors, data);
   return errors;
 }
-// if(values.password === undefined){
-//   console.log(values.password)
-//   errors.password = toast.error("password không được để trống");
-// }else{
+function checkFields(errors = {}, data) {
+  checkPhone(errors,data)
+  checkEmail(errors,data)
+  checkPassword(errors, data);
+  checkPasswordComfirm(errors, data);
+  checkUsername(errors, data);
+  return errors;
+}
+async function checkUsername(errors, data) {
+  const usernameRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
-// }
+  if (data.username === "") {
+    errors.data.username = toast.error("username không được để trống");
+  } else if (data.username.length < 5) {
+    errors.data.username = toast.error("username không được < 5 ký tự");
+  } else if (data.username.length > 10) {
+    errors.data.username = toast.error("username phải < 10 ký tự");
+  }
+  else if (usernameRegex.test(data.username)) {
+    errors.data.username = toast.error("username không được chứa ký tự đặc biệt");
+  } 
+  else {
+    errors.data.username = data.username;
+  }
+}
 
-// if(values.password === " "){
-//   errors.password = toast.error("password không được để trống");
-// }
-// if(values.password === null){
-//   errors.password = toast.error("password không được để trống");
-// }
+async function checkEmail(errors,data){
+  const datas = await data;
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  if (datas.email === "") {
+    errors.datas.email = toast.error("email không được để trống");
+  } 
+  else if(emailRegex.test(datas.email)){
+    errors.datas.email = toast.error("email không giống với định dạng");
+  }
+  else {
+    errors.datas.email = datas.email;
+    console.log(emailRegex.test(datas.email))
 
-// if (!values.username) {
-//   errors.username = toast.error("Nhập email");
-// } else if (values.username.includes(" ")) {
-//   errors.username = toast.error("Invalid username");
-// } else if (
-//   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.username)
-// ) {
-//   errors.email = toast.error(`email không hợp lệ `);
-// } else {
-//   errors.username = toast.success("success username");
-// }
+  }
+}
 
-// password
+async function checkPhone(errors,data){
+  const datas = await data;
 
-// if (!values.password) {
-//   errors.password = toast.error("Nhập mật khẩu");
-// } else if (values.password.includes(" ")) {
-//   errors.password = toast.error("Mật khẩu không hợp lệ");
-// } else if (values.password.length < 4 || values.password.length >= 10) {
-//   errors.password = toast.error(
-//     ` ${
-//       values.password.length < 4
-//         ? " Mật khẩu gồm 4 kí tự trở trên"
-//         : values.password.length >= 10
-//         ? " Mật khẩu tối đa gồm 10 kí tự"
-//         : ""
-//     }   `
-//   );
-// } else if (!values.password) {
-//   errors.password = toast.error("password must have special");
-// } else {
-//   errors.password = toast.success("Nhập Mật khẩu thành công");
-// }
+  if (datas.phone === "") {
+    errors.datas.phone = toast.error("phone không được để trống");
+  } 
+  else {
+    errors.datas.phone = datas.phone;
+  }
+
+}
+async function checkPassword(errors, data) {
+  const datas = await data;
+  const passwordRegex = /(?=.*?[#?!@$%^&*-])/
+  if (datas.password === "") {
+    errors.datas.password = toast.error("password không được để trống");
+  } else if(data.password.length < 10){
+    errors.datas.password = toast.error("password không được < 10 ký tự");
+  }
+  else if(passwordRegex.test(datas.password)){
+    errors.datas.password = toast.error("password phải chứa ít nhất một ký tự đặc biệt");
+  }
+  else {
+    errors.datas.password = datas.password;
+  }
+}
+
+async function checkPasswordComfirm(errors, data) {
+  console.log(data)
+  const datas = await data;
+  if (datas.passwordconfirm === "") {
+    errors.datas.passwordconfirm = toast.error("passwordconfirm không được để trống");
+  } else if(data.passwordconfirm !== data.password){
+    errors.datas.passwordconfirm = toast.error("password không trùng khớp");
+  }
+  else {
+    errors.datas.passwordconfirm = datas.passwordconfirm;
+  }
+}

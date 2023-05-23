@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { checkValidate } from "./validate";
-import { checkValidateregister } from "./validate";
+import { checkValidateRegister } from "./validate";
 import Logosearch from "../components/header/logo/Logo_search";
 import Axios from "axios";
 
@@ -71,8 +71,8 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // checkValidateregister(data);
-    registerAxios()
+    checkValidateRegister(data);
+    registerAxios(data)
   };
   const redirect = (data) => {
     window.location = `http://localhost:3000/ProfilePage/${data.username}`;
@@ -80,7 +80,7 @@ export default function Login() {
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
-    // checkValidate(data);
+    checkValidate(data);
     axios(data);
   };
   //---------------------------------------------------------------------------------------------------------------------
@@ -152,7 +152,9 @@ export default function Login() {
       {" "}
       <Logosearch />
       <div className="Auth-form-container">
+        <Toaster position="top-right" reverseOrder={false}></Toaster>
         <form className="Auth-form" onSubmit={handleSubmit} method="post">
+
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Đăng ký</h3>
             <div className="text-center">

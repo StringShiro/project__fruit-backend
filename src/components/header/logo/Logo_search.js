@@ -55,13 +55,16 @@ function Logosearch() {
     }
   };
  
-  const redirectLogin = () => {
+  const redirectLogin = async () => {
+    let localstorage = await localStorage.getItem('dataStored')
+    let dataProduct = await JSON.parse(localstorage);
+    dataProduct = []
     window.location = `/login`;
   };
 
   const showIcon = async () => {
     const localstorage = await localStorage.getItem("datastored");
-    const dataProduct = await JSON.parse(localstorage);
+    const dataProduct =  await JSON.parse(localstorage);
     const logoheader = document.getElementById("logoheader");
     logoheader.setAttribute("data-id", dataProduct._id);
     const button = document.getElementById("navbarbutton");
@@ -87,7 +90,7 @@ function Logosearch() {
       window.location  = `/ProfilePage/${dataProduct.username}`
     }
     else{
-      window.location = `/PròilePage/404`
+      window.location = `/ProfilePage/404`
     }
   };
   window.addEventListener("scroll", scroll_down);
@@ -130,7 +133,7 @@ function Logosearch() {
               </ul>
             </li>
             <li className="login">
-              <Link className="link" to={"/login"} id="avatarLogin">
+              <Link className="link" id="avatarLogin">
                 <div className="" id="imageId">
                   <img src="" alt="..." />
                 </div>

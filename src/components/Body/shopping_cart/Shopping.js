@@ -21,7 +21,8 @@ const Shopping = () => {
     setData(productData);
   };
   
-  // showData()
+  window.onloadeddata = showData
+  
   return (
     <>
       <Logosearch />
