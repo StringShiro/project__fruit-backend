@@ -5,41 +5,48 @@ import Logosearch from "../logo/Logo_search";
 import Axios from "axios";
 import Homefooter from "../../Footer/Catelogy_Support"
 import { redirect } from "react-router-dom";
+import { checkData } from "../../../routers/validate";
+import { Toaster } from "react-hot-toast";
+import { formatDate } from "./formatdate";
 export default function ProfilePage() {
   const [data] = React.useState("");
-  const [username, setUsername] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [fullname, setFullname] = useState("");
-  const [birth, setBirthday] = useState("");
-
+  const [birthday, setBirthday] = useState("");
+  const [date, time] = formatDate(new Date()).split(' ');
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
   const getUser = async () => {
     const localStorag = await localStorage.getItem("datastored");
     const newData = JSON.parse(localStorag);
-    console.log(newData.username);
     const usernameAuthor = document.getElementById("usernameAuthor");
     const birthday = document.getElementById("birthday");
     const fullname = document.getElementById("fullname");
-    const inputAddress = document.getElementById("inputAddress");
+    const address = document.getElementById("address");
     const phone = document.getElementById("phone");
     const avatar = document.getElementById("avatar");
     const email = document.getElementById("email");
     // const username = document.getElementById("username");
     const profilepage = document.getElementById("ProfilePage");
     usernameAuthor.textContent = newData.username;
-    birthday.value = newData.birth;
+    // birthday.value = newData.birthday;
     fullname.value = newData.fullname;
-    inputAddress.value = newData.address;
+    address.value = newData.address;
     phone.value = newData.phone;
     email.value = newData.email;
-    // username.value = newData.username;
+    birthday.value = date
+
+
+
     const usernameu = newData.username;
     avatar.src = newData.avatar;
     profilepage.setAttribute("name", newData._id);
     redirect(usernameu);
   };
-
+  
   const profileUpdate = async (e) => {
     e.preventDefault();
     const localStorag = await localStorage.getItem("datastored");
@@ -49,13 +56,11 @@ export default function ProfilePage() {
     // const usernameAuthor = document.getElementById("usernameAuthor");
     const birthday = document.getElementById("birthday");
     const fullname = document.getElementById("fullname");
-    const address = document.getElementById("inputAddress");
+    const address = document.getElementById("address");
     const phone = document.getElementById("phone");
     const avatar = document.getElementById("avatar");
     const email = document.getElementById("email");
-    
     // const username = document.getElementById("username");
-    console.log(avatar)
     const dataStorage = {
       //   username: username.value,
       fullname: fullname.value,
@@ -65,34 +70,30 @@ export default function ProfilePage() {
       birthday: birthday.value,
       avatar:avatar.src
     };
-    const datastring = JSON.stringify(dataStorage);
-    // await Axios({
-    //   method:"POST",
-    //   url:url,
-    //   data:dataStorage
-    // }).then(res=>{
-    //   console.log(res)
-    // })
-    console.log(datastring);
+    console.log(birthday.value)
     await Axios.post(url, dataStorage)
       .then((res) => {
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  
+
   const redirect = (usernameu) => {
     const clickProfile = document.getElementById("clickProfile");
     clickProfile.addEventListener("click", () => {
       window.location = `/ProfilePage/${usernameu}`;
     });
   };
-  window.onload = getUser;
+  window.onload = getUser
+ 
   return (
     <>
       <Logosearch />
-      <div className="containerBox">
+      <Toaster position="top-right" reverseOrder={false}></Toaster>
+      <div className="containerBox" id="boxProfile">
         <div className="ProfilePage" id="ProfilePage" data-id>
           <div className="row_profile">
             <div className="Col_infor">
@@ -132,7 +133,7 @@ export default function ProfilePage() {
                   <p>quản lý thông tin hồ sơ cần xử lý</p>
                 </div>
                 <form action="" method="post" onSubmit={profileUpdate}>
-                  <ul>
+                  <ul id="inputvalue">
                     <li>
                       <input
                         type="text"
@@ -165,7 +166,8 @@ export default function ProfilePage() {
                         className="form-control"
                         placeholder="Ngày sinh"
                         id="birthday"
-                        value={birth || ""}
+                        
+                        value={birthday || ""}
                         onChange={(e) => {
                           setBirthday(e.target.value);
                         }}
@@ -175,7 +177,7 @@ export default function ProfilePage() {
                       <input
                         type="text"
                         className="form-control"
-                        id="inputAddress"
+                        id="address"
                         placeholder="Địa chỉ"
                         value={address || ""}
                         onChange={(e) => {
@@ -203,11 +205,10 @@ export default function ProfilePage() {
                       />
                     </li>
                   </ul>
-                  <ul>
+                  <ul id="preview">
                     <li className="preview">
                       <div
                         className="image"
-                        // onClick={handleImg}
                       >
                         <label htmlFor="avatarupdate">
                           <img

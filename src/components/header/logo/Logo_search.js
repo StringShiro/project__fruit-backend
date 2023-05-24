@@ -59,8 +59,7 @@ function Logosearch() {
  
   const redirectLogin = async () => {
     let localstorage = await localStorage.getItem('dataStored')
-    let dataProduct = await JSON.parse(localstorage);
-    dataProduct = []
+   
     window.location = `/login`;
   };
 
@@ -124,7 +123,7 @@ function Logosearch() {
           </ul>
           <ul className="icon" id="navbarIcon">
             <li>
-              <i className="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass" ></i>
               <ul>
                 <li>
                   <input type="text" placeholder="Tìm kiếm...." />
@@ -135,8 +134,9 @@ function Logosearch() {
               </ul>
             </li>
             {/* chuyển ngôn ngữ */}
-            <li>
-              <i className="fa-solid fa-language"></i>
+            <li id="language">
+              
+              <i className="fa-solid fa-language" id="changeLanguage"></i>
               <ul className="lge">
                 <li>
                   <span onClick={() => onclicklanguage("vi")}>vi</span>

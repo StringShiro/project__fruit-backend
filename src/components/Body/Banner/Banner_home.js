@@ -73,9 +73,9 @@ export default function Bannerhome() {
             alt=""
           />
         </div>
-        <div className="horizontal">
+        {/* <div className="horizontal">
           <span>{t("infor.My_order")}</span>
-        </div>
+        </div> */}
       </div>
     </Container>
   );

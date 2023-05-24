@@ -27,12 +27,12 @@ const Shopping = () => {
     <>
     <Logosearch/>
       <div className="Container">
-        {data.length == 0 ? (
+        {data.length === 0 ? (
           <div className="no_card">
             <div className="form_card">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png"
-                alt=""
+                alt="..."
               />
               <p>Giỏ hàng của bạn đang trống</p>
               <button className="btn">

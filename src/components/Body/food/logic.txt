@@ -320,3 +320,25 @@ import { use } from "i18next";
 import { useDispatch, useSelector } from "react-redux";
 const dispatch = useDispatch();
   const product = useSelector((state) => state.cartSlice.product);
+
+
+   {/* {STORES_PRODUCT.map((store) => {
+              return (
+                <Col
+                  lg={3}
+                  xs={6}
+                  key={store.id}
+                  onClick={() =>
+                    handleOnclick({
+                      id: store.id,
+                      img: store.imgUrl,
+                      name: store.name,
+                      price: store.price,
+                    })
+                  }>
+                  <Image src={store.imgUrl} thumbnail />
+                  <div className="heading">{store.name}</div>
+                  <div className="category">{store.price} </div>
+                </Col>
+              );
+            })} */}

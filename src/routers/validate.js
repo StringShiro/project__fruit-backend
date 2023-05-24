@@ -3,6 +3,7 @@ export async function checkValidateRegister(data) {
   const errors = checkFields({}, data);
   return errors;
 }
+
 export async function checkValidate(data) {
   const errors = checkField({}, data);
   return errors;
@@ -13,12 +14,24 @@ function checkField(errors = {}, data) {
   checkUsername(errors, data);
   return errors;
 }
+
 function checkFields(errors = {}, data) {
   checkPhone(errors,data)
   checkEmail(errors,data)
   checkPassword(errors, data);
   checkPasswordComfirm(errors, data);
   checkUsername(errors, data);
+  return errors;
+}
+export async function checkData(data) {
+  const errors = checkruleData({}, data);
+  return errors;
+}
+
+function checkruleData(errors = {}, data) {
+  checkPhone(errors,data)
+  checkAddress(errors,data)
+  checkEmail(errors,data)
   return errors;
 }
 async function checkUsername(errors, data) {
@@ -93,4 +106,16 @@ async function checkPasswordComfirm(errors, data) {
   else {
     errors.datas.passwordconfirm = datas.passwordconfirm;
   }
+}
+
+async function checkAddress(errors, data) {
+  const datas = await data;
+
+  if (datas.address === "") {
+    errors.datas.address = toast.error("address không được để trống");
+  } 
+  else {
+    errors.datas.address = datas.address;
+  }
+
 }

@@ -14,7 +14,6 @@ export default class HomeProduct extends React.Component {
     })
       .then((res) => {
         const products = res.data;
-        console.log(res.data);
         this.setState({
           products,
         });
@@ -37,27 +36,26 @@ export default class HomeProduct extends React.Component {
       const productImage = parentDivImage.querySelector(
         ".card-image #productImage"
       );
-      const id = parentDivImage.getAttribute("data-id")
-      console.log(id)
+      const id = parentDivImage.getAttribute("data-id");
       const productN = productName.textContent;
       const productC = productCurrency.textContent;
       const productI = productImage.src;
       productData.push({
-        id:id,
+        id: id,
         productName: productN,
         productCurrency: productC,
         productImage: productI,
       });
-      
+
       const product = JSON.stringify(productData);
       const localstorage = localStorage.setItem("productData", product);
       // console.log(product);
-      redirect(id)
+      redirect(id);
     };
     return (
       <>
         {this.state.products.map((product) => (
-         <div
+          <div
             className="HomeCarousel_form"
             key={product._id}
             data-id={product._id}

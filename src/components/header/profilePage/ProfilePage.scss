@@ -1,63 +1,91 @@
-.ProfilePage {
-  margin: 0;
-  width: 85%;
-  min-height: 50vh;
-  display: inline-block;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 20px 0;
-  .row_profile {
-    width: 100%;
-    display: flex;
-
-    .Col_infor {
-      box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
-        rgb(60 64 67 / 15%) 0px 1px 3px 1px;
-      margin-right: 10px;
-      padding: 10px;
-      width: 25%;
-      .infor {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 0;
-        .image {
-          margin-right: 15px;
-        }
-        .edit_user {
-          cursor: pointer;
-          &:hover {
-            color: rgb(208, 3, 3);
+  .ProfilePage {
+    margin: 20px 0;
+    width: 80%;
+    min-height: 50vh;
+    display: inline-block;
+    position: relative;
+    padding: 20px 0;
+    .row_profile {
+      width: 100%;
+      display: flex;
+  
+      .Col_infor {
+        box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+          rgb(60 64 67 / 15%) 0px 1px 3px 1px;
+        margin-right: 10px;
+        padding: 10px;
+        width: 25%;
+        .infor {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin: 0;
+          .image {
+            margin-right: 15px;
           }
-        }
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-        li {
-          margin: 20px auto;
-
-          & > a {
-            text-decoration: none;
-            color: #000;
+          .edit_user {
             cursor: pointer;
-            span {
-              margin: 0 10px;
-            }
-
             &:hover {
               color: rgb(208, 3, 3);
             }
           }
         }
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            margin: 20px auto;
+  
+            & > a {
+              text-decoration: none;
+              color: #000;
+              cursor: pointer;
+              span {
+                margin: 0 10px;
+              }
+  
+              &:hover {
+                color: rgb(208, 3, 3);
+              }
+            }
+          }
+        }
+      }
+      .Col_pageChild {
+        width: 75%;
+      }
+      .Col_content{
+        .form-profile{
+          display: flex;
+          margin: auto;
+          flex-wrap: wrap;
+          justify-content: center;
+          .profile__header{
+            display: block;
+            width: 100%;
+            text-align: center;
+          }
+          form{
+            width: 100%;
+            #inputvalue{
+              width: calc(100%/2);
+            }
+            #preview{
+              width: calc(100%/2);
+              #avatar{
+                width: 100%;
+                height: 100%;
+              }
+              #avatarupdate{
+                opacity: 0;
+              }
+            }
+          }
+        }
       }
     }
-    .Col_pageChild {
-      width: 75%;
-    }
   }
-}
+
 
 @media only screen and (max-width: 47.25em) {
   .ProfilePage {

@@ -62,7 +62,7 @@ export default class RenderProduct extends React.Component {
             id="cardMain"
             onClick={showID}
           >
-            <label htmlFor="productImage" className="card-image">
+            <label htmlFor="productName" className="card-image">
               <img src={product.image} id="productImage" alt="..." />
             </label>
             <div className="heading" id="productName">

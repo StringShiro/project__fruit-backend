@@ -21,6 +21,8 @@ const Product = () => {
     console.log(e.target.name);
   };
   return (
+    <>
+    <Logosearch/>
     <Container>
       <Row>
         <Col lg={3}>
@@ -45,32 +47,13 @@ const Product = () => {
           </div>
         </Col>
         <Col lg={9}>
-          <Row className="justify-content-center">
-            {/* {STORES_PRODUCT.map((store) => {
-              return (
-                <Col
-                  lg={3}
-                  xs={6}
-                  key={store.id}
-                  onClick={() =>
-                    handleOnclick({
-                      id: store.id,
-                      img: store.imgUrl,
-                      name: store.name,
-                      price: store.price,
-                    })
-                  }>
-                  <Image src={store.imgUrl} thumbnail />
-                  <div className="heading">{store.name}</div>
-                  <div className="category">{store.price} </div>
-                </Col>
-              );
-            })} */}
+           
             <RenderProduct/>
-          </Row>
         </Col>
       </Row>
     </Container>
+    <Homefooter/>
+    </>
   );
 };
 
