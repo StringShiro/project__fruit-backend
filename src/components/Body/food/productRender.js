@@ -25,8 +25,8 @@ export default class RenderProduct extends React.Component {
     const redirect = (id) => {
       window.location = `/Product_details/${id}`;
     };
+    const productData = [];
     const showID = async (e) => {
-      const productData = [];
       const cardMain = e.target.parentElement;
       const parentDivImage =
         cardMain.querySelector("#productImage").parentElement.parentElement;
@@ -36,7 +36,6 @@ export default class RenderProduct extends React.Component {
         ".card-image #productImage"
       );
       const id = parentDivImage.getAttribute("data-id")
-      console.log(id)
       const productN = productName.textContent;
       const productC = productCurrency.textContent;
       const productI = productImage.src;

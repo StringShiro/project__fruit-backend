@@ -1,33 +1,51 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Shopping.scss";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Logosearch from "../../header/logo/Logo_search";
-import Homefooter from "../../Footer/Catelogy_Support"
+import Homefooter from "../../Footer/Catelogy_Support";
 const Shopping = () => {
-  const [data, setData] = useState("");
+  const datas = [];
   const { t } = useTranslation();
   // tính tổng
   const totalPrice = () => {
     let total = 0;
-    data.forEach((item) => {
+    datas.forEach((item) => {
       total += item.quantity * item.productCurrency;
     });
     return total.toLocaleString("en-US");
   };
-  const showData = async () => {
-    let product = await localStorage.getItem("productCart");
-    const productData = await JSON.parse(product);
-    setData(productData);
-  };
+  let product = localStorage.getItem("productCart");
+  const productData = JSON.parse(product);
+  productData.forEach(data=>{
+    datas.push({
+      id:data.id,
+      productName:data.productName,
+      productCurrency:data.productCurrency,
+      productImage:data.productImage,
+      quantity:data.quantity
+     });
+  })
+  const deleteAll = ()=>{
+    localStorage.removeItem("productCart")
+  }
+  console.log(datas.length)
+  const deleteOne = (e)=>{
+    const target = e.target
+    const parentElement = target.parentElement.parentElement
+    datas.filter(data=>{
+      datas.shift(data)
+      console.log(data)
+    })
+    
+  }
   
-  window.onloadeddata = showData
-  
+  console.log(datas)
   return (
     <>
-    <Logosearch/>
+      <Logosearch />
       <div className="Container">
-        {data.length === 0 ? (
+        {datas.length === 0 ? (
           <div className="no_card">
             <div className="form_card">
               <img
@@ -47,30 +65,30 @@ const Shopping = () => {
             <div className="form_has_card">
               <div className="stick">
                 <button className="btn btn-danger">Chọn tất cả</button>
-                <button className="btn btn-danger">Xóa tất cả</button>
+                <button className="btn btn-danger" onClick={deleteAll}>Xóa tất cả</button>
               </div>
-              {data.map((item, index) => {
+              {datas.map((data,index) => {
                 return (
-                  <div className="infor_card" key={index}>
+                  <div className="infor_card" id="informationCard" key={index} data-id={data.id}>
                     <input type="checkbox" className="form-check-input" />
                     <div className="image">
-                      <img src={item.productImage} alt="" />
+                      <img src={data.productImage} alt="" />
                     </div>
                     <div className="content_card">
-                      <h5>Tên sản phẩm: {item.productName}</h5>
+                      <h5>Tên sản phẩm: {data.productName}</h5>
                       <p>{`Thông tin thêm ...`}</p>
-                      <p>Giá sản phẩm:{item.productCurrency}</p>
+                      <p>Giá sản phẩm:{data.productCurrency}</p>
                       <div className="quantity">
                         <button className="btn">+</button>
                         <input
                           type="text"
-                          value={item.quantity}
+                          value={data.quantity}
                           onChange={(e) => {}}
                         />
                         <button className="btn">-</button>
                       </div>
                     </div>
-                    <div className="delete_card">
+                    <div className="delete_card" onClick={deleteOne}>
                       <button className="btn btn-danger">Xóa</button>
                     </div>
                   </div>
@@ -114,7 +132,7 @@ const Shopping = () => {
           </div>
         )}
       </div>
-      <Homefooter/>
+      <Homefooter />
     </>
   );
 };

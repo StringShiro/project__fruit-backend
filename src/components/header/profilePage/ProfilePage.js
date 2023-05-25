@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./ProfilePage.scss";
 import Logosearch from "../logo/Logo_search";
 // import { Image } from "react-bootstrap";
+import Homefooter from "../../Footer/Catelogy_Support"
 
 import Axios from "axios";
 export default function ProfilePage() {
@@ -230,6 +231,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
+      <Homefooter/>
     </>
   );
 }

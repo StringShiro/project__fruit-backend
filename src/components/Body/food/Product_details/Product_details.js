@@ -3,7 +3,7 @@ import Logosearch from "../../../header/logo/Logo_search";
 import "./Product_details.scss";
 import StarRating from "./StarRating";
 import Homefooter from "../../../Footer/Catelogy_Support";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 // import { addToCart } from "../../../../redux/cartSlice";
 // import { address } from "../productRender";
@@ -23,59 +23,59 @@ const Productdetails = (props) => {
   // };
 
   const showdata = async () => {
-    const localstorage = await localStorage.getItem("productData")
+    const localstorage = await localStorage.getItem("productData");
     const productData = await JSON.parse(localstorage);
-    const productImage = document.getElementById('productImage')
-    const productName = document.getElementById('productName')
-    const productCurrency = document.getElementById('productCurrency')
-    const productDetail = document.getElementById('productDetail')
+    const productImage = document.getElementById("productImage");
+    const productName = document.getElementById("productName");
+    const productCurrency = document.getElementById("productCurrency");
+    const productDetail = document.getElementById("productDetail");
 
     // gallery IMAGE
 
-    const productImage1 = document.getElementById('productImage1')
-    const productImage2 = document.getElementById('productImage2')
-    const productImage3 = document.getElementById('productImage3')
+    const productImage1 = document.getElementById("productImage1");
+    const productImage2 = document.getElementById("productImage2");
+    const productImage3 = document.getElementById("productImage3");
 
-    productData.map(datas=>{
-        productDetail.setAttribute('data-id',datas.id)
-        productImage.src = datas.productImage
-        productName.textContent = datas.productName
-        productCurrency.textContent = datas.productCurrency
-    })
-    
+    productData.map((datas) => {
+      productDetail.setAttribute("data-id", datas.id);
+      productImage.src = datas.productImage;
+      productName.textContent = datas.productName;
+      productCurrency.textContent = datas.productCurrency;
+    });
   };
-  const productCart = []
-  const addTocart = async ()=>{
-    const productDetail = document.getElementById('productDetail')
-    const productImage = document.getElementById('productImage')
-    const productName = document.getElementById('productName')
-    const productCurrency = document.getElementById('productCurrency')
-    const productQuality = document.getElementById('prductQuality')
-    
+  const productCart = [];
+  const addTocart = async () => {
+    const productDetail = document.getElementById("productDetail");
+    const productImage = document.getElementById("productImage");
+    const productName = document.getElementById("productName");
+    const productCurrency = document.getElementById("productCurrency");
+    const productQuality = document.getElementById("prductQuality");
+
     const productN = productName.textContent;
     const productC = productCurrency.textContent;
     const productI = productImage.src;
-    const productQ = productQuality.value
-    const productId = productDetail.getAttribute('data-id')
-    if(productId){
+    const productQ = productQuality.value;
+    const productId = productDetail.getAttribute("data-id");
+    
+    if (productId) {
       productCart.push({
-        id:productId,
+        id: productId,
         productName: productN,
         productCurrency: productC,
         productImage: productI,
-        quantity:productQ
+        quantity: productQ,
       });
     }
-    console.log(productCart)
-    localStorage.setItem('productCart',JSON.stringify(productCart)) 
-  }
+    
+    localStorage.setItem("productCart", JSON.stringify(productCart));
+  };
 
   window.onload = showdata;
 
   return (
     <>
       <Logosearch></Logosearch>
-      <div className="Product_details" id="productDetail" >
+      <div className="Product_details" id="productDetail">
         <div className="flex">
           <div className="column-xs-12 column-md-7">
             <div className="product-gallery">
@@ -84,22 +84,26 @@ const Productdetails = (props) => {
               </div>
               <div className="productGallery">
                 <div id="productImageGallery">
-                  <img src="..." alt="..." id="productImage1"/>
+                  <img src="..." alt="..." id="productImage1" />
                 </div>
                 <div id="productImageGallery">
-                  <img src="..." alt="..."  id="productImage2"/>
+                  <img src="..." alt="..." id="productImage2" />
                 </div>
                 <div id="productImageGallery">
-                  <img src="..." alt="..." id="productImage3"/>
+                  <img src="..." alt="..." id="productImage3" />
                 </div>
               </div>
             </div>
           </div>
           <div className="column-xs-12 column-md-6 col-6">
-            <h1 className="productname" id="productName">{data.productname}</h1>
-            <h2 className="currency" id="productCurrency">{data.currency} VND </h2>
-            <div className="description" >
-              <p >content</p>
+            <h1 className="productname" id="productName">
+              {data.productname}
+            </h1>
+            <h2 className="currency" id="productCurrency">
+              {data.currency} VND{" "}
+            </h2>
+            <div className="description">
+              <p>content</p>
             </div>
             <div className="d-flex ">
               <div className="quantity">
@@ -124,12 +128,9 @@ const Productdetails = (props) => {
                   -
                 </button>
               </div>
-              <button
-                className="add-to-cart"
-                onClick={addTocart}
-              >
+              <button className="add-to-cart" onClick={addTocart}>
                 Thêm vào giỏ hàng
-              </button >
+              </button>
             </div>
           </div>
         </div>
