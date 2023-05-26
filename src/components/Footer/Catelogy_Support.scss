@@ -16,6 +16,7 @@
     color: #fff;
     text-align: left;
     padding: 20px 10px;
+    position: relative;
     .ul {
       width: 100%;
       margin: 0;
@@ -129,6 +130,24 @@
       }
     }
   }
+  #chatAuto{
+    position: absolute;
+    width: 100%;
+    .box-img{
+      position: absolute;
+      right: 10px;
+      top: 160px;
+      height: 100%;
+      .img-width{
+        width: 70px;
+        height: 70px;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
   .Footer_home {
     .nav_footer {
       padding: 8px 0;
@@ -154,10 +173,16 @@
   }
 }
 @media only screen and (min-width: 47.25em) and (max-width: 63.9375em) {
-  .Footer_home {
-    .nav_footer {
-      width: 100%;
+  .Catelogy_Support {
+    #social{
+      #menuSocial{
+        ul{
+
+          padding: 0;
+        }
+      }
     }
+  
   }
 }
 
@@ -182,6 +207,16 @@
       width: 100%;
       padding: 0 10px;
     }
+    #menu{
+      display: none;
+    }
+    #account{
+      display: none;
+    }
+    #register{
+      display: none;
+    }
+    
   }
 }
 // X-Small devices (portrait phones, less than 576px)

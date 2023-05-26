@@ -1,3 +1,4 @@
+
 .displayImg {
   display: block;
   width: 100%;
@@ -25,7 +26,7 @@
 }
 .table_sm {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   position: relative;
   z-index: -1;
 
@@ -43,20 +44,33 @@
     }
   }
 }
-@media (max-width: 400px) {
-  .displayImg {
-    display: block;
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-  }
-}
-.carouselText {
-  text-align: center;
-  padding-bottom: 30px;
-}
 
+@media (min-width: 576px){
+  .container, .container-sm{
+    max-width: unset;
+  } 
+}
 @media only screen and (max-width: 47.1875em) {
+  .containerBanner{
+    // height: 200px;
+    margin: 10px 0;
+      .containerbox{
+        .containerImage{
+          .containerRow{
+            .displayImg{
+              margin: 0;
+              height: unset;
+            }
+          }
+        }
+      }
+      .table_sm{
+        margin: 10px 0;
+      }
+  }
+  .container{
+    // margin: 0;
+  }
   .banner__home {
     padding: 10px;
     .carousel {

@@ -45,10 +45,7 @@ export default class RenderProduct extends React.Component {
         productCurrency: productC,
         productImage: productI,
       });
-      
-      const product = JSON.stringify(productData);
-      const localstorage = localStorage.setItem("productData", product);
-      // console.log(product);
+      localStorage.setItem("productData", JSON.stringify(productData));
       redirect(id)
     };
     return (

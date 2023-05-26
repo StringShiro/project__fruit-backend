@@ -6,7 +6,8 @@
     "contact":"Contact",
     "account_information":"Account",
     "my_order":"My order",
-    "logout":"Logout"
+    "logout":"Logout",
+    "login":"Login"
   },
   "infor":{
     "account_information":"Account information",

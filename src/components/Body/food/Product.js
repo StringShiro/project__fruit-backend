@@ -46,7 +46,7 @@ const Product = () => {
             </ul>
           </div>
         </Col>
-        <Col lg={9}>
+        <Col lg={9} id="col-9">
            
             <RenderProduct/>
         </Col>

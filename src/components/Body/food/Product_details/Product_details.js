@@ -11,8 +11,7 @@ const Productdetails = (props) => {
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [data, setData] = useState("");
-  const dataproduct = useSelector((state) => state.cartSlice.dataproduct);
-  // const dispatch = useDispatch();
+  // 
   const inputonchange = (e) => {
     const inputValue = Number(e.target.value);
 
@@ -56,7 +55,7 @@ const Productdetails = (props) => {
     const productI = productImage.src;
     const productQ = productQuality.value;
     const productId = productDetail.getAttribute("data-id");
-    
+
     if (productId) {
       productCart.push({
         id: productId,
@@ -65,11 +64,11 @@ const Productdetails = (props) => {
         productImage: productI,
         quantity: productQ,
       });
+      localStorage.setItem("productCart", JSON.stringify(productCart));
     }
     
-    localStorage.setItem("productCart", JSON.stringify(productCart));
+   
   };
-
   window.onload = showdata;
 
   return (

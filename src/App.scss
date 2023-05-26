@@ -12,7 +12,14 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: hidden;
 }
 .width-page{
   width: 1200px;
+}
+
+@media only screen and (max-width: 47.1875em) {
+  .width-page{
+    width: 100%;
+  }
 }

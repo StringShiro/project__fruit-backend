@@ -10,7 +10,7 @@ export default function CatelogySupport() {
       <Container className="py-3">
         <h3>Healthy-Roo</h3>
         <Row className="Catelogy_Support">
-          <Col className="ul">
+          <Col className="ul" id="social">
             <h6>{t("footer.contact")}</h6>
             <li>{t("footer.addressShop")}</li>
             <li>
@@ -20,7 +20,7 @@ export default function CatelogySupport() {
               <i className="fa-solid fa-earth-americas" />
               Gmail
             </li>
-            <li>
+            <li id="menuSocial">
               <ul>
                 <li>
                   <i className="fa-brands fa-facebook-f"></i>
@@ -35,7 +35,7 @@ export default function CatelogySupport() {
             </li>
           </Col>
 
-          <Col className="ul">
+          <Col className="ul" id="menu">
             <h6>MENU</h6>
 
             <li>
@@ -60,7 +60,7 @@ export default function CatelogySupport() {
             </li>
           </Col>
 
-          <Col className="ul">
+          <Col className="ul" id="account">
             <h6> {t("footer.account")}</h6>
             <li>
               <span> {t("footer.account_information")}</span>
@@ -76,7 +76,7 @@ export default function CatelogySupport() {
             </li>
           </Col>
 
-          <Col className="ul">
+          <Col className="ul" id="register">
             <h6>{t("footer.register")}</h6>
             <li>
               <span>{t("footer.registration_information")}</span>
@@ -88,6 +88,14 @@ export default function CatelogySupport() {
               </button>
             </div>
           </Col>
+          <div id="chatAuto">
+            <div className="box-img">
+              <div className="img-width">
+              <img src="https://ik.imagekit.io/fruitcompany/image_app/messager.png?updatedAt=1685066417764" alt="..." />
+
+              </div>
+            </div>
+          </div>
         </Row>
         <Row className="Footer_home">
           <div className="nav_footer">

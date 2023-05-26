@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translate/config";
-import { Container, Row, Col, Navbar } from "react-bootstrap";
-import Nav from "react-bootstrap/Nav";
 import { Axios } from "axios";
 function Logosearch() {
   const { t } = useTranslation();
@@ -56,16 +54,16 @@ function Logosearch() {
       console.log(err);
     }
   };
- 
+
   const redirectLogin = async () => {
-    let localstorage = await localStorage.getItem('dataStored')
-   
+    let localstorage = await localStorage.getItem("dataStored");
+
     window.location = `/login`;
   };
 
   const showIcon = async () => {
     const localstorage = await localStorage.getItem("datastored");
-    const dataProduct =  await JSON.parse(localstorage);
+    const dataProduct = await JSON.parse(localstorage);
     const logoheader = document.getElementById("logoheader");
     logoheader.setAttribute("data-id", dataProduct._id);
     const button = document.getElementById("navbarbutton");
@@ -83,15 +81,34 @@ function Logosearch() {
       avatarLogin.style.display = "block";
     }
   };
+  const productData = [];
+  const productD = async () => {
+    const localstorage = await localStorage.getItem("productCart");
+    const dataproduct = JSON.parse(localstorage);
+    const NumberLength = document.getElementById("NumberLength");
+    dataproduct.map((data) => {
+      NumberLength.textContent = dataproduct.length;
+      productData.push({
+        id: data.id,
+        productName: data.productName,
+        productCurrency: data.productCurrency,
+        productImage: data.productImage,
+        quantity: data.quantity,
+      });
+    });
+
+    console.log(productData);
+    // NumberLength.textContent =
+  };
+  productD();
   showIcon();
   const redirectInformationAccount = async () => {
     const localstorage = await localStorage.getItem("datastored");
     const dataProduct = await JSON.parse(localstorage);
-    if(dataProduct._id){
-      window.location  = `/ProfilePage/${dataProduct.username}`
-    }
-    else{
-      window.location = `/ProfilePage/404`
+    if (dataProduct._id) {
+      window.location = `/ProfilePage/${dataProduct.username}`;
+    } else {
+      window.location = `/ProfilePage/404`;
     }
   };
   window.addEventListener("scroll", scroll_down);
@@ -122,8 +139,8 @@ function Logosearch() {
             </li>
           </ul>
           <ul className="icon" id="navbarIcon">
-            <li>
-              <i className="fa-solid fa-magnifying-glass" ></i>
+            <li id="searching">
+              <i className="fa-solid fa-magnifying-glass"></i>
               <ul>
                 <li>
                   <input type="text" placeholder="Tìm kiếm...." />
@@ -135,7 +152,6 @@ function Logosearch() {
             </li>
             {/* chuyển ngôn ngữ */}
             <li id="language">
-              
               <i className="fa-solid fa-language" id="changeLanguage"></i>
               <ul className="lge">
                 <li>
@@ -147,7 +163,7 @@ function Logosearch() {
               </ul>
             </li>
             {/* login */}
-            <li className="login">
+            <li className="login" id="login">
               <Link className="link" id="avatarLogin">
                 <div className="" id="imageId">
                   <img src="" alt="..." />
@@ -175,62 +191,49 @@ function Logosearch() {
               </ul>
             </li>
             {/* cart shop */}
-            <li>
+            <li id="cart">
               <Link className="link" to="/shopping">
                 <i className="fa-solid fa-cart-shopping"></i>
-                <span className="number">{product.length}</span>
+                <span className="number" id="NumberLength">
+                  {product.length}
+                </span>
               </Link>
             </li>
-            <li className="bar">
+            <li className="bar" onClick={showNav} id="bar">
               <Link className="link" to="#">
                 <i className="fa-solid fa-bars"></i>
               </Link>
             </li>
-            {/* <li>
-              <i className="fa-solid fa-language"></i>
-              <ul className="lge">
-                <li>
-                  <span onClick={() => onclicklanguage("vi")}>vi</span>
-                </li>
-                <li>
-                  <span onClick={() => onclicklanguage("en")}>en</span>
-                </li>
-              </ul>
-            </li> */}
-            <li onClick={showNav} id="bar">
-              <i className="fa-solid fa-bars" ></i>
-            </li>
-
-            <nav className="navbar">
-              <ul>
-                <li>
-                  <Link to="/login">{t("navbar.login")}</Link>
-                </li>
-                <li>
-                  <Link to="/lienhe">{t("navbar.contact")}</Link>
-                </li>
-                <li>
-                  <Link to="/sanpham">{t("navbar.product")}</Link>
-                </li>
-                <li>
-                  <Link to="/gioithieu">{t("navbar.introduce")}</Link>
-                </li>
-                <li>
-                  <Link to="/">{t("navbar.home")}</Link>
-                </li>
-                <li>
-                  <ul>
-                    <li>
-                      <input type="text" placeholder="Tìm kiếm...." />
-                      <button>
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                      </button>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
           </ul>
+          <nav className="navbar">
+            <ul>
+              <li>
+                <Link to="/login">{t("navbar.login")}</Link>
+              </li>
+              <li>
+                <Link to="/lienhe">{t("navbar.contact")}</Link>
+              </li>
+              <li>
+                <Link to="/sanpham">{t("navbar.product")}</Link>
+              </li>
+              <li>
+                <Link to="/gioithieu">{t("navbar.introduce")}</Link>
+              </li>
+              <li>
+                <Link to="/">{t("navbar.home")}</Link>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <input type="text" placeholder="Tìm kiếm...." id="searchNavigation"/>
+                    <button id="buttonNavigation">
+                      <i className="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
           <ul id="navbarbutton">
             <li>
               <button onClick={redirectLogin}>Đăng Nhập</button>
@@ -239,20 +242,6 @@ function Logosearch() {
               <button onClick={redirectLogin}>Đăng Kí</button>
             </li>
           </ul>
-          {/* <ul className="Navbar_bar">
-            <li>
-              <Link to="/">Trang chủ</Link>
-            </li>
-            <li>
-              <Link to="/gioithieu">Giới thiệu</Link>
-            </li>
-            <li>
-              <Link to="/sanpham">Sản Phẩm</Link>
-            </li>
-            <li>
-              <Link to="/lienhe">Liên hệ</Link>
-            </li>
-          </ul> */}
         </div>
       </div>
     </>
