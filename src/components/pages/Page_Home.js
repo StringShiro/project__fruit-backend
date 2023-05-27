@@ -1,8 +1,7 @@
 // /** @format */
-import "./Page_Home.scss";
 // import Homeheader from "../header/Home_header";
 import Homebody from "../Body/Home_body";
-import Homefooter from "../Footer/Home_footer";
+import Homefooter from "../Footer/Catelogy_Support";
 import React from "react";
 import Logosearch from "../header/logo/Logo_search";
 import { useLocation } from "react-router-dom";

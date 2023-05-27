@@ -60,6 +60,7 @@
           margin: auto;
           flex-wrap: wrap;
           justify-content: center;
+
           .profile__header{
             display: block;
             width: 100%;
@@ -67,14 +68,25 @@
           }
           form{
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             #inputvalue{
               width: calc(100%/2);
+              align-items: center;
             }
             #preview{
               width: calc(100%/2);
-              #avatar{
-                width: 100%;
-                height: 100%;
+              display: flex;
+            justify-content: center;
+            align-items: center;
+              .image{
+                width: 90%;
+                height: 80%;
+                #avatar{
+                  width: 100%;
+                  height: 100%;
+                }
               }
               #avatarupdate{
                 opacity: 0;
@@ -90,18 +102,44 @@
 @media only screen and (max-width: 47.25em) {
   .ProfilePage {
     padding: 0;
-
-    .Col_infor {
-    }
-
-    .Col_content {
-      .profile__header {
-        h4 {
-          text-align: center;
-        }
+    width: 100%;
+    .row_profile{
+      flex-wrap: wrap;
+      justify-content: center;
+      .Col_infor {
+        width: 80%;
+        margin: 0 0 10px 0;
       }
+  
+      .Col_content {
+        width: 80%;
+        .form-profile{
+          form{
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+             ul:first-child{
+              width: 100%;
+             }
+             ul:last-child{
+              width: 100%;
+              li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+             }
+          }
 
-      padding-left: 0;
+        }
+        .profile__header {
+          
+          h4 {
+            text-align: center;
+          }
+        }
+  
+        padding-left: 0;
+      }
     }
   }
 }

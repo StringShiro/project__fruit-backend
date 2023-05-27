@@ -178,7 +178,7 @@ function Logosearch() {
                     <span>{t("navbar.account_information")}</span>
                   </li>
                 </Link>
-                <Link to={"/ProfilePage/OrderManagement/"} className="link">
+                <Link to={"/ProfilePage/OrderManagement"} className="link">
                   <li>
                     <span>{t("navbar.my_order")}</span>
                   </li>

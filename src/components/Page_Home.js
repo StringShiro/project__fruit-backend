@@ -12,7 +12,7 @@ export default function PageHome() {
   const location = useLocation();
   return (
     <>
-      <Logosearch />
+    <Logosearch/>
       {location.pathname === "/" ? (
         <>
           <Bannerhome />
@@ -21,8 +21,8 @@ export default function PageHome() {
       ) : (
         ""
       )}
+      < CatelogySupport/>
       <Outlet></Outlet>
-      <CatelogySupport></CatelogySupport>
     </>
   );
 }

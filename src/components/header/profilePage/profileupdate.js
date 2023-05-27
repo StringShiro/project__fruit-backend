@@ -8,6 +8,7 @@ import { redirect } from "react-router-dom";
 import { checkData } from "../../../routers/validate";
 import { Toaster } from "react-hot-toast";
 import { formatDate } from "./formatdate";
+import { Link } from "react-router-dom";
 export default function ProfilePage() {
   const [data] = React.useState("");
   const [phone, setPhone] = useState("");
@@ -16,9 +17,7 @@ export default function ProfilePage() {
   const [fullname, setFullname] = useState("");
   const [birthday, setBirthday] = useState("");
   const [date, time] = formatDate(new Date()).split(' ');
-  function padTo2Digits(num) {
-    return num.toString().padStart(2, '0');
-  }
+  
   const getUser = async () => {
     const localStorag = await localStorage.getItem("datastored");
     const newData = JSON.parse(localStorag);
@@ -81,13 +80,13 @@ export default function ProfilePage() {
 
   
 
-  const redirect = (usernameu) => {
+  const redirect = () => {
     const clickProfile = document.getElementById("clickProfile");
     clickProfile.addEventListener("click", () => {
-      window.location = `/ProfilePage/${usernameu}`;
+      window.location = `/ProfilePage`;
     });
   };
-  window.onload = getUser
+ getUser()
  
   return (
     <>
@@ -96,36 +95,47 @@ export default function ProfilePage() {
       <div className="containerBox" id="boxProfile">
         <div className="ProfilePage" id="ProfilePage" data-id>
           <div className="row_profile">
-            <div className="Col_infor">
-              <div className="infor">
-                <div className="image"></div>
-                <div className="user_name">
-                  <span id="usernameAuthor">{data.username}</span>
-                </div>
-              </div>
-              <ul>
-                <li id="clickProfile" onClick={redirect}>
-                  <i className="fa-solid fa-pen"></i>
-                  <span>Hồ Sơ</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-user"></i>
-                  <span>Tài khoản của tôi</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-newspaper"></i>
-                  <span>Quản lý đơn hàng</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-bell"></i>
-                  <span>Thông Báo</span>
-                </li>
-                <li>
-                  <i className="fa-solid fa-bell"></i>
-                  <span>Đánh giá sản phẩm</span>
-                </li>
-              </ul>
-            </div>
+          <div className="Col_infor">
+        <div className="infor">
+          <div className="image"></div>
+          <div className="user_name">
+            <span id="usernameAuthor"></span>
+            <div className="edit_user"></div>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <Link to={`/ProfilePage`} id="clickProfile">
+              <i className="fa-solid fa-pen"></i>
+              <span>Hồ sơ</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={`/ProfilePage`}>
+              <i className="fa-solid fa-user"></i>
+              <span>Tài khoản của tôi</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"#"}>
+              <i className="fa-solid fa-newspaper"></i>
+              <span>Quản lý đơn hàng</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"#"}>
+              <i className="fa-solid fa-bell"></i>
+              <span>Thông Báo</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={"#"}>
+              <i className="fa-solid fa-bell"></i>
+              <span>Đánh giá sản phẩm</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
             <div className="Col_content">
               <div className="form-profile">
                 <div className="profile__header">

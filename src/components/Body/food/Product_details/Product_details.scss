@@ -32,8 +32,16 @@ $button-hover: #565657;
     display: flex;
     gap: 50px;
     .product-gallery {
+      .productGallery {
+        display: flex;
+        width: 100%;
+        .productImageGallery{
+          width: calc(100%/3);
+        }
+      }
       .product-image {
         & > img {
+          width: 50%;
           height: 450px;
 
           object-fit: cover;
@@ -235,7 +243,7 @@ $button-hover: #565657;
     .flex {
       gap: unset;
       display: block;
-      padding:  10px;
+      padding: 10px;
       .col-6 {
         width: 100%;
         .d-flex {
@@ -283,7 +291,7 @@ $button-hover: #565657;
     .flex {
       gap: unset;
       display: block;
-      padding:  10px;
+      padding: 10px;
       .col-6 {
         width: 100%;
         .d-flex {
@@ -291,7 +299,7 @@ $button-hover: #565657;
           justify-content: center;
         }
       }
-      div {
+      .gallery {
         .product-gallery {
           .product-image {
             width: 100%;
@@ -304,6 +312,8 @@ $button-hover: #565657;
             display: flex;
           }
         }
+      }
+      div {
       }
     }
   }

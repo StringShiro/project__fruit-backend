@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logosearch from "../../../header/logo/Logo_search";
-import "./Product_details.scss";
+// import "./Product_details.scss";
+import './productdetailt2.scss'
 import StarRating from "./StarRating";
 import Homefooter from "../../../Footer/Catelogy_Support";
 import { useTranslation } from "react-i18next";
@@ -76,25 +77,25 @@ const Productdetails = (props) => {
       <Logosearch></Logosearch>
       <div className="Product_details" id="productDetail">
         <div className="flex">
-          <div className="column-xs-12 column-md-7">
+          <div className="column-xs-12 column-md-7 gallery1">
             <div className="product-gallery">
               <div className="product-image">
                 <img id="productImage" src="..." alt="..." />
               </div>
               <div className="productGallery">
-                <div id="productImageGallery">
-                  <img src="..." alt="..." id="productImage1" />
+                <div className="productImageGallery">
+                  <img src="https://ik.imagekit.io/fruitcompany/IMAGE_Usage/dudusaydeo.png?updatedAt=1678539147409" alt="..." id="productImage1" />
                 </div>
-                <div id="productImageGallery">
-                  <img src="..." alt="..." id="productImage2" />
+                <div className="productImageGallery">
+                  <img src="https://ik.imagekit.io/fruitcompany/IMAGE_Usage/dudusaydeo.png?updatedAt=1678539147409" alt="..." id="productImage2" />
                 </div>
-                <div id="productImageGallery">
-                  <img src="..." alt="..." id="productImage3" />
+                <div className="productImageGallery">
+                  <img src="https://ik.imagekit.io/fruitcompany/IMAGE_Usage/dudusaydeo.png?updatedAt=1678539147409" alt="..." id="productImage3" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="column-xs-12 column-md-6 col-6">
+          <div className="column-xs-12 column-md-6 col-6 gallery2">
             <h1 className="productname" id="productName">
               {data.productname}
             </h1>
@@ -104,10 +105,10 @@ const Productdetails = (props) => {
             <div className="description">
               <p>content</p>
             </div>
-            <div className="d-flex ">
-              <div className="quantity">
+            <div className="d-flex">
+              {/* <div className="quantity">
                 <button
-                  className="btn"
+                  className="btn buttonset"
                   onClick={() => setQuantity((prev) => prev + 1)}
                 >
                   +
@@ -119,15 +120,15 @@ const Productdetails = (props) => {
                   onChange={(e) => inputonchange(e)}
                 />
                 <button
-                  className="btn"
+                  className="btn buttonset"
                   onClick={() =>
                     setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
                   }
                 >
                   -
                 </button>
-              </div>
-              <button className="add-to-cart" onClick={addTocart}>
+              </div> */}
+              <button className="add-to-cart buttonset" onClick={addTocart}>
                 Thêm vào giỏ hàng
               </button>
             </div>

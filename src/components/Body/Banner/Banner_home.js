@@ -28,7 +28,7 @@ export default function Bannerhome() {
             <img
               className="displayImg"
               src="https://ik.imagekit.io/fruitcompany/project__fruit/z4123790999235_0f34a757be1d3d8ff32f18afca4e9e6b.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1676885022323"
-              alt="First slide"
+              alt="Second slide"
             />
           </Row>
 
@@ -42,7 +42,7 @@ export default function Bannerhome() {
             <img
               className="displayImg"
               src="https://ik.imagekit.io/fruitcompany/project__fruit/z4123790999235_0f34a757be1d3d8ff32f18afca4e9e6b.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1676885022323"
-              alt="First slide"
+              alt="Third slide"
             />
           </Row>
 

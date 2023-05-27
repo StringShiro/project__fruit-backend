@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.scss";
 import Logosearch from "../../header/logo/Logo_search";
 import Homefooter from "../../Footer/Catelogy_Support";
-import { PRODUCT, STORES_PRODUCT } from "../../../data/infor_product";
+import { PRODUCT } from "../../../data/infor_product";
 import { Col, Row,Image,Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,7 @@ const Product = () => {
     <Logosearch/>
     <Container>
       <Row>
-        <Col lg={3}>
+        <Col lg={3} id="col-3">
           <div className="determine">
             <span>{t("product.product_portfolio")}</span>
             <ul>
